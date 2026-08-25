@@ -115,7 +115,7 @@ export function QuickPrice() {
           </a>
           <button
             type="button"
-            onClick={() => requestQuote(described)}
+            onClick={() => requestQuote(grade || family || '')}
             className="flex items-center justify-center rounded-full border border-hairline bg-surface py-3 text-[14px] font-semibold text-bright transition-colors hover:border-flame"
           >
             Use the form
