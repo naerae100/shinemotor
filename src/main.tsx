@@ -12,6 +12,7 @@ import { Contact } from './pages/Contact'
 import { Prices } from './pages/Prices'
 import { About } from './pages/About'
 import { NotFound } from './pages/NotFound'
+import { Admin } from './pages/Admin'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -26,6 +27,7 @@ createRoot(document.getElementById('root')!).render(
           <Route path="/about" element={<About />} />
           <Route path="/prices" element={<Prices />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/admin" element={<Admin />} />
 
           {/* The old .php URLs, kept alive so existing links and search
               results land somewhere sensible instead of a 404. */}

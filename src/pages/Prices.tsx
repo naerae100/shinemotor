@@ -56,18 +56,12 @@ export function Prices() {
           </>
         }
         aside={
-          <dl className="grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-hairline bg-hairline">
+          <dl className="grid grid-cols-1 gap-px overflow-hidden rounded-2xl border border-hairline bg-hairline">
             <div className="bg-ink px-5 py-5">
               <dd className="font-display text-lg text-bright">
                 {priceMeta.updated ?? 'On request'}
               </dd>
               <dt className="eyebrow mt-1.5 text-muted">Last updated</dt>
-            </div>
-            <div className="bg-ink px-5 py-5">
-              <dd className="font-display text-lg text-bright">
-                {priceMeta.validTo ?? 'Call to confirm'}
-              </dd>
-              <dt className="eyebrow mt-1.5 text-muted">Prices valid to</dt>
             </div>
           </dl>
         }

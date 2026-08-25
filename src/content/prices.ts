@@ -33,50 +33,17 @@ export interface PriceRow {
   high: number | null
 }
 
+import priceData from './prices.json'
+
 export const priceMeta = {
-  currency: 'AUD',
+  currency: priceData.meta.currency,
   /** TODO(client): the date this guide should next be reviewed. */
-  validTo: '30 September 2026' as string | null,
+  validTo: null as string | null,
   /** TODO(client): the date you last changed the figures below. */
-  updated: '25 August 2026' as string | null,
+  updated: priceData.meta.updated as string | null,
 }
 
-export const priceRows: PriceRow[] = [
-  // ── Copper ──────────────────────────────────────────────────────────────
-  { slug: 'mill-berry-copper', grade: 'Mill Berry', family: 'Copper', spec: 'Bare bright, no coating or alloy', unit: 'kg', low: 9.0, high: 11.0 },
-  { slug: 'candy-copper', grade: 'Candy', family: 'Copper', spec: 'Clean solids, clippings, bus bar, tube', unit: 'kg', low: 8.5, high: 10.5 },
-  { slug: 'birch-cliff-copper', grade: 'Birch Cliff', family: 'Copper', spec: 'No. 2 copper, tarnished or oxidised', unit: 'kg', low: 7.8, high: 9.6 },
-  { slug: 'ocean-radiators', grade: 'Ocean', family: 'Copper', spec: 'Copper/brass radiator cores', unit: 'kg', low: 4.5, high: 6.0 },
-
-  // ── Brass ───────────────────────────────────────────────────────────────
-  { slug: 'honey-brass', grade: 'Honey', family: 'Brass', spec: 'Mixed yellow brass solids', unit: 'kg', low: 5.0, high: 6.5 },
-  { slug: 'night-brass-turnings', grade: 'Night', family: 'Brass', spec: 'Brass rod turnings, max 3% free iron', unit: 'kg', low: 4.0, high: 5.5 },
-
-  // ── Aluminium ───────────────────────────────────────────────────────────
-  { slug: 'extruded-aluminium', grade: 'Extruded', family: 'Aluminium', spec: '6063 section, no glass or steel', unit: 'kg', low: 1.6, high: 2.3 },
-  { slug: 'tense-aluminium-castings', grade: 'Tense', family: 'Aluminium', spec: 'Clean castings, no steel inserts', unit: 'kg', low: 1.2, high: 1.8 },
-  { slug: 'talk-aluminium-copper-radiators', grade: 'Talk', family: 'Aluminium', spec: 'Alu/copper radiators, degassed', unit: 'kg', low: 3.0, high: 4.5 },
-  { slug: 'troma-aluminium-wheels', grade: 'Troma', family: 'Aluminium', spec: 'Unplated wheels, tyres off', unit: 'kg', low: 1.8, high: 2.6 },
-
-  // ── Stainless ───────────────────────────────────────────────────────────
-  { slug: 'stainless-steel-316', grade: 'Stainless 316', family: 'Stainless Steel', spec: 'Marine grade, no carbon steel', unit: 'kg', low: 2.2, high: 3.2 },
-  { slug: 'stainless-steel-304', grade: 'Stainless 304', family: 'Stainless Steel', spec: 'Common grade, no attachments', unit: 'kg', low: 1.6, high: 2.4 },
-
-  // ── Ferrous ─────────────────────────────────────────────────────────────
-  { slug: 'ferrous-metal', grade: 'Ferrous Metal', family: 'Ferrous', spec: 'Steel and iron, no sealed vessels', unit: 'tonne', low: 200, high: 330 },
-  { slug: 'hms-1-and-2', grade: 'HMS 1 & 2', family: 'Ferrous', spec: 'Heavy melting, prepared to size', unit: 'tonne', low: 280, high: 400 },
-
-  // ── Wiring ──────────────────────────────────────────────────────────────
-  { slug: 'insulated-copper-wire', grade: 'Insulated Copper Wire', family: 'Wiring', spec: 'Assessed on inspection', unit: 'kg', low: 2.0, high: 6.5 },
-  { slug: 'druid-copper-wiring', grade: 'Druid', family: 'Wiring', spec: 'Priced on agreed recovery rate', unit: 'kg', low: 3.0, high: 7.0 },
-  { slug: 'car-wiring-harness', grade: 'Car Wiring Harness', family: 'Wiring', spec: 'Looms with connectors attached', unit: 'kg', low: 1.8, high: 3.5 },
-
-  // ── Other ───────────────────────────────────────────────────────────────
-  { slug: 'lead-scrap', grade: 'Lead Scrap', family: 'Other', spec: 'Clean solids, no battery plates', unit: 'kg', low: 2.2, high: 3.2 },
-  { slug: 'electric-motors', grade: 'Electric Motors', family: 'Other', spec: 'Whole motors, unbolted from plant', unit: 'kg', low: 0.9, high: 1.6 },
-  { slug: 'starter-motors-alternators', grade: 'Starters & Alternators', family: 'Other', spec: 'Whole units, brackets removed', unit: 'kg', low: 1.0, high: 1.8 },
-  { slug: 'compressors', grade: 'Compressors', family: 'Other', spec: 'Degassed by a licensed technician', unit: 'kg', low: 0.7, high: 1.3 },
-]
+export const priceRows: PriceRow[] = priceData.rows as PriceRow[]
 
 /** The client's own wording, shown in full on the price guide page. */
 export const priceDisclaimer = {

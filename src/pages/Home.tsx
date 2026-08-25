@@ -20,7 +20,7 @@ import { ContactCta } from '../components/home/ContactCta'
 export function Home() {
   useSeo(
     'Scrap Metal Buyers Sydney — Top Prices, Paid on the Spot',
-    'Shine Motor Corporation buys copper, brass, aluminium, stainless and steel by grade at Ingleburn, NSW. 21 grades, instant EFT, free pickup across NSW & ACT. WhatsApp us a photo for a price.',
+    'Shine Motor Corporation buys copper, brass, aluminium, stainless and steel by grade at Ingleburn, NSW. A huge variety of ferrous and non-ferrous metals, instant EFT, free pickup across NSW & ACT. WhatsApp us a photo for a price.',
   )
 
   return (

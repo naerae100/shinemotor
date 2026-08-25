@@ -1,7 +1,7 @@
 import type { Material, MaterialFamily } from './types'
 
 /**
- * The full buy-from-us catalogue — 21 grades, every one with the client's own
+ * The full buy-from-us catalogue, every one with the client's own
  * photograph. Grade names are real ISRI trade classifications, which is Shine's
  * strongest differentiator: no competitor in this market publishes them.
  * Source: research/current-site-content.md §3.3.

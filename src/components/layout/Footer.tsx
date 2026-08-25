@@ -109,7 +109,7 @@ export function Footer() {
                     to="/metals"
                     className="text-[14px] font-semibold text-amber hover:underline"
                   >
-                    All 21 grades →
+                    All grades →
                   </Link>
                 </li>
               </ul>

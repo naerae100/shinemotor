@@ -234,7 +234,7 @@ export function Header() {
                         to="/metals"
                         className="text-[14px] font-semibold text-amber hover:underline"
                       >
-                        View the full catalogue — all 21 grades →
+                        View the full catalogue — all grades →
                       </Link>
                     </div>
                   </div>
@@ -291,7 +291,7 @@ export function Header() {
                   to="/metals"
                   className="border-b border-hairline py-3.5 text-[16px] text-bright"
                 >
-                  All 21 grades
+                  All grades
                 </Link>
                 {families.map((f) => (
                   <Link
