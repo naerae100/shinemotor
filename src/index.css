@@ -1,0 +1,174 @@
+@import 'tailwindcss';
+
+/* ============================================================================
+   SHINE MOTOR CORPORATION — DESIGN TOKENS
+   Rich, layered dark base with a molten copper→amber gradient as the signature.
+   Copper scrap is genuinely one of the most vibrant materials there is, so the
+   photography carries the colour and the interface amplifies it.
+   ========================================================================= */
+
+@theme {
+  /* --- Ground ----------------------------------------------------------- */
+  --color-void: #07090d;      /* deepest — page base */
+  --color-ink: #0d1118;       /* section base */
+  --color-surface: #141a24;   /* raised card */
+  --color-surface-2: #1c2430; /* hover / nested */
+
+  /* --- Type ------------------------------------------------------------- */
+  --color-bright: #f2f6fb;    /* headings */
+  --color-muted: #97a3b6;     /* body */
+  --color-faint: #64708294;
+
+  /* --- Accents ---------------------------------------------------------- */
+  --color-flame: #ff7a18;     /* molten copper */
+  --color-amber: #ffb020;     /* the light off it */
+  --color-ember: #ff4d2d;     /* hot edge */
+  --color-azure: #38bdf8;     /* cool counterpoint, used sparingly */
+
+  --color-hairline: #ffffff14;
+
+  /* --- Fonts ------------------------------------------------------------ */
+  --font-display: 'Archivo', 'Helvetica Neue', Arial, sans-serif;
+  --font-sans: 'IBM Plex Sans', system-ui, -apple-system, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, 'SF Mono', monospace;
+
+  --text-d1: clamp(2.75rem, 6vw, 5rem);
+  --text-d1--line-height: 1;
+  --text-d1--letter-spacing: -0.04em;
+
+  --text-d2: clamp(2rem, 4vw, 3.25rem);
+  --text-d2--line-height: 1.06;
+  --text-d2--letter-spacing: -0.03em;
+
+  --text-d3: clamp(1.5rem, 2.2vw, 2.125rem);
+  --text-d3--line-height: 1.14;
+  --text-d3--letter-spacing: -0.02em;
+
+  --text-lead: clamp(1.125rem, 1.4vw, 1.375rem);
+  --text-lead--line-height: 1.55;
+
+  --text-base: 1.0625rem;
+  --text-base--line-height: 1.7;
+
+  --text-sm: 0.9375rem;
+  --text-sm--line-height: 1.6;
+
+  --text-data: 0.75rem;
+  --text-data--line-height: 1.4;
+  --text-data--letter-spacing: 0.14em;
+
+  --ease-settle: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-state: cubic-bezier(0.4, 0, 0.2, 1);
+
+  --animate-marquee: marquee 42s linear infinite;
+  --animate-float: float 7s ease-in-out infinite;
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-12px); }
+  }
+}
+
+@layer base {
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+  body {
+    background-color: var(--color-void);
+    color: var(--color-bright);
+    font-family: var(--font-sans);
+    font-size: var(--text-base);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  .font-display {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-stretch: 110%;
+  }
+
+  ::selection { background: var(--color-flame); color: #fff; }
+
+  :focus-visible {
+    outline: 2px solid var(--color-amber);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+    }
+  }
+}
+
+@layer utilities {
+  .rail {
+    width: 100%; max-width: 1320px; margin-inline: auto; padding-inline: 20px;
+  }
+  @media (min-width: 768px)  { .rail { padding-inline: 40px; } }
+  @media (min-width: 1280px) { .rail { padding-inline: 64px; } }
+
+  .section-y { padding-block: 72px; }
+  @media (min-width: 768px)  { .section-y { padding-block: 100px; } }
+  @media (min-width: 1280px) { .section-y { padding-block: 128px; } }
+
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: var(--text-data);
+    line-height: 1.4;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .measure { max-width: 62ch; }
+  .measure-lead { max-width: 48ch; }
+
+  /* The signature: molten copper running through headline words and rules. */
+  .grad-flame {
+    background-image: linear-gradient(100deg, var(--color-ember) 0%, var(--color-flame) 45%, var(--color-amber) 100%);
+  }
+  .text-flame {
+    background-image: linear-gradient(100deg, #ff5f2e 0%, #ff8f2b 45%, #ffc44d 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* Frosted card on a dark ground. */
+  .glass {
+    background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+    border: 1px solid var(--color-hairline);
+    backdrop-filter: blur(14px);
+  }
+
+  /* Gradient hairline border via a masked pseudo-element. */
+  .ring-flame { position: relative; }
+  .ring-flame::after {
+    content: '';
+    position: absolute; inset: 0; border-radius: inherit; padding: 1px;
+    background: linear-gradient(140deg, rgba(255,122,24,0.7), rgba(255,176,32,0.25) 40%, transparent 70%);
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor; mask-composite: exclude;
+    pointer-events: none; opacity: 0; transition: opacity 0.35s var(--ease-state);
+  }
+  .group:hover .ring-flame::after, .ring-flame:hover::after { opacity: 1; }
+
+  .no-scrollbar { scrollbar-width: none; -ms-overflow-style: none; }
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+
+  /* Photographs are mixed-exposure yard shots; a light, consistent lift makes
+     the set read as one system on a dark ground. */
+  .photo {
+    filter: saturate(1.12) contrast(1.06) brightness(1.02);
+    background-color: var(--color-surface);
+  }
+}
