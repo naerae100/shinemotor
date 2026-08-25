@@ -21,15 +21,29 @@ export function Admin() {
     ))
   }
 
-  const handleLogin = (e: React.FormEvent) => {
+  const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault()
     setLoading(true)
-    if (password.length > 3) {
+    setError('')
+    
+    try {
+      const res = await fetch('/api/verify-password', {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${password}`
+        }
+      })
+      
+      if (!res.ok) {
+        throw new Error('Invalid password')
+      }
+      
       setAuthenticated(true)
-    } else {
-      setError('Invalid password')
+    } catch (err: any) {
+      setError(err.message)
+    } finally {
+      setLoading(false)
     }
-    setLoading(false)
   }
 
   const handleSave = async () => {
