@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { ChevronDown, MessageCircle, Phone } from 'lucide-react'
+import { ChevronDown, MessageCircle, MessageSquare, Phone } from 'lucide-react'
 import { families, metals, metalsByFamily } from '../../content/metals'
 import type { Family } from '../../content/metals'
 import { site } from '../../content/site'
@@ -18,13 +18,18 @@ const AMOUNTS = ['Under 100kg', '100kg – 1 tonne', '1 – 5 tonnes', 'Over 5 t
  */
 export function QuickPrice() {
   const requestQuote = useRequestQuote()
+  const [name, setName] = useState('')
   const [family, setFamily] = useState<Family | ''>('')
   const [grade, setGrade] = useState('')
   const [amount, setAmount] = useState<string>('')
 
   const grades = family ? metalsByFamily(family) : metals
 
-  const described = [grade || (family ? `${family} scrap` : 'scrap metal'), amount]
+  const described = [
+    name ? `From: ${name}` : '',
+    grade || (family ? `${family} scrap` : 'scrap metal'), 
+    amount
+  ]
     .filter(Boolean)
     .join(' — ')
 
@@ -41,6 +46,19 @@ export function QuickPrice() {
       <p className="mt-4 font-display text-d3 text-bright">What have you got?</p>
 
       <div className="mt-5 space-y-3">
+        <div>
+          <label htmlFor="quick-name" className="sr-only">
+            Your name
+          </label>
+          <input
+            id="quick-name"
+            type="text"
+            placeholder="Your name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            className="w-full appearance-none rounded-xl border border-hairline bg-void/60 px-4 py-3 text-[15px] text-bright placeholder:text-muted transition-colors focus:border-flame focus:outline-none"
+          />
+        </div>
         <Select
           label="Metal type"
           value={family}
@@ -82,6 +100,13 @@ export function QuickPrice() {
         >
           <MessageCircle aria-hidden className="size-[18px]" strokeWidth={2.5} />
           Send it on WhatsApp
+        </a>
+        <a
+          href={`sms:+61478555537?body=${encodeURIComponent(described)}`}
+          className="flex w-full items-center justify-center gap-2.5 rounded-full border border-hairline bg-surface py-3.5 text-[15px] font-semibold text-bright transition-colors hover:border-flame hover:bg-surface/80"
+        >
+          <MessageSquare aria-hidden className="size-[18px] text-amber" strokeWidth={2.25} />
+          Send SMS
         </a>
         <div className="grid grid-cols-2 gap-2.5">
           <a
