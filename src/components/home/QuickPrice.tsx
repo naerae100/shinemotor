@@ -3,7 +3,7 @@ import { ChevronDown, MessageCircle, MessageSquare, Phone } from 'lucide-react'
 import { families, metals, metalsByFamily } from '../../content/metals'
 import type { Family } from '../../content/metals'
 import { site } from '../../content/site'
-import { waForMaterial } from '../../lib/whatsapp'
+import { whatsappUrl } from '../../lib/whatsapp'
 import { useRequestQuote } from '../../hooks/useQuotePrefill'
 
 const AMOUNTS = ['Under 100kg', '100kg – 1 tonne', '1 – 5 tonnes', 'Over 5 tonnes'] as const
@@ -25,13 +25,10 @@ export function QuickPrice() {
 
   const grades = family ? metalsByFamily(family) : metals
 
-  const described = [
-    name ? `From: ${name}` : '',
-    grade || (family ? `${family} scrap` : 'scrap metal'), 
-    amount
-  ]
-    .filter(Boolean)
-    .join(' — ')
+  const intro = name ? `Hi Shine Motor, this is ${name}.` : 'Hi Shine Motor.'
+  const metalDesc = grade || (family ? `${family} scrap` : 'scrap metal')
+  const qty = amount ? amount.toLowerCase() : 'some'
+  const messageBody = `${intro} I have ${qty} ${metalDesc} and would like to get a price.`
 
   return (
     <div className="glass rounded-3xl p-6 sm:p-7">
@@ -93,20 +90,20 @@ export function QuickPrice() {
 
       <div className="mt-6 space-y-2.5">
         <a
-          href={waForMaterial(described)}
+          href={`sms:+61478555537?body=${encodeURIComponent(messageBody)}`}
+          className="flex w-full items-center justify-center gap-2.5 rounded-full border border-hairline bg-surface py-3.5 text-[15px] font-semibold text-bright transition-colors hover:border-flame hover:bg-surface/80"
+        >
+          <MessageSquare aria-hidden className="size-[18px] text-amber" strokeWidth={2.25} />
+          Send SMS
+        </a>
+        <a
+          href={whatsappUrl(messageBody)}
           target="_blank"
           rel="noreferrer"
           className="flex w-full items-center justify-center gap-2.5 rounded-full bg-[#25D366] py-3.5 text-[15px] font-semibold text-[#0d1b14] shadow-[0_12px_30px_-12px_rgba(37,211,102,0.8)] transition-transform duration-200 hover:scale-[1.015]"
         >
           <MessageCircle aria-hidden className="size-[18px]" strokeWidth={2.5} />
           Send it on WhatsApp
-        </a>
-        <a
-          href={`sms:+61478555537?body=${encodeURIComponent(described)}`}
-          className="flex w-full items-center justify-center gap-2.5 rounded-full border border-hairline bg-surface py-3.5 text-[15px] font-semibold text-bright transition-colors hover:border-flame hover:bg-surface/80"
-        >
-          <MessageSquare aria-hidden className="size-[18px] text-amber" strokeWidth={2.25} />
-          Send SMS
         </a>
         <div className="grid grid-cols-2 gap-2.5">
           <a

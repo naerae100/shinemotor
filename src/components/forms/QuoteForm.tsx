@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import type { FormEvent, ReactNode } from 'react'
-import { Check, Loader2, MessageCircle } from 'lucide-react'
+import { Check, Loader2, MessageCircle, MessageSquare } from 'lucide-react'
 import { families, metals } from '../../content/metals'
 import { site } from '../../content/site'
 import { useQuotePrefill } from '../../hooks/useQuotePrefill'
@@ -81,20 +81,26 @@ export function QuoteForm({ compact = false }: { compact?: boolean }) {
     setErrors((e) => ({ ...e, [key]: undefined }))
   }
 
-  /** Same details, composed as a WhatsApp message. */
-  const waHref = whatsappUrl(
-    [
-      'Hi Shine Motor, I would like a price.',
-      fields.material && `Material: ${fields.material}`,
-      fields.weight && `Approx amount: ${fields.weight}`,
-      fields.suburb && `Suburb: ${fields.suburb}`,
-      `Preference: ${METHODS.find((m) => m.v === fields.method)?.l ?? ''}`,
-      fields.name && `Name: ${fields.name}`,
-      fields.message && `Notes: ${fields.message}`,
-    ]
-      .filter(Boolean)
-      .join('\n'),
-  )
+  const parts = [
+    fields.name ? `Hi Shine Motor, this is ${fields.name}.` : 'Hi Shine Motor.',
+    `I would like to get a price for ${fields.weight ? fields.weight : 'some'} ${fields.material || 'scrap metal'}.`
+  ]
+
+  const methodLabel = METHODS.find((m) => m.v === fields.method)?.l
+  if (methodLabel || fields.suburb) {
+    const loc = fields.suburb ? ` in ${fields.suburb}` : ''
+    if (fields.method === 'drop-off') parts.push(`I can bring it in to the yard.`)
+    if (fields.method === 'pickup') parts.push(`I would need it picked up${loc}.`)
+    if (fields.method === 'bin') parts.push(`I would need a bin on site${loc}.`)
+  }
+
+  if (fields.message) {
+    parts.push(`\nNotes: ${fields.message}`)
+  }
+  
+  const messageBody = parts.join(' ')
+  const waHref = whatsappUrl(messageBody)
+  const smsHref = `sms:+61478555537?body=${encodeURIComponent(messageBody)}`
 
   async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
@@ -244,6 +250,13 @@ export function QuoteForm({ compact = false }: { compact?: boolean }) {
               {status === 'sending' && <Loader2 aria-hidden className="size-4 animate-spin" />}
               {status === 'sending' ? 'Sending…' : 'Send my details'}
             </button>
+            <a
+              href={smsHref}
+              className="inline-flex items-center gap-2.5 rounded-full border border-hairline bg-surface px-7 py-3.5 text-[15px] font-semibold text-bright transition-colors hover:border-flame"
+            >
+              <MessageSquare aria-hidden className="size-4 text-amber" strokeWidth={2.5} />
+              Send via SMS
+            </a>
             <a
               href={waHref}
               target="_blank"
