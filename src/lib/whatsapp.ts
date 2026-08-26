@@ -6,8 +6,8 @@
  */
 
 /** Primary yard mobile, in E.164 without the +, as wa.me requires. */
-export const WHATSAPP_NUMBER = '61478555537'
-export const WHATSAPP_DISPLAY = '0478 555 537'
+export const WHATSAPP_NUMBER = '61413222171'
+export const WHATSAPP_DISPLAY = '0413 222 171'
 
 export function whatsappUrl(message: string): string {
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`

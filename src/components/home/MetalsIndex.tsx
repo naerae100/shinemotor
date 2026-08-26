@@ -18,7 +18,7 @@ export function MetalsIndex() {
       <div className="rail section-y relative">
         <SectionHead
           eyebrow="Metals we buy"
-          title="Twenty-one grades, priced individually."
+          title="All our grades, priced individually."
           action={
             <Link
               to="/metals"
@@ -69,12 +69,12 @@ export function MetalsIndex() {
                   </div>
                 </Link>
 
-                <div className="p-5 lg:p-6">
+                <div className="p-5 lg:p-6 flex flex-col h-full">
                   <p className="text-[14px] leading-relaxed text-muted">
                     {familyIntro[family]}
                   </p>
-                  <ul className="mt-4 flex flex-wrap gap-1.5">
-                    {items.map((m) => (
+                  <ul className="mt-4 flex flex-wrap gap-1.5 flex-1">
+                    {items.slice(0, 4).map((m) => (
                       <li key={m.slug}>
                         <Link
                           to={`/metals/${m.slug}`}
@@ -84,6 +84,16 @@ export function MetalsIndex() {
                         </Link>
                       </li>
                     ))}
+                    {items.length > 4 && (
+                      <li>
+                        <Link
+                          to={`/metals#${anchor}`}
+                          className="inline-flex min-h-9 items-center rounded-full border border-hairline bg-void/60 px-3.5 py-1.5 text-[12px] text-amber transition-colors hover:border-flame/50"
+                        >
+                          +{items.length - 4} more
+                        </Link>
+                      </li>
+                    )}
                   </ul>
                   <Link
                     to={`/metals#${anchor}`}

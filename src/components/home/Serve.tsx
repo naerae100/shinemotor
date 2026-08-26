@@ -37,7 +37,7 @@ export function Serve() {
               as="li"
               key={s.name}
               distance={16}
-              className="ring-flame group relative overflow-hidden rounded-2xl border border-hairline bg-surface transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_26px_50px_-26px_rgba(255,122,24,0.45)]"
+              className="ring-flame group relative flex flex-col overflow-hidden rounded-2xl border border-hairline bg-surface transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_26px_50px_-26px_rgba(255,122,24,0.45)]"
             >
               <div className="relative overflow-hidden">
                 <img
@@ -58,7 +58,16 @@ export function Serve() {
                   {s.name}
                 </h3>
               </div>
-              <p className="p-5 text-[14px] leading-relaxed text-muted">{s.brings}</p>
+              <div className="flex flex-col flex-1 p-5">
+                <p className="text-[14px] leading-relaxed text-muted flex-1">{s.brings}</p>
+                <Link
+                  to="/contact"
+                  className="mt-auto inline-flex self-start items-center gap-1.5 py-2 text-[14px] font-semibold text-amber transition-opacity hover:opacity-75"
+                >
+                  Get a price for this
+                  <svg className="size-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+                </Link>
+              </div>
             </RevealItem>
           ))}
         </Reveal>

@@ -15,8 +15,8 @@ export const site: SiteInfo = {
   },
   email: 'shinemotorcorporation@gmail.com',
   phones: [
-    { label: '0478 555 537', href: 'tel:+61478555537', use: 'Scrap metal & general' },
-    { label: '0413 222 171', href: 'tel:+61413222171', use: 'Pickups & bin drops' },
+    { label: '0413 222 171', href: 'tel:+61413222171', use: 'Scrap metal & general' },
+    { label: '0478 555 537', href: 'tel:+61478555537', use: 'Pickups & bin drops' },
     // TODO(client): the live site lists two landlines — (02) 8712 6999 and
     // (02) 8712 9548 — with no explanation. Confirm which is current before
     // launch; only the first is published here.
