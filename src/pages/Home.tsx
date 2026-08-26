@@ -1,5 +1,5 @@
 import { useSeo } from '../lib/seo'
-import { Hero } from '../components/home/Hero'
+import { HeroVisual } from '../components/home/HeroVisual'
 import { Credentials } from '../components/home/Credentials'
 import { ServicesIndex } from '../components/home/ServicesIndex'
 import { MetalsIndex } from '../components/home/MetalsIndex'
@@ -26,7 +26,8 @@ export function Home() {
 
   return (
     <>
-      <Hero />
+      {/* <Hero /> */}
+      <HeroVisual />
       <Credentials />
       <ServicesIndex />
       <MetalsIndex />
