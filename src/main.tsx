@@ -18,6 +18,7 @@ createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <BrowserRouter>
       <Routes>
+        <Route path="/admin" element={<Admin />} />
         <Route element={<Layout />}>
           <Route path="/" element={<Home />} />
           <Route path="/services" element={<Services />} />
@@ -27,7 +28,6 @@ createRoot(document.getElementById('root')!).render(
           <Route path="/about" element={<About />} />
           <Route path="/prices" element={<Prices />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/admin" element={<Admin />} />
 
           {/* The old .php URLs, kept alive so existing links and search
               results land somewhere sensible instead of a 404. */}
