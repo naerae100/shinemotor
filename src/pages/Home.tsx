@@ -5,6 +5,7 @@ import { ServicesIndex } from '../components/home/ServicesIndex'
 import { MetalsIndex } from '../components/home/MetalsIndex'
 import { Logistics } from '../components/home/Logistics'
 import { Serve } from '../components/home/Serve'
+import { Safety } from '../components/home/Safety'
 import { HomeFaq } from '../components/home/HomeFaq'
 import { ContactCta } from '../components/home/ContactCta'
 
@@ -31,6 +32,7 @@ export function Home() {
       <MetalsIndex />
       <Logistics />
       <Serve />
+      <Safety />
       <HomeFaq />
       <ContactCta />
     </>

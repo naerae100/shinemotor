@@ -38,12 +38,14 @@ export function Credentials() {
       <div className="rail py-14 lg:py-20">
         <Reveal stagger className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4 lg:gap-10">
           {items.map(({ icon: Icon, title, body }) => (
-            <RevealItem key={title} distance={16}>
-              <span className="flex size-11 items-center justify-center rounded-xl border border-flame/25 bg-flame/10">
+            <RevealItem key={title} distance={16} className="flex gap-5 sm:block">
+              <span className="flex size-[42px] shrink-0 items-center justify-center rounded-xl border border-flame/25 bg-flame/10">
                 <Icon aria-hidden className="size-5 text-amber" strokeWidth={2} />
               </span>
-              <h3 className="mt-5 font-display text-lg text-bright">{title}</h3>
-              <p className="mt-2 text-[14px] leading-relaxed text-muted">{body}</p>
+              <div>
+                <h3 className="font-display text-lg text-bright sm:mt-5">{title}</h3>
+                <p className="mt-1 text-[14px] leading-relaxed text-muted sm:mt-2">{body}</p>
+              </div>
             </RevealItem>
           ))}
         </Reveal>
