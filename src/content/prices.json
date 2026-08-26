@@ -4,35 +4,275 @@
     "updated": "26 August 2026"
   },
   "rows": [
-    { "slug": "aluminium-rims", "grade": "Aluminium Rims", "family": "Aluminium", "spec": "Clean rims", "unit": "kg", "low": null, "high": null },
-    { "slug": "extruded-aluminium", "grade": "Extruded Aluminium", "family": "Aluminium", "spec": "Extrusions", "unit": "kg", "low": null, "high": null },
-    { "slug": "aluminium-domestic", "grade": "Aluminium Domestic", "family": "Aluminium", "spec": "Domestic aluminium", "unit": "kg", "low": null, "high": null },
-    { "slug": "cast-aluminium", "grade": "Cast Aluminium", "family": "Aluminium", "spec": "Clean castings", "unit": "kg", "low": null, "high": null },
-    { "slug": "irony-aluminium", "grade": "Irony Aluminium", "family": "Aluminium", "spec": "Aluminium with iron attachments", "unit": "kg", "low": null, "high": null },
-    { "slug": "ac-units", "grade": "AC Units", "family": "Appliance", "spec": "Whole AC units", "unit": "each", "low": null, "high": null },
-    { "slug": "batteries", "grade": "Batteries", "family": "Battery", "spec": "Lead-acid batteries", "unit": "each", "low": null, "high": null },
-    { "slug": "gun-metal-mix-brass", "grade": "Gun Metal, Mix Brass", "family": "Brass", "spec": "Mixed brass solids", "unit": "kg", "low": null, "high": null },
-    { "slug": "coast-brass", "grade": "Coast Brass", "family": "Brass", "spec": "Coast brass", "unit": "kg", "low": null, "high": null },
-    { "slug": "bright-copper-wire", "grade": "Bright Copper Wire", "family": "Copper", "spec": "Bare bright copper wire", "unit": "kg", "low": null, "high": null },
-    { "slug": "no-1-copper", "grade": "No. 1 Copper", "family": "Copper", "spec": "Clean copper solids", "unit": "kg", "low": null, "high": null },
-    { "slug": "no-2-copper", "grade": "No. 2 Copper", "family": "Copper", "spec": "Tarnished copper", "unit": "kg", "low": null, "high": null },
-    { "slug": "domestic-copper", "grade": "Domestic Copper", "family": "Copper", "spec": "Mixed domestic copper", "unit": "kg", "low": null, "high": null },
-    { "slug": "insulated-copper-wire-20", "grade": "Insulated Copper Wire 20%", "family": "Copper", "spec": "20% recovery rate", "unit": "kg", "low": null, "high": null },
-    { "slug": "insulated-copper-wire-40", "grade": "Insulated Copper Wire 40%", "family": "Copper", "spec": "40% recovery rate", "unit": "kg", "low": null, "high": null },
-    { "slug": "insulated-copper-wire-75", "grade": "Insulated Copper Wire 75%", "family": "Copper", "spec": "75% recovery rate", "unit": "kg", "low": null, "high": null },
-    { "slug": "insulated-copper-wire-83", "grade": "Insulated Copper Wire 83%", "family": "Copper", "spec": "83% recovery rate", "unit": "kg", "low": null, "high": null },
-    { "slug": "car-wire", "grade": "Car Wire", "family": "Copper", "spec": "Automotive wire harness", "unit": "kg", "low": null, "high": null },
-    { "slug": "soft-lead", "grade": "Soft Lead", "family": "Lead", "spec": "Clean soft lead", "unit": "kg", "low": null, "high": null },
-    { "slug": "electric-motors", "grade": "Electric Motors", "family": "Motor", "spec": "Mixed electric motors", "unit": "kg", "low": null, "high": null },
-    { "slug": "lgem", "grade": "LGEM", "family": "Motor", "spec": "Large motors", "unit": "kg", "low": null, "high": null },
-    { "slug": "compressor", "grade": "Compressor", "family": "Motor", "spec": "Sealed units", "unit": "each", "low": null, "high": null },
-    { "slug": "starter-alternator", "grade": "Starter & Alternator", "family": "Motor", "spec": "Automotive starters/alternators", "unit": "each", "low": null, "high": null },
-    { "slug": "copper-brass-radiator", "grade": "Copper Brass Radiator", "family": "Radiator", "spec": "Clean cu/br radiators", "unit": "kg", "low": null, "high": null },
-    { "slug": "al-cu-radiator", "grade": "AL/CU Radiator", "family": "Radiator", "spec": "Aluminium/copper cores", "unit": "kg", "low": null, "high": null },
-    { "slug": "aluminium-radiator", "grade": "Aluminium Radiator", "family": "Radiator", "spec": "Clean alu radiators", "unit": "kg", "low": null, "high": null },
-    { "slug": "stainless-steel-304", "grade": "Stainless Steel 304", "family": "Steel", "spec": "304 grade", "unit": "kg", "low": null, "high": null },
-    { "slug": "stainless-steel-316", "grade": "Stainless Steel 316", "family": "Steel", "spec": "316 grade", "unit": "kg", "low": null, "high": null },
-    { "slug": "hms-insize", "grade": "HMS Insize", "family": "Steel", "spec": "Heavy melting steel", "unit": "tonne", "low": null, "high": null },
-    { "slug": "light-gage-steel", "grade": "Light Gage Steel", "family": "Steel", "spec": "Light gauge scrap", "unit": "tonne", "low": null, "high": null }
+    {
+      "slug": "aluminium-rims",
+      "grade": "Aluminium Rims",
+      "family": "Aluminium",
+      "spec": "Clean rims",
+      "unit": "kg",
+      "low": null,
+      "high": null
+    },
+    {
+      "slug": "extruded-aluminium",
+      "grade": "Extruded Aluminium",
+      "family": "Aluminium",
+      "spec": "Extrusions",
+      "unit": "kg",
+      "low": null,
+      "high": null
+    },
+    {
+      "slug": "aluminium-domestic",
+      "grade": "Aluminium Domestic",
+      "family": "Aluminium",
+      "spec": "Domestic aluminium",
+      "unit": "kg",
+      "low": null,
+      "high": null
+    },
+    {
+      "slug": "cast-aluminium",
+      "grade": "Cast Aluminium",
+      "family": "Aluminium",
+      "spec": "Clean castings",
+      "unit": "kg",
+      "low": null,
+      "high": null
+    },
+    {
+      "slug": "irony-aluminium",
+      "grade": "Irony Aluminium",
+      "family": "Aluminium",
+      "spec": "Aluminium with iron attachments",
+      "unit": "kg",
+      "low": null,
+      "high": null
+    },
+    {
+      "slug": "ac-units",
+      "grade": "AC Units",
+      "family": "Appliance",
+      "spec": "Whole AC units",
+      "unit": "each",
+      "low": null,
+      "high": null
+    },
+    {
+      "slug": "batteries",
+      "grade": "Batteries",
+      "family": "Battery",
+      "spec": "Lead-acid batteries",
+      "unit": "each",
+      "low": null,
+      "high": null
+    },
+    {
+      "slug": "gun-metal-mix-brass",
+      "grade": "Gun Metal, Mix Brass",
+      "family": "Brass",
+      "spec": "Mixed brass solids",
+      "unit": "kg",
+      "low": null,
+      "high": null
+    },
+    {
+      "slug": "coast-brass",
+      "grade": "Coast Brass",
+      "family": "Brass",
+      "spec": "Coast brass",
+      "unit": "kg",
+      "low": null,
+      "high": null
+    },
+    {
+      "slug": "bright-copper-wire",
+      "grade": "Bright Copper Wire",
+      "family": "Copper",
+      "spec": "Bare bright copper wire",
+      "unit": "kg",
+      "low": 10,
+      "high": 20
+    },
+    {
+      "slug": "no-1-copper",
+      "grade": "No. 1 Copper",
+      "family": "Copper",
+      "spec": "Clean copper solids",
+      "unit": "kg",
+      "low": null,
+      "high": null
+    },
+    {
+      "slug": "no-2-copper",
+      "grade": "No. 2 Copper",
+      "family": "Copper",
+      "spec": "Tarnished copper",
+      "unit": "kg",
+      "low": null,
+      "high": null
+    },
+    {
+      "slug": "domestic-copper",
+      "grade": "Domestic Copper",
+      "family": "Copper",
+      "spec": "Mixed domestic copper",
+      "unit": "kg",
+      "low": null,
+      "high": null
+    },
+    {
+      "slug": "insulated-copper-wire-20",
+      "grade": "Insulated Copper Wire 20%",
+      "family": "Copper",
+      "spec": "20% recovery rate",
+      "unit": "kg",
+      "low": null,
+      "high": null
+    },
+    {
+      "slug": "insulated-copper-wire-40",
+      "grade": "Insulated Copper Wire 40%",
+      "family": "Copper",
+      "spec": "40% recovery rate",
+      "unit": "kg",
+      "low": null,
+      "high": null
+    },
+    {
+      "slug": "insulated-copper-wire-75",
+      "grade": "Insulated Copper Wire 75%",
+      "family": "Copper",
+      "spec": "75% recovery rate",
+      "unit": "kg",
+      "low": null,
+      "high": null
+    },
+    {
+      "slug": "insulated-copper-wire-83",
+      "grade": "Insulated Copper Wire 83%",
+      "family": "Copper",
+      "spec": "83% recovery rate",
+      "unit": "kg",
+      "low": null,
+      "high": null
+    },
+    {
+      "slug": "car-wire",
+      "grade": "Car Wire",
+      "family": "Copper",
+      "spec": "Automotive wire harness",
+      "unit": "kg",
+      "low": null,
+      "high": null
+    },
+    {
+      "slug": "soft-lead",
+      "grade": "Soft Lead",
+      "family": "Lead",
+      "spec": "Clean soft lead",
+      "unit": "kg",
+      "low": null,
+      "high": null
+    },
+    {
+      "slug": "electric-motors",
+      "grade": "Electric Motors",
+      "family": "Motor",
+      "spec": "Mixed electric motors",
+      "unit": "kg",
+      "low": null,
+      "high": null
+    },
+    {
+      "slug": "lgem",
+      "grade": "LGEM",
+      "family": "Motor",
+      "spec": "Large motors",
+      "unit": "kg",
+      "low": null,
+      "high": null
+    },
+    {
+      "slug": "compressor",
+      "grade": "Compressor",
+      "family": "Motor",
+      "spec": "Sealed units",
+      "unit": "each",
+      "low": null,
+      "high": null
+    },
+    {
+      "slug": "starter-alternator",
+      "grade": "Starter & Alternator",
+      "family": "Motor",
+      "spec": "Automotive starters/alternators",
+      "unit": "each",
+      "low": null,
+      "high": null
+    },
+    {
+      "slug": "copper-brass-radiator",
+      "grade": "Copper Brass Radiator",
+      "family": "Radiator",
+      "spec": "Clean cu/br radiators",
+      "unit": "kg",
+      "low": null,
+      "high": null
+    },
+    {
+      "slug": "al-cu-radiator",
+      "grade": "AL/CU Radiator",
+      "family": "Radiator",
+      "spec": "Aluminium/copper cores",
+      "unit": "kg",
+      "low": null,
+      "high": null
+    },
+    {
+      "slug": "aluminium-radiator",
+      "grade": "Aluminium Radiator",
+      "family": "Radiator",
+      "spec": "Clean alu radiators",
+      "unit": "kg",
+      "low": null,
+      "high": null
+    },
+    {
+      "slug": "stainless-steel-304",
+      "grade": "Stainless Steel 304",
+      "family": "Steel",
+      "spec": "304 grade",
+      "unit": "kg",
+      "low": null,
+      "high": null
+    },
+    {
+      "slug": "stainless-steel-316",
+      "grade": "Stainless Steel 316",
+      "family": "Steel",
+      "spec": "316 grade",
+      "unit": "kg",
+      "low": null,
+      "high": null
+    },
+    {
+      "slug": "hms-insize",
+      "grade": "HMS Insize",
+      "family": "Steel",
+      "spec": "Heavy melting steel",
+      "unit": "tonne",
+      "low": null,
+      "high": null
+    },
+    {
+      "slug": "light-gage-steel",
+      "grade": "Light Gage Steel",
+      "family": "Steel",
+      "spec": "Light gauge scrap",
+      "unit": "tonne",
+      "low": null,
+      "high": null
+    }
   ]
 }
