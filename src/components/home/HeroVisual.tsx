@@ -1,19 +1,170 @@
 import { motion } from 'framer-motion'
-import { Truck, Check } from 'lucide-react'
+import { Truck } from 'lucide-react'
 import { SETTLE, useSettle } from '../../hooks/useSettle'
 import { Eyebrow } from '../ui/Eyebrow'
 import { Glow } from '../ui/SectionHead'
 import { QuickPrice } from './QuickPrice'
 
 /**
- * Premium glassmorphism workflow graphic with photo integration
+ * High-fidelity JS/SVG Graphic: Pile of Copper/Metal Scrap
+ */
+function ScrapGraphic() {
+  return (
+    <div className="relative size-24 flex items-center justify-center group">
+      <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full drop-shadow-xl transition-transform duration-500 group-hover:scale-110">
+        
+        {/* Abstract Steel Beams */}
+        <motion.rect x="20" y="50" width="60" height="15" rx="2" fill="url(#steel-grad)" transform="rotate(-15 50 50)" />
+        <motion.rect x="30" y="40" width="50" height="12" rx="2" fill="url(#steel-grad-dark)" transform="rotate(10 50 50)" />
+        
+        {/* Copper Pipes */}
+        <motion.circle cx="40" cy="65" r="12" fill="url(#copper-grad)" stroke="#1a1a1a" strokeWidth="2" />
+        <motion.circle cx="65" cy="70" r="10" fill="url(#copper-grad)" stroke="#1a1a1a" strokeWidth="2" />
+        <motion.circle cx="55" cy="55" r="14" fill="url(#copper-grad-light)" stroke="#1a1a1a" strokeWidth="2" />
+        
+        {/* Pipe Holes */}
+        <circle cx="40" cy="65" r="6" fill="#1a1a1a" />
+        <circle cx="65" cy="70" r="5" fill="#1a1a1a" />
+        <circle cx="55" cy="55" r="7" fill="#1a1a1a" />
+
+        {/* Animated Sparkle */}
+        <motion.path 
+          d="M 25 30 Q 30 30 30 25 Q 30 30 35 30 Q 30 30 30 35 Q 30 30 25 30" 
+          fill="#ffb020"
+          animate={{ scale: [0, 1.5, 0], opacity: [0, 1, 0] }}
+          transition={{ duration: 2, repeat: Infinity, delay: 0.5 }}
+        />
+
+        <defs>
+          <linearGradient id="steel-grad" x1="20" y1="50" x2="80" y2="65" gradientUnits="userSpaceOnUse">
+            <stop stopColor="#71717a" />
+            <stop offset="1" stopColor="#3f3f46" />
+          </linearGradient>
+          <linearGradient id="steel-grad-dark" x1="30" y1="40" x2="80" y2="52" gradientUnits="userSpaceOnUse">
+            <stop stopColor="#52525b" />
+            <stop offset="1" stopColor="#27272a" />
+          </linearGradient>
+          <linearGradient id="copper-grad" x1="0" y1="0" x2="1" y2="1">
+            <stop stopColor="#d97706" />
+            <stop offset="1" stopColor="#92400e" />
+          </linearGradient>
+          <linearGradient id="copper-grad-light" x1="0" y1="0" x2="1" y2="1">
+            <stop stopColor="#f59e0b" />
+            <stop offset="1" stopColor="#b45309" />
+          </linearGradient>
+        </defs>
+      </svg>
+    </div>
+  )
+}
+
+/**
+ * High-fidelity JS/SVG Graphic: Calibrated Industrial Scale
+ */
+function ScaleGraphic() {
+  return (
+    <div className="relative size-24 flex items-center justify-center group">
+      <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full drop-shadow-2xl transition-transform duration-500 group-hover:scale-110">
+        
+        {/* Scale Base */}
+        <path d="M10 80 L90 80 L80 90 L20 90 Z" fill="#27272a" />
+        <rect x="15" y="75" width="70" height="5" fill="#52525b" />
+        
+        {/* Scale Platform with animation */}
+        <motion.rect 
+          x="20" y="70" width="60" height="4" fill="#ffb020"
+          animate={{ y: [0, 2, 0] }}
+          transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+        />
+
+        {/* Digital Display Box */}
+        <rect x="25" y="25" width="50" height="30" rx="4" fill="#18181b" stroke="#3f3f46" strokeWidth="2" />
+        
+        {/* Screen */}
+        <rect x="30" y="30" width="40" height="20" rx="2" fill="#09090b" stroke="#ffb020" strokeWidth="1" strokeOpacity="0.3" />
+        
+        {/* Animated Digital Numbers */}
+        <motion.text 
+          x="50" y="44" 
+          fontFamily="monospace" 
+          fontSize="10" 
+          fontWeight="bold" 
+          fill="#ffb020" 
+          textAnchor="middle"
+          animate={{ opacity: [0.8, 1, 0.8] }}
+          transition={{ duration: 0.1, repeat: Infinity }}
+          style={{ textShadow: "0 0 8px rgba(255,176,32,0.8)" }}
+        >
+          1450 KG
+        </motion.text>
+        
+        {/* Glowing LED Dot */}
+        <motion.circle 
+          cx="35" cy="40" r="1.5" fill="#ffb020"
+          animate={{ opacity: [0, 1, 0] }}
+          transition={{ duration: 1, repeat: Infinity }}
+        />
+      </svg>
+    </div>
+  )
+}
+
+/**
+ * High-fidelity JS/SVG Graphic: Instant EFT / Smartphone Transfer
+ */
+function EFTGraphic() {
+  return (
+    <div className="relative size-24 flex items-center justify-center group">
+      <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full drop-shadow-2xl transition-transform duration-500 group-hover:scale-110">
+        
+        {/* Phone Body */}
+        <rect x="30" y="15" width="40" height="70" rx="6" fill="#18181b" stroke="#ff4d2d" strokeWidth="2" />
+        <rect x="33" y="18" width="34" height="64" rx="4" fill="#09090b" />
+        
+        {/* Phone Notch */}
+        <path d="M45 18 L55 18" stroke="#3f3f46" strokeWidth="3" strokeLinecap="round" />
+        
+        {/* Banking UI Lines */}
+        <rect x="38" y="35" width="24" height="4" rx="2" fill="#27272a" />
+        <rect x="38" y="43" width="16" height="4" rx="2" fill="#27272a" />
+
+        {/* Success Circle */}
+        <circle cx="50" cy="60" r="12" fill="#10b981" fillOpacity="0.1" stroke="#10b981" strokeWidth="1" />
+        
+        {/* Animated Checkmark */}
+        <motion.path 
+          d="M 45 60 L 49 64 L 56 55" 
+          stroke="#10b981" 
+          strokeWidth="3" 
+          strokeLinecap="round" 
+          strokeLinejoin="round"
+          initial={{ pathLength: 0 }}
+          animate={{ pathLength: 1 }}
+          transition={{ duration: 0.6, repeat: Infinity, repeatDelay: 2, ease: "easeOut" }}
+          style={{ filter: "drop-shadow(0 0 4px rgba(16,185,129,0.8))" }}
+        />
+        
+        {/* Radiating success waves */}
+        <motion.circle 
+          cx="50" cy="60" r="12" stroke="#10b981" strokeWidth="1"
+          initial={{ scale: 1, opacity: 1 }}
+          animate={{ scale: 2, opacity: 0 }}
+          transition={{ duration: 1.5, repeat: Infinity, delay: 0.6 }}
+        />
+      </svg>
+    </div>
+  )
+}
+
+/**
+ * Premium glassmorphism workflow using pure JS Graphics
  */
 function PremiumWorkflowGraphic() {
   return (
-    <div className="relative w-full h-[280px] sm:h-[320px] flex items-center justify-between px-2 sm:px-4 mt-8">
+    <div className="relative w-full h-[240px] sm:h-[280px] flex items-center justify-between px-2 sm:px-4 mt-8">
       
       {/* Animated connecting laser line */}
-      <div className="absolute left-[15%] right-[15%] top-[45%] h-[2px] bg-void z-0 -translate-y-1/2 overflow-hidden rounded-full">
+      <div className="absolute left-[15%] right-[15%] top-[40%] h-[2px] bg-void z-0 -translate-y-1/2 overflow-hidden rounded-full">
         <div className="absolute inset-0 bg-hairline opacity-50" />
         <motion.div 
           className="absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-transparent via-amber to-transparent blur-[1px]"
@@ -29,17 +180,8 @@ function PremiumWorkflowGraphic() {
         transition={{ delay: 0.8, duration: 0.8, ease: SETTLE }}
         className="relative z-10 flex flex-col items-center gap-4 w-[110px] sm:w-[130px]"
       >
-        <div className="group relative size-24 sm:size-28 rounded-2xl bg-void border border-hairline flex items-center justify-center shadow-xl transition-all duration-500 hover:border-amber/50 hover:shadow-[0_0_30px_rgba(255,176,32,0.15)] overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-amber/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 pointer-events-none" />
-          
-          {/* Photo Integration */}
-          <img 
-            src="/img/home/sell-your-scrap-image.webp" 
-            alt="Scrap Metal" 
-            className="absolute inset-0 h-full w-full object-cover opacity-70 group-hover:scale-110 group-hover:opacity-100 transition-all duration-700 mix-blend-luminosity group-hover:mix-blend-normal"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-void via-void/40 to-transparent opacity-80" />
-          
+        <div className="relative flex items-center justify-center p-4 rounded-3xl bg-gradient-to-b from-surface/50 to-void border border-hairline shadow-[0_0_30px_rgba(255,255,255,0.02)] backdrop-blur-sm">
+          <ScrapGraphic />
           <div className="absolute -top-3 right-[-10px] rounded border border-hairline bg-void px-2 py-0.5 text-[10px] text-muted tracking-widest uppercase font-mono shadow-md z-20">
             Scrap
           </div>
@@ -57,38 +199,9 @@ function PremiumWorkflowGraphic() {
         transition={{ delay: 1, duration: 0.8, ease: SETTLE }}
         className="relative z-10 flex flex-col items-center gap-4 w-[110px] sm:w-[130px]"
       >
-        <div className="group relative size-28 sm:size-32 rounded-[1.5rem] bg-void border border-amber/40 flex items-center justify-center shadow-[0_0_40px_rgba(255,176,32,0.15)] overflow-hidden">
-          
-          {/* Photo Integration */}
-          <img 
-            src="/img/home/home-slider-1-new.webp" 
-            alt="Weighing Scale" 
-            className="absolute inset-0 h-full w-full object-cover opacity-70 group-hover:scale-110 group-hover:opacity-100 transition-all duration-700 mix-blend-luminosity group-hover:mix-blend-normal"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-void via-void/40 to-void/10 opacity-90" />
-          
-          {/* Scanning animation effect */}
-          <motion.div 
-            animate={{ y: ['-100%', '100%'] }}
-            transition={{ duration: 3, ease: "linear", repeat: Infinity }}
-            className="absolute inset-x-0 h-[2px] bg-amber/50 blur-[1px] z-10"
-          />
-
-          <div className="flex flex-col items-center gap-2 relative z-20 mt-4">
-            <div className="bg-black/70 backdrop-blur-sm border border-amber/30 rounded px-2.5 py-1 flex items-center gap-1.5 shadow-inner">
-              <span className="relative flex size-1.5">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber opacity-75"></span>
-                <span className="relative inline-flex rounded-full size-1.5 bg-amber"></span>
-              </span>
-              <motion.span 
-                className="font-mono text-[11px] sm:text-[12px] text-amber font-semibold tracking-wider"
-              >
-                1450 KG
-              </motion.span>
-            </div>
-          </div>
-          
-          <div className="absolute -bottom-3 rounded-full bg-void border border-amber px-3 py-0.5 text-[10px] text-amber tracking-widest uppercase font-mono shadow-[0_0_15px_rgba(255,176,32,0.4)] font-semibold z-20">
+        <div className="relative flex items-center justify-center p-4 rounded-3xl bg-gradient-to-b from-[#1a1a1a]/80 to-void border border-amber/30 shadow-[0_0_40px_rgba(255,176,32,0.1)] backdrop-blur-sm">
+          <ScaleGraphic />
+          <div className="absolute -bottom-3 rounded-full bg-void border border-amber px-3 py-0.5 text-[10px] text-amber tracking-widest uppercase font-mono shadow-[0_0_15px_rgba(255,176,32,0.3)] font-semibold z-20">
             Weighed
           </div>
         </div>
@@ -105,30 +218,9 @@ function PremiumWorkflowGraphic() {
         transition={{ delay: 1.2, duration: 0.8, ease: SETTLE }}
         className="relative z-10 flex flex-col items-center gap-4 w-[110px] sm:w-[130px]"
       >
-        <div className="group relative size-24 sm:size-28 rounded-2xl bg-void border border-flame/50 flex items-center justify-center shadow-[0_0_30px_rgba(255,77,45,0.2)] transition-all duration-500 hover:shadow-[0_0_40px_rgba(255,77,45,0.4)] overflow-hidden">
-          
-          {/* Photo Integration */}
-          <img 
-            src="/img/home/Bright-and-Shiny-Copper-service.webp" 
-            alt="Cash / Payment" 
-            className="absolute inset-0 h-full w-full object-cover opacity-70 group-hover:scale-110 group-hover:opacity-100 transition-all duration-700 mix-blend-luminosity group-hover:mix-blend-normal"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-void via-void/40 to-transparent opacity-80" />
-          <div className="absolute inset-0 bg-flame/10 mix-blend-overlay z-10" />
-
-          <div className="relative z-20 flex flex-col items-center">
-            {/* Elegant glowing checkmark */}
-            <motion.div 
-              initial={{ scale: 0 }}
-              animate={{ scale: [0, 1.1, 1] }}
-              transition={{ delay: 2, duration: 0.5, ease: "backOut", repeat: Infinity, repeatDelay: 3 }}
-              className="rounded-full bg-emerald-500/20 backdrop-blur-sm p-2 border border-emerald-500/50 shadow-[0_0_20px_rgba(16,185,129,0.3)] mt-2"
-            >
-              <Check className="size-5 sm:size-6 text-emerald-400" strokeWidth={3} />
-            </motion.div>
-          </div>
-          
-          <div className="absolute -top-3 left-[-10px] rounded-full bg-flame px-2 py-0.5 text-[10px] text-white font-bold tracking-widest uppercase shadow-[0_0_15px_rgba(255,77,45,0.5)] z-20">
+        <div className="relative flex items-center justify-center p-4 rounded-3xl bg-gradient-to-b from-flame/10 to-void border border-flame/40 shadow-[0_0_30px_rgba(255,77,45,0.15)] backdrop-blur-sm">
+          <EFTGraphic />
+          <div className="absolute -top-3 left-[-10px] rounded-full bg-flame px-2 py-0.5 text-[10px] text-white font-bold tracking-widest uppercase shadow-[0_0_15px_rgba(255,77,45,0.4)] z-20">
             PAID
           </div>
         </div>
@@ -171,7 +263,6 @@ export function HeroVisual() {
         }}
       />
 
-      {/* Changed items-center to items-start so title and form align perfectly at the top */}
       <div className="rail relative grid items-start gap-12 lg:grid-cols-[1.3fr_0.7fr] lg:gap-16">
         
         {/* Left Column: Text & Technical Graphic */}
