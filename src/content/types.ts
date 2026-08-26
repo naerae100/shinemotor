@@ -58,13 +58,15 @@ export interface Pillar {
 }
 
 export type MaterialFamily =
-  | 'Copper'
-  | 'Brass'
   | 'Aluminium'
-  | 'Stainless Steel'
-  | 'Ferrous'
-  | 'Wiring'
-  | 'Other'
+  | 'Appliance'
+  | 'Battery'
+  | 'Brass'
+  | 'Copper'
+  | 'Lead'
+  | 'Motor'
+  | 'Radiator'
+  | 'Steel'
 
 export interface Material {
   /** The ISRI trade grade name, as the client already uses it. */
