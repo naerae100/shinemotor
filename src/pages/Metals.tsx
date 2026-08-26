@@ -11,12 +11,12 @@ import { WA_GENERAL } from '../lib/whatsapp'
 
 /**
  * The full catalogue. Grouped by family with an in-page index down the side,
- * because twenty-one grades is too many to scroll blind.
+ * because there are too many grades to scroll blind.
  */
 export function Metals() {
   useSeo(
-    'Metals We Buy — All 21 Grades',
-    'Copper, brass, aluminium, stainless steel, ferrous, wiring and more. Every grade Shine Motor Corporation buys, with exactly what each one accepts and rejects.',
+    'Metals We Buy — Every Grade We Accept',
+    'Copper, brass, aluminium, stainless steel, lead, motors and more. Every grade Shine Motor Corporation buys, with exactly what each one accepts and rejects.',
   )
 
   const [filter, setFilter] = useState<Family | 'All'>('All')

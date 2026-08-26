@@ -37,12 +37,15 @@ export function MetalsIndex() {
             const items = metalsByFamily(family)
             const photo = familyImage[family]
             const anchor = family.toLowerCase().replace(/\s+/g, '-')
+            const MAX_PILLS = 3
+            const shown = items.slice(0, MAX_PILLS)
+            const extra = items.length - MAX_PILLS
             return (
               <RevealItem
                 as="li"
                 key={family}
                 distance={18}
-                className="ring-flame group relative overflow-hidden rounded-2xl border border-hairline bg-surface transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_26px_50px_-26px_rgba(255,122,24,0.5)]"
+                className="ring-flame group relative flex flex-col overflow-hidden rounded-2xl border border-hairline bg-surface transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_26px_50px_-26px_rgba(255,122,24,0.5)]"
               >
                 <Link to={`/metals#${anchor}`} className="block">
                   <div className="relative overflow-hidden">
@@ -60,46 +63,43 @@ export function MetalsIndex() {
                           'linear-gradient(180deg, rgba(13,17,24,0.15) 0%, rgba(20,26,36,0.95) 100%)',
                       }}
                     />
-                    <div className="absolute inset-x-5 bottom-4 flex items-end justify-between gap-3">
-                      <h3 className="font-display text-d3 text-white">{family}</h3>
-                      <span className="rounded-full border border-white/15 bg-void/70 px-2.5 py-1 font-mono text-[11px] text-amber backdrop-blur-md">
-                        {String(items.length).padStart(2, '0')}
-                      </span>
-                    </div>
+                    <h3 className="absolute inset-x-5 bottom-4 font-display text-d3 text-white">
+                      {family}
+                    </h3>
                   </div>
                 </Link>
 
-                <div className="p-5 lg:p-6 flex flex-col h-full">
+                <div className="flex flex-1 flex-col p-5 lg:p-6">
                   <p className="text-[14px] leading-relaxed text-muted">
                     {familyIntro[family]}
                   </p>
-                  <ul className="mt-4 flex flex-wrap gap-1.5 flex-1">
-                    {items.slice(0, 4).map((m) => (
+                  <ul className="mt-4 flex flex-wrap gap-1.5">
+                    {shown.map((m) => (
                       <li key={m.slug}>
                         <Link
                           to={`/metals/${m.slug}`}
-                          className="inline-flex min-h-9 items-center rounded-full border border-hairline bg-void/60 px-3.5 py-1.5 text-[12px] text-muted transition-colors hover:border-flame/50 hover:text-bright"
+                          className="inline-flex min-h-8 items-center rounded-full border border-hairline bg-void/60 px-3 py-1 text-[12px] text-muted transition-colors hover:border-flame/50 hover:text-bright"
                         >
                           {m.grade}
                         </Link>
                       </li>
                     ))}
-                    {items.length > 4 && (
+                    {extra > 0 && (
                       <li>
                         <Link
                           to={`/metals#${anchor}`}
-                          className="inline-flex min-h-9 items-center rounded-full border border-hairline bg-void/60 px-3.5 py-1.5 text-[12px] text-amber transition-colors hover:border-flame/50"
+                          className="inline-flex min-h-8 items-center rounded-full border border-dashed border-hairline bg-void/40 px-3 py-1 text-[12px] text-amber transition-colors hover:border-flame/50"
                         >
-                          +{items.length - 4} more
+                          +{extra} more
                         </Link>
                       </li>
                     )}
                   </ul>
                   <Link
                     to={`/metals#${anchor}`}
-                    className="mt-4 inline-flex min-h-9 items-center gap-1.5 py-2 text-[14px] font-semibold text-amber transition-opacity hover:opacity-75"
+                    className="mt-auto inline-flex items-center gap-1.5 pt-5 text-[14px] font-semibold text-amber transition-opacity hover:opacity-75"
                   >
-                    {family} detail
+                    View {family.toLowerCase()}
                     <ArrowUpRight aria-hidden className="size-3.5" strokeWidth={2.5} />
                   </Link>
                 </div>
