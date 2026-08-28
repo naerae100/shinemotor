@@ -71,6 +71,13 @@
     0%, 100% { transform: translateY(0); }
     50%      { transform: translateY(-12px); }
   }
+  /* Light travelling across the copper on the flow graphic. CSS so the loop
+     keeps running independently of anything React is doing, and so it resolves
+     off-stage when animation is switched off. */
+  @keyframes fg-sweep {
+    from { transform: translateX(0); }
+    to   { transform: translateX(540px); }
+  }
 }
 
 @layer base {
