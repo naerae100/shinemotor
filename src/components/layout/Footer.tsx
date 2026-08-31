@@ -7,6 +7,16 @@ import { WA_GENERAL } from '../../lib/whatsapp'
 import { PrimaryCta } from '../ui/Button'
 import { Reveal } from '../ui/Reveal'
 import { Glow } from '../ui/SectionHead'
+import { FacebookMark, LinkedInMark, XMark, YouTubeMark } from '../ui/BrandMarks'
+import { ReviewCta } from '../home/Reviews'
+
+/** Maps a `site.social` label to its mark. Unknown labels fall back to a letter. */
+const BRAND_MARKS = {
+  Facebook: FacebookMark,
+  YouTube: YouTubeMark,
+  LinkedIn: LinkedInMark,
+  X: XMark,
+} as const
 
 export function Footer() {
   return (
@@ -163,22 +173,38 @@ export function Footer() {
           </div>
 
           <div className="mt-14 flex flex-col gap-5 border-t border-hairline pt-7 sm:flex-row sm:items-center sm:justify-between">
-            <p className="text-[13px] text-muted">
-              © {new Date().getFullYear()} {site.legalName}. All rights reserved.
-            </p>
-            <ul className="flex flex-wrap gap-x-6 gap-y-2">
-              {site.social.map((s) => (
-                <li key={s.href}>
-                  <a
-                    href={s.href}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex min-h-8 items-center py-1 text-[14px] text-muted transition-colors hover:text-bright"
-                  >
-                    {s.label}
-                  </a>
-                </li>
-              ))}
+            <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-6">
+              <p className="text-[13px] text-muted">
+                © {new Date().getFullYear()} {site.legalName}. All rights reserved.
+              </p>
+              <ReviewCta className="!min-h-11 !px-5 !text-[13px]" />
+            </div>
+            <ul className="flex flex-wrap items-center gap-2.5">
+              {site.social.map((s) => {
+                const Mark = BRAND_MARKS[s.label as keyof typeof BRAND_MARKS]
+                return (
+                  <li key={s.href}>
+                    <a
+                      href={s.href}
+                      target="_blank"
+                      rel="noreferrer"
+                      /* 44px target — the icon is 18px, the button carries the rest. */
+                      className="group flex size-11 items-center justify-center rounded-full border border-hairline bg-surface text-muted transition-all duration-200 hover:border-flame/50 hover:bg-surface-2 hover:text-amber"
+                    >
+                      {Mark ? (
+                        <Mark aria-hidden className="size-[18px]" />
+                      ) : (
+                        <span aria-hidden className="text-[13px] font-semibold">
+                          {s.label.slice(0, 1)}
+                        </span>
+                      )}
+                      <span className="sr-only">
+                        {site.shortName} on {s.label}
+                      </span>
+                    </a>
+                  </li>
+                )
+              })}
             </ul>
           </div>
           {/* TODO(client): ABN and NSW scrap metal dealer licence number belong
