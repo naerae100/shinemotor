@@ -55,7 +55,7 @@ export function FloatingActions() {
               className="flex items-center gap-3 rounded-full border border-hairline bg-surface py-3 pr-5 pl-4 shadow-[0_12px_30px_-12px_rgba(0,0,0,0.9)] transition-colors hover:border-flame"
             >
               <span className="grad-flame flex size-8 items-center justify-center rounded-full">
-                <Phone aria-hidden className="size-4 text-white" strokeWidth={2.5} />
+                <Phone aria-hidden className="size-4 text-on-flame" strokeWidth={2.5} />
               </span>
               <span className="text-left leading-tight">
                 <span className="block text-[14px] font-semibold text-bright">Call the yard</span>

@@ -22,7 +22,7 @@ export function PrimaryCta({ href, children, className = '' }: ButtonProps) {
     <motion.a
       href={href}
       {...press}
-      className={`group relative inline-flex items-center justify-center gap-2.5 overflow-hidden rounded-full px-7 py-3.5 text-[15px] font-semibold text-white ${className}`}
+      className={`group relative inline-flex items-center justify-center gap-2.5 overflow-hidden rounded-full px-7 py-3.5 text-[15px] font-semibold text-on-flame ${className}`}
       style={{ boxShadow: '0 10px 34px -10px rgba(255,122,24,0.65)' }}
     >
       <span aria-hidden className="grad-flame absolute inset-0" />
@@ -96,7 +96,7 @@ export function QuoteChip({
     <button
       type="button"
       onClick={() => requestQuote(material)}
-      className={`group/chip inline-flex items-center justify-center gap-2 rounded-full border border-flame/35 bg-flame/10 px-4 py-2 text-[13px] font-semibold text-amber transition-all duration-200 hover:border-flame hover:bg-flame hover:text-white ${
+      className={`group/chip inline-flex items-center justify-center gap-2 rounded-full border border-flame/35 bg-flame/10 px-4 py-2 text-[13px] font-semibold text-amber transition-all duration-200 hover:border-flame hover:bg-flame hover:text-on-flame ${
         full ? 'w-full' : ''
       } ${className}`}
     >

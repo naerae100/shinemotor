@@ -3,6 +3,7 @@ import type { FormEvent, ReactNode } from 'react'
 import { Check, Loader2, MessageCircle, MessageSquare } from 'lucide-react'
 import { families, metals } from '../../content/metals'
 import { site } from '../../content/site'
+import { ReviewCta } from '../home/Reviews'
 import { useQuotePrefill } from '../../hooks/useQuotePrefill'
 import { whatsappUrl } from '../../lib/whatsapp'
 
@@ -130,7 +131,7 @@ export function QuoteForm({ compact = false }: { compact?: boolean }) {
       <div className="glass rounded-3xl p-8 lg:p-10">
         <div className="flex flex-col items-center py-8 text-center">
           <span className="grad-flame flex size-14 items-center justify-center rounded-full">
-            <Check aria-hidden className="size-7 text-white" strokeWidth={2.5} />
+            <Check aria-hidden className="size-7 text-on-flame" strokeWidth={2.5} />
           </span>
           <h3 className="mt-6 font-display text-d3 text-bright">
             Thanks — we have your details.
@@ -142,13 +143,23 @@ export function QuoteForm({ compact = false }: { compact?: boolean }) {
             </a>{' '}
             — we are open from 7am.
           </p>
+          {/* The ask, at the one moment the customer is already satisfied.
+              Shown to everyone — no screening by sentiment. */}
+          <div className="mt-8 w-full border-t border-hairline pt-7">
+            <p className="text-[14px] text-muted">
+              Dealt with us before? A few words on Google helps the next person
+              work out who to trust with their load.
+            </p>
+            <ReviewCta className="mt-4" />
+          </div>
+
           <button
             type="button"
             onClick={() => {
               setFields(EMPTY)
               setStatus('idle')
             }}
-            className="mt-8 text-[15px] font-semibold text-amber underline underline-offset-4"
+            className="mt-7 text-[15px] font-semibold text-amber underline underline-offset-4"
           >
             Send another
           </button>
@@ -173,7 +184,7 @@ export function QuoteForm({ compact = false }: { compact?: boolean }) {
               onChange={(e) => set('material')(e.target.value)}
               aria-invalid={Boolean(errors.material)}
               aria-describedby={errors.material ? 'material-error' : undefined}
-              className={`mt-2 w-full rounded-xl border bg-void/60 px-4 py-3 text-bright transition-colors focus:border-flame focus:outline-none ${
+              className={`mt-2 w-full rounded-xl border bg-void/60 px-4 py-3 text-bright transition-colors focus:border-flame ${
                 errors.material ? 'border-ember' : 'border-hairline'
               }`}
             >
@@ -207,7 +218,7 @@ export function QuoteForm({ compact = false }: { compact?: boolean }) {
                   key={o.v}
                   className={`cursor-pointer rounded-full border px-4 py-2 text-[14px] transition-colors ${
                     fields.method === o.v
-                      ? 'grad-flame border-transparent font-semibold text-white'
+                      ? 'grad-flame border-transparent font-semibold text-on-flame'
                       : 'border-hairline bg-void/60 text-muted hover:border-flame/40 hover:text-bright'
                   }`}
                 >
@@ -234,7 +245,7 @@ export function QuoteForm({ compact = false }: { compact?: boolean }) {
                 value={fields.message}
                 onChange={(e) => set('message')(e.target.value)}
                 placeholder="Condition, access, when it needs to go…"
-                className="mt-2 w-full resize-y rounded-xl border border-hairline bg-void/60 px-4 py-3 text-bright transition-colors placeholder:text-muted/50 focus:border-flame focus:outline-none"
+                className="mt-2 w-full resize-y rounded-xl border border-hairline bg-void/60 px-4 py-3 text-bright transition-colors placeholder:text-muted/50 focus:border-flame"
               />
             </div>
           )}
@@ -245,7 +256,7 @@ export function QuoteForm({ compact = false }: { compact?: boolean }) {
             <button
               type="submit"
               disabled={status === 'sending'}
-              className="grad-flame inline-flex items-center gap-2.5 rounded-full px-7 py-3.5 text-[15px] font-semibold text-white shadow-[0_10px_34px_-10px_rgba(255,122,24,0.65)] transition-opacity hover:opacity-90 disabled:opacity-60"
+              className="grad-flame inline-flex items-center gap-2.5 rounded-full px-7 py-3.5 text-[15px] font-semibold text-on-flame shadow-[0_10px_34px_-10px_rgba(255,122,24,0.65)] transition-opacity hover:opacity-90 disabled:opacity-60"
             >
               {status === 'sending' && <Loader2 aria-hidden className="size-4 animate-spin" />}
               {status === 'sending' ? 'Sending…' : 'Send my details'}
@@ -315,7 +326,7 @@ function Field({
         onChange={(e) => onChange(e.target.value)}
         aria-invalid={Boolean(error)}
         aria-describedby={error ? `${id}-error` : undefined}
-        className={`mt-2 w-full rounded-xl border bg-void/60 px-4 py-3 text-bright transition-colors placeholder:text-muted/50 focus:border-flame focus:outline-none ${
+        className={`mt-2 w-full rounded-xl border bg-void/60 px-4 py-3 text-bright transition-colors placeholder:text-muted/50 focus:border-flame ${
           error ? 'border-ember' : 'border-hairline'
         }`}
       />

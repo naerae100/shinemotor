@@ -188,7 +188,7 @@ export function Header() {
                       <Link
                         key={s.slug}
                         to={`/services/${s.slug}`}
-                        className="group ring-flame relative flex gap-4 rounded-2xl border border-hairline bg-surface p-5 transition-colors"
+                        className="group ring-flame relative flex gap-4 rounded-2xl border border-hairline bg-surface p-5 lift"
                       >
                         <img
                           src={s.image.src}

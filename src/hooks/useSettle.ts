@@ -24,10 +24,22 @@ export function useSettle(distance = 20) {
     },
   }
 
-  /** Applied to a parent to stagger its children by 70ms. */
+  /**
+   * Applied to a parent to stagger its children.
+   *
+   * 90ms rather than 70: at 70 a three-up card row reads as one block landing
+   * slightly out of sync, which looks like jank. At 90 the eye tracks each card
+   * in turn and the row reads as deliberate. `delayChildren` lets the container
+   * settle before its contents start, so the two motions don't overlap.
+   */
   const stagger: Variants = {
     hidden: {},
-    shown: { transition: { staggerChildren: reduced ? 0 : 0.07 } },
+    shown: {
+      transition: {
+        staggerChildren: reduced ? 0 : 0.09,
+        delayChildren: reduced ? 0 : 0.05,
+      },
+    },
   }
 
   return { reduced, variants, stagger }

@@ -8,12 +8,15 @@ export function SectionHead({
   children,
   action,
   align = 'left',
+  index,
 }: {
   eyebrow: string
   title: ReactNode
   children?: ReactNode
   action?: ReactNode
   align?: 'left' | 'center'
+  /** Oversized plate number, e.g. "02". Sets the section in a sequence. */
+  index?: string
 }) {
   const centred = align === 'center'
   return (
@@ -27,7 +30,20 @@ export function SectionHead({
     >
       <div className={centred ? 'max-w-2xl' : ''}>
         <RevealItem>
-          <Eyebrow className={centred ? 'justify-center' : ''}>{eyebrow}</Eyebrow>
+          <div className={`flex items-center gap-4 ${centred ? 'justify-center' : ''}`}>
+            {index && (
+              <span
+                aria-hidden
+                className="font-display text-[clamp(2.5rem,5vw,4rem)] leading-none text-transparent"
+                style={{
+                  WebkitTextStroke: '1px rgba(255,122,24,0.38)',
+                }}
+              >
+                {index}
+              </span>
+            )}
+            <Eyebrow>{eyebrow}</Eyebrow>
+          </div>
         </RevealItem>
         <RevealItem>
           <h2 className="mt-5 font-display text-d2 text-bright">{title}</h2>

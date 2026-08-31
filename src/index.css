@@ -5,19 +5,23 @@
    Rich, layered dark base with a molten copper→amber gradient as the signature.
    Copper scrap is genuinely one of the most vibrant materials there is, so the
    photography carries the colour and the interface amplifies it.
+
+   The ground is warm charcoal, not blue-grey. A cool ground reads software;
+   a warm one reads material, and it stops the neutrals arguing with the copper
+   sitting on top of them. Every type token below clears 4.5:1 on every ground.
    ========================================================================= */
 
 @theme {
   /* --- Ground ----------------------------------------------------------- */
-  --color-void: #07090d;      /* deepest — page base */
-  --color-ink: #0d1118;       /* section base */
-  --color-surface: #141a24;   /* raised card */
-  --color-surface-2: #1c2430; /* hover / nested */
+  --color-void: #040405;      /* deepest — page base */
+  --color-ink: #111116;       /* section base — alternates against void */
+  --color-surface: #1b1a20;   /* raised card */
+  --color-surface-2: #26242c; /* hover / nested */
 
   /* --- Type ------------------------------------------------------------- */
-  --color-bright: #f2f6fb;    /* headings */
-  --color-muted: #97a3b6;     /* body */
-  --color-faint: #64708294;
+  --color-bright: #f2f0ee;    /* headings — warm white, 17.6:1 on void */
+  --color-muted: #a9a29b;     /* body — 7.9:1 on void */
+  --color-faint: #9a9189;     /* de-emphasised — 4.5:1+ on every ground */
 
   /* --- Accents ---------------------------------------------------------- */
   --color-flame: #ff7a18;     /* molten copper */
@@ -25,19 +29,32 @@
   --color-ember: #ff4d2d;     /* hot edge */
   --color-azure: #38bdf8;     /* cool counterpoint, used sparingly */
 
+  /* Text that sits ON the copper gradient. White measures 1.6:1 against the
+     amber stop — unreadable. The ink reads 6.6:1 at the worst stop and looks
+     more expensive besides: hot metal with the mark struck into it. */
+  --color-on-flame: #0a0704;
+
   --color-hairline: #ffffff14;
+  --color-hairline-lit: #ffffff2e;  /* hover — a hairline you can actually see */
 
   /* --- Fonts ------------------------------------------------------------ */
   --font-display: 'Archivo', 'Helvetica Neue', Arial, sans-serif;
   --font-sans: 'IBM Plex Sans', system-ui, -apple-system, sans-serif;
   --font-mono: 'IBM Plex Mono', ui-monospace, 'SF Mono', monospace;
 
-  --text-d1: clamp(2.75rem, 6vw, 5rem);
-  --text-d1--line-height: 1;
+  /* Home hero only. */
+  --text-d1: clamp(2.6rem, 5.4vw, 4.5rem);
+  --text-d1--line-height: 1.02;
   --text-d1--letter-spacing: -0.04em;
 
-  --text-d2: clamp(2rem, 4vw, 3.25rem);
-  --text-d2--line-height: 1.06;
+  /* Inner-page <h1>. Deliberately a step below the hero: an About page title
+     set at hero scale pushes the actual content below the fold. */
+  --text-dp: clamp(2.1rem, 3.6vw, 3.1rem);
+  --text-dp--line-height: 1.06;
+  --text-dp--letter-spacing: -0.035em;
+
+  --text-d2: clamp(1.9rem, 3.4vw, 2.9rem);
+  --text-d2--line-height: 1.08;
   --text-d2--letter-spacing: -0.03em;
 
   --text-d3: clamp(1.5rem, 2.2vw, 2.125rem);
@@ -93,13 +110,32 @@
     overflow-x: hidden;
   }
 
+  /* Weight carries the industrial feel; the width axis does not.
+     Archivo's wdth axis widens the glyphs without adding any height, so at 118%
+     the headlines read as squashed from above — wide letters at the same cap
+     height. Left at 100% (normal) and the weight does the work on its own. */
   .font-display {
     font-family: var(--font-display);
-    font-weight: 600;
-    font-stretch: 110%;
+    font-weight: 800;
+    font-stretch: 100%;
   }
 
-  ::selection { background: var(--color-flame); color: #fff; }
+  ::selection { background: var(--color-flame); color: var(--color-on-flame); }
+
+  /* Film grain over the whole page.
+     Flat dark backgrounds are what make a dark site read as a template — real
+     material has tooth. This is a single inline SVG turbulence tile, fixed to
+     the viewport so it never scrolls with content, at an opacity low enough to
+     be felt rather than seen. Costs one paint layer and no requests. */
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0.055;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
 
   :focus-visible {
     outline: 2px solid var(--color-amber);
@@ -172,10 +208,76 @@
   .no-scrollbar { scrollbar-width: none; -ms-overflow-style: none; }
   .no-scrollbar::-webkit-scrollbar { display: none; }
 
+  /* Card hover. The old cards shifted a hairline from #ffffff14 — a 1.17:1
+     change, effectively invisible, which is why the page felt inert. This moves
+     three things at once (ground, edge, elevation) on the state curve. */
+  .lift {
+    transition:
+      background-color 0.25s var(--ease-state),
+      border-color 0.25s var(--ease-state),
+      transform 0.25s var(--ease-state),
+      box-shadow 0.25s var(--ease-state);
+  }
+  /* Elevation is unconditional — every lifting card should rise and cast. */
+  .lift:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 18px 40px -24px rgba(0, 0, 0, 0.9);
+  }
+  /* Ground and edge are defaults only. Wrapped in :where() so they carry no
+     specificity, letting a card that owns its identity — the green WhatsApp
+     panel, a card with an explicit hover:border-flame — override them. */
+  :where(.lift):hover {
+    background-color: var(--color-surface-2);
+    border-color: var(--color-hairline-lit);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .lift:hover { transform: none; }
+  }
+
   /* Photographs are mixed-exposure yard shots; a light, consistent lift makes
      the set read as one system on a dark ground. */
   .photo {
     filter: saturate(1.12) contrast(1.06) brightness(1.02);
     background-color: var(--color-surface);
+  }
+}
+
+/* ============================================================================
+   FOCUS — deliberately outside every @layer.
+   Cascade layers rank below unlayered styles, so a `focus:outline-none` utility
+   (Tailwind's `utilities` layer) silently beat the :focus-visible rule in
+   @layer base. That left every field on the quote path with no visible focus
+   for keyboard users. Unlayered, this cannot be overridden by a utility class.
+   ========================================================================= */
+:where(input, select, textarea, button, a[href], [tabindex]):focus-visible {
+  outline: 2px solid var(--color-amber);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* ============================================================================
+   PLATE EDGES
+   Sections alternate void/ink. A copper hairline along the top edge of a plate
+   makes the change of ground deliberate instead of accidental — the same way a
+   fabricated panel shows its seam.
+   ========================================================================= */
+@layer utilities {
+  .plate-top {
+    position: relative;
+  }
+  .plate-top::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(255, 122, 24, 0.55) 18%,
+      rgba(255, 176, 32, 0.35) 50%,
+      transparent 85%
+    );
   }
 }

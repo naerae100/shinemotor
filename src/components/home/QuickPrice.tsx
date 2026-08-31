@@ -42,18 +42,18 @@ export function QuickPrice() {
 
       <p className="mt-4 font-display text-d3 text-bright">What have you got?</p>
 
-      <div className="mt-5 space-y-3">
+      <div className="mt-5 space-y-4">
         <div>
-          <label htmlFor="quick-name" className="sr-only">
+          <label htmlFor="quick-name" className="eyebrow block text-faint">
             Your name
           </label>
           <input
             id="quick-name"
             type="text"
-            placeholder="Your name"
+            placeholder="So we know who we're quoting"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            className="w-full appearance-none rounded-xl border border-hairline bg-void/60 px-4 py-3 text-[15px] text-bright placeholder:text-muted transition-colors focus:border-flame focus:outline-none"
+            className="mt-1.5 w-full appearance-none rounded-xl border border-hairline bg-void/60 px-4 py-3 text-[15px] text-bright transition-colors placeholder:text-faint focus:border-flame"
           />
         </div>
         <Select
@@ -145,15 +145,15 @@ function Select({
   const id = label.toLowerCase().replace(/[^a-z]+/g, '-')
   return (
     <div>
-      <label htmlFor={id} className="sr-only">
+      <label htmlFor={id} className="eyebrow block text-faint">
         {label}
       </label>
-      <div className="relative">
+      <div className="relative mt-1.5">
         <select
           id={id}
           value={value}
           onChange={(e) => onChange(e.target.value)}
-          className="w-full appearance-none rounded-xl border border-hairline bg-void/60 px-4 py-3 pr-11 text-[15px] text-bright transition-colors focus:border-flame focus:outline-none"
+          className="w-full appearance-none rounded-xl border border-hairline bg-void/60 px-4 py-3 pr-11 text-[15px] text-bright transition-colors focus:border-flame"
         >
           {options.map((o) => (
             <option key={o.value} value={o.value}>

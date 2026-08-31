@@ -37,7 +37,7 @@ export function Layout() {
     <>
       <a
         href="#main"
-        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[70] focus:rounded-full focus:bg-flame focus:px-5 focus:py-3 focus:text-sm focus:text-white"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[70] focus:rounded-full focus:bg-flame focus:px-5 focus:py-3 focus:text-sm focus:text-on-flame"
       >
         Skip to content
       </a>
