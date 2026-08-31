@@ -12,7 +12,7 @@ export function HomeFaq() {
   const { reduced } = useSettle()
 
   return (
-    <section className="bg-void">
+    <section className="plate-top bg-void">
       <div className="rail section-y">
         {/* Centered header */}
         <Reveal className="mx-auto max-w-2xl text-center">

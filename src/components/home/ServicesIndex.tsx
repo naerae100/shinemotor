@@ -21,10 +21,10 @@ export function ServicesIndex() {
   const requestQuote = useRequestQuote()
 
   return (
-    <section id="services" className="bg-void">
+    <section id="services" className="plate-top bg-void">
       <div className="rail section-y">
         <SectionHead
-          eyebrow="What we do"
+          eyebrow="What we do" index="01"
           title="Two sides of the same yard."
           action={
             <Link
@@ -117,7 +117,7 @@ export function ServicesIndex() {
                     {service.channels.email && (
                       <a
                         href={`mailto:${site.email}?subject=${encodeURIComponent('Container export enquiry')}`}
-                        className="grad-flame flex items-center justify-center gap-2 rounded-full py-3 text-[14px] font-semibold text-white shadow-[0_10px_26px_-12px_rgba(255,122,24,0.7)] sm:col-span-2"
+                        className="grad-flame flex items-center justify-center gap-2 rounded-full py-3 text-[14px] font-semibold text-on-flame shadow-[0_10px_26px_-12px_rgba(255,122,24,0.7)] sm:col-span-2"
                       >
                         <Mail aria-hidden className="size-4" strokeWidth={2.25} />
                         Email your enquiry
@@ -128,7 +128,7 @@ export function ServicesIndex() {
                       <button
                         type="button"
                         onClick={() => requestQuote()}
-                        className="grad-flame flex items-center justify-center gap-2 rounded-full py-3 text-[14px] font-semibold text-white shadow-[0_10px_26px_-12px_rgba(255,122,24,0.7)]"
+                        className="grad-flame flex items-center justify-center gap-2 rounded-full py-3 text-[14px] font-semibold text-on-flame shadow-[0_10px_26px_-12px_rgba(255,122,24,0.7)]"
                       >
                         Get a quote
                       </button>

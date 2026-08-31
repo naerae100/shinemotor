@@ -13,11 +13,11 @@ import { Glow, SectionHead } from '../ui/SectionHead'
  */
 export function MetalsIndex() {
   return (
-    <section className="relative overflow-hidden border-y border-hairline bg-ink">
+    <section className="plate-top relative overflow-hidden border-y border-hairline bg-ink">
       <Glow className="top-0 right-0 size-[520px]" from="rgba(255,176,32,0.12)" />
       <div className="rail section-y relative">
         <SectionHead
-          eyebrow="Metals we buy"
+          eyebrow="Metals we buy" index="02"
           title="All our grades, priced individually."
           action={
             <Link

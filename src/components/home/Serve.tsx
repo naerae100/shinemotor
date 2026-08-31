@@ -14,10 +14,10 @@ import { SectionHead } from '../ui/SectionHead'
  */
 export function Serve() {
   return (
-    <section className="border-y border-hairline bg-ink">
+    <section className="plate-top border-y border-hairline bg-ink">
       <div className="rail section-y">
         <SectionHead
-          eyebrow="Who we buy from"
+          eyebrow="Who we buy from" index="04"
           title="We know your trade."
           action={
             <Link

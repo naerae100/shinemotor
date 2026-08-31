@@ -6,6 +6,7 @@ import { MetalsIndex } from '../components/home/MetalsIndex'
 import { Logistics } from '../components/home/Logistics'
 import { Serve } from '../components/home/Serve'
 import { Safety } from '../components/home/Safety'
+import { Reviews } from '../components/home/Reviews'
 import { HomeFaq } from '../components/home/HomeFaq'
 import { ContactCta } from '../components/home/ContactCta'
 
@@ -26,7 +27,6 @@ export function Home() {
 
   return (
     <>
-      {/* <Hero /> */}
       <HeroVisual />
       <Credentials />
       <ServicesIndex />
@@ -34,6 +34,7 @@ export function Home() {
       <Logistics />
       <Serve />
       <Safety />
+      <Reviews />
       <HomeFaq />
       <ContactCta />
     </>

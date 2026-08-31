@@ -38,9 +38,9 @@ const routes = [
 
 export function Logistics() {
   return (
-    <section className="bg-void">
+    <section className="plate-top bg-void">
       <div className="rail section-y">
-        <SectionHead eyebrow="Getting it to us" title="Three ways, whichever suits.">
+        <SectionHead eyebrow="Getting it to us" index="03" title="Three ways, whichever suits.">
           Bring it in yourself, have us collect it, or keep a bin on site. All
           three end the same way — weighed, graded and paid.
         </SectionHead>
@@ -68,7 +68,7 @@ export function Logistics() {
                   }}
                 />
                 <span className="grad-flame absolute bottom-4 left-5 flex size-11 items-center justify-center rounded-xl">
-                  <Icon aria-hidden className="size-5 text-white" strokeWidth={2} />
+                  <Icon aria-hidden className="size-5 text-on-flame" strokeWidth={2} />
                 </span>
               </div>
               <div className="flex flex-1 flex-col p-7">
@@ -102,7 +102,7 @@ export function Logistics() {
           </div>
           <Link
             to="/contact"
-            className="grad-flame inline-flex shrink-0 items-center gap-2.5 rounded-full px-7 py-3.5 text-[15px] font-semibold text-white shadow-[0_10px_30px_-10px_rgba(255,122,24,0.7)]"
+            className="grad-flame inline-flex shrink-0 items-center gap-2.5 rounded-full px-7 py-3.5 text-[15px] font-semibold text-on-flame shadow-[0_10px_30px_-10px_rgba(255,122,24,0.7)]"
           >
             Ask the yard
           </Link>

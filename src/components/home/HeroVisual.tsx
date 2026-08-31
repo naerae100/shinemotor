@@ -7,6 +7,18 @@ import { QuickPrice } from './QuickPrice'
 import { FlowGraphic } from './FlowGraphic'
 
 /**
+ * Everything the yard takes, running past the base of the hero. Carried over
+ * from the retired photo-led Hero: naming the grades is the cheapest possible
+ * proof that this yard knows its materials, and it answers "do you even take
+ * what I've got?" before the visitor has to ask.
+ */
+const marquee = [
+  'Copper', 'Brass', 'Aluminium', 'Stainless steel', 'Lead', 'Radiators',
+  'Batteries', 'Insulated cable', 'Electric motors', 'Compressors',
+  'HMS 1 & 2', 'Starters & alternators', 'Aluminium wheels', 'Brass turnings',
+]
+
+/**
  * The opening screen.
  *
  * One question, one panel that answers it, and one drawing of the run from
@@ -24,7 +36,7 @@ export function HeroVisual() {
   })
 
   return (
-    <section className="relative overflow-hidden bg-void pt-20 pb-16 lg:pt-28 lg:pb-24">
+    <section className="relative overflow-hidden bg-void pt-20 lg:pt-28">
       <Glow className="-top-56 -left-48 size-[820px]" from="rgba(255,122,24,0.13)" />
 
       <div
@@ -70,6 +82,25 @@ export function HeroVisual() {
           <QuickPrice />
         </motion.div>
 
+      </div>
+
+      {/* Everything we take, running past. */}
+      <div className="relative mt-16 border-y border-hairline bg-ink/70 py-3.5 backdrop-blur lg:mt-20">
+        <div className="flex overflow-hidden" aria-hidden>
+          <div className="flex shrink-0 animate-[marquee_50s_linear_infinite] items-center gap-8 pr-8 motion-reduce:animate-none">
+            {[...marquee, ...marquee].map((s, i) => (
+              <span key={`${s}-${i}`} className="flex shrink-0 items-center gap-8">
+                <span className="text-[15px] whitespace-nowrap text-muted">{s}</span>
+                <span className="size-1 rounded-full bg-flame/60" />
+              </span>
+            ))}
+          </div>
+        </div>
+        {/* The scrolling strip is decorative; this is the same list, once, for
+            assistive tech and for anything that indexes the page. */}
+        <p className="sr-only">
+          Metals bought: {marquee.join(', ')}.
+        </p>
       </div>
     </section>
   )

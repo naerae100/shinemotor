@@ -17,10 +17,6 @@ export const site: SiteInfo = {
   phones: [
     { label: '0413 222 171', href: 'tel:+61413222171', use: 'Scrap metal & general' },
     { label: '0478 555 537', href: 'tel:+61478555537', use: 'Pickups & bin drops' },
-    // TODO(client): the live site lists two landlines — (02) 8712 6999 and
-    // (02) 8712 9548 — with no explanation. Confirm which is current before
-    // launch; only the first is published here.
-    { label: '(02) 8712 6999', href: 'tel:+61287126999', use: 'Yard office' },
   ],
   hours: [
     { days: 'Monday — Friday', hours: '7:00am — 5:00pm' },

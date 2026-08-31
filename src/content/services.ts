@@ -119,7 +119,7 @@ export const services: Service[] = [
       'Frequency — spot load or ongoing contract',
     ],
     audience: ['Steel mills', 'Foundries', 'Brokers and traders', 'Export buyers', 'Smelters'],
-    phone: { label: '(02) 8712 6999', href: 'tel:+61287126999' },
+    phone: { label: '0413 222 171', href: 'tel:+61413222171' },
     image: {
       src: '/img/sell/sell-your-scrap-inner-2.webp',
       alt: 'Baled and prepared scrap stock ready for container loading',

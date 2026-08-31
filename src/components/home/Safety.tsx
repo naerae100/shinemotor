@@ -32,12 +32,12 @@ export function Safety() {
   const [playing, setPlaying] = useState(false)
 
   return (
-    <section className="relative overflow-hidden border-y border-hairline bg-ink">
+    <section className="plate-top relative overflow-hidden border-y border-hairline bg-ink">
       <Glow className="bottom-0 left-0 size-[520px]" from="rgba(255,176,32,0.08)" />
       <div className="rail section-y relative">
         {/* Left-aligned header — same style as other sections */}
         <SectionHead
-          eyebrow="Safety first"
+          eyebrow="Safety first" index="05"
           title="Your safety is our standard."
         >
           Scrap metal yards are high-risk environments. We follow strict SafeWork

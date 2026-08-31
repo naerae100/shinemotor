@@ -34,7 +34,7 @@ const items = [
 
 export function Credentials() {
   return (
-    <section className="border-b border-hairline bg-ink">
+    <section className="plate-top border-b border-hairline bg-ink">
       <div className="rail py-14 lg:py-20">
         <Reveal stagger className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4 lg:gap-10">
           {items.map(({ icon: Icon, title, body }) => (
