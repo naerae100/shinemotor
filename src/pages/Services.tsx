@@ -17,10 +17,14 @@ export function Services() {
   return (
     <>
       <PageHero
-        eyebrow="Our services"
         title={<>Two sides of the same yard.</>}
         intro="We buy ferrous and non-ferrous scrap from the public and the trade, and we sell prepared graded stock on to steel mills, brokers and exporters here and overseas."
         trail={[{ label: 'Services' }]}
+        meta={[
+          { label: 'Services', value: String(services.length) },
+          { label: 'Coverage', value: 'NSW & ACT' },
+          { label: 'Bins', value: 'Supplied free' },
+        ]}
         actions={
           <>
             <a
@@ -105,7 +109,7 @@ export function Services() {
                   <div className="mt-8 flex flex-wrap gap-3">
                     <Link
                       to={`/services/${service.slug}`}
-                      className="grad-flame inline-flex items-center gap-2.5 rounded-full px-7 py-3.5 text-[15px] font-semibold text-white shadow-[0_10px_30px_-10px_rgba(255,122,24,0.7)]"
+                      className="grad-flame inline-flex items-center gap-2.5 rounded-full px-7 py-3.5 text-[15px] font-semibold text-on-flame shadow-[0_10px_30px_-10px_rgba(255,122,24,0.7)]"
                     >
                       Full details
                       <ArrowUpRight aria-hidden className="size-4" strokeWidth={2.25} />
@@ -135,7 +139,7 @@ export function Services() {
                 distance={18}
                 className="rounded-2xl border border-hairline bg-surface p-7"
               >
-                <span className="grad-flame flex size-11 items-center justify-center rounded-xl font-display text-lg text-white">
+                <span className="grad-flame flex size-11 items-center justify-center rounded-xl font-display text-lg text-on-flame">
                   {step.n}
                 </span>
                 <h3 className="mt-5 font-display text-d3 text-bright">{step.title}</h3>

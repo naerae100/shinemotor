@@ -41,13 +41,7 @@ export function MetalDetail() {
           <div className="mt-10 grid gap-10 lg:grid-cols-2 lg:items-center lg:gap-16">
             <Reveal stagger>
               <RevealItem>
-                <p className="eyebrow flex items-center gap-3 text-amber">
-                  <span aria-hidden className="grad-flame block h-px w-7 rounded-full" />
-                  {metal.family}
-                </p>
-              </RevealItem>
-              <RevealItem>
-                <h1 className="mt-5 font-display text-d1 text-bright">{metal.grade}</h1>
+                <h1 className="font-display text-dp text-bright">{metal.grade}</h1>
               </RevealItem>
               <RevealItem>
                 <p className="measure mt-5 text-lead text-muted">{metal.detail}</p>

@@ -43,10 +43,14 @@ export function About() {
   return (
     <>
       <PageHero
-        eyebrow="About us"
         title={<>A family business that grew into a global group.</>}
         intro="Shine Motors began in 1973 as a small family business. Today the group runs twelve branches across the UAE, Japan, Korea, Malaysia, the USA and Australia — and the Ingleburn yard is where it trades in New South Wales."
         trail={[{ label: 'About' }]}
+        meta={[
+          { label: 'Trading since', value: String(site.established) },
+          { label: 'Yard', value: 'Ingleburn, NSW' },
+          { label: 'Coverage', value: site.serviceArea },
+        ]}
         aside={
           <dl className="grid grid-cols-3 gap-px overflow-hidden rounded-2xl border border-hairline bg-hairline">
             {[
@@ -139,7 +143,7 @@ export function About() {
                 distance={16}
                 className="ring-flame relative flex gap-5 rounded-2xl border border-hairline bg-surface p-7"
               >
-                <span className="grad-flame flex size-9 shrink-0 items-center justify-center rounded-xl font-mono text-[13px] font-semibold text-white">
+                <span className="grad-flame flex size-9 shrink-0 items-center justify-center rounded-xl font-mono text-[13px] font-semibold text-on-flame">
                   {String(i + 1).padStart(2, '0')}
                 </span>
                 <div>
@@ -185,7 +189,7 @@ export function About() {
             </p>
             <Link
               to="/contact"
-              className="grad-flame inline-flex shrink-0 items-center rounded-full px-7 py-3.5 text-[15px] font-semibold text-white"
+              className="grad-flame inline-flex shrink-0 items-center rounded-full px-7 py-3.5 text-[15px] font-semibold text-on-flame"
             >
               Get a price
             </Link>

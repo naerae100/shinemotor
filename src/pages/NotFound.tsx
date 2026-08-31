@@ -14,7 +14,7 @@ export function NotFound() {
           <span aria-hidden className="grad-flame block h-px w-7 rounded-full" />
           404
         </p>
-        <h1 className="mt-5 font-display text-d1 text-bright">
+        <h1 className="mt-5 font-display text-dp text-bright">
           That page isn&rsquo;t here.
         </h1>
         <p className="measure mt-6 text-lead text-muted">
@@ -28,7 +28,7 @@ export function NotFound() {
         <div className="mt-10 flex flex-wrap gap-3">
           <Link
             to="/"
-            className="grad-flame inline-flex items-center rounded-full px-7 py-3.5 text-[15px] font-semibold text-white"
+            className="grad-flame inline-flex items-center rounded-full px-7 py-3.5 text-[15px] font-semibold text-on-flame"
           >
             Back to the homepage
           </Link>

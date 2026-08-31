@@ -53,13 +53,7 @@ export function ServiceDetail() {
           <div className="mt-10 grid gap-10 lg:grid-cols-2 lg:items-center lg:gap-16">
             <Reveal stagger>
               <RevealItem>
-                <p className="eyebrow flex items-center gap-3 text-amber">
-                  <span aria-hidden className="grad-flame block h-px w-7 rounded-full" />
-                  {isExport ? 'Wholesale & export' : 'Our services'}
-                </p>
-              </RevealItem>
-              <RevealItem>
-                <h1 className="mt-5 font-display text-d1 text-bright">{service.name}</h1>
+                <h1 className="font-display text-dp text-bright">{service.name}</h1>
               </RevealItem>
               <RevealItem>
                 <p className="mt-4 text-lead font-semibold text-flame">{service.claim}</p>
@@ -102,7 +96,7 @@ export function ServiceDetail() {
                   {service.channels.email && (
                     <a
                       href={exportMailto}
-                      className="grad-flame inline-flex items-center gap-2.5 rounded-full px-7 py-3.5 text-[15px] font-semibold text-white shadow-[0_10px_30px_-10px_rgba(255,122,24,0.7)]"
+                      className="grad-flame inline-flex items-center gap-2.5 rounded-full px-7 py-3.5 text-[15px] font-semibold text-on-flame shadow-[0_10px_30px_-10px_rgba(255,122,24,0.7)]"
                     >
                       <Mail aria-hidden className="size-[18px]" strokeWidth={2.25} />
                       Email your enquiry
@@ -154,7 +148,7 @@ export function ServiceDetail() {
             <Reveal stagger className="mt-10 grid gap-5 lg:grid-cols-2">
               <RevealItem distance={16} className="rounded-2xl border border-hairline bg-surface p-7">
                 <span className="grad-flame flex size-11 items-center justify-center rounded-xl">
-                  <Container aria-hidden className="size-5 text-white" strokeWidth={2} />
+                  <Container aria-hidden className="size-5 text-on-flame" strokeWidth={2} />
                 </span>
                 <h3 className="mt-5 font-display text-d3 text-bright">Grades we load</h3>
                 <p className="mt-3 text-[15px] text-muted">
@@ -171,7 +165,7 @@ export function ServiceDetail() {
 
               <RevealItem distance={16} className="rounded-2xl border border-hairline bg-surface p-7">
                 <span className="grad-flame flex size-11 items-center justify-center rounded-xl">
-                  <Ship aria-hidden className="size-5 text-white" strokeWidth={2} />
+                  <Ship aria-hidden className="size-5 text-on-flame" strokeWidth={2} />
                 </span>
                 <h3 className="mt-5 font-display text-d3 text-bright">Shipping</h3>
                 <p className="mt-3 text-[15px] text-muted">
@@ -204,7 +198,7 @@ export function ServiceDetail() {
                 className="ring-flame relative rounded-2xl border border-hairline bg-surface p-7"
               >
                 <span className="grad-flame flex size-9 items-center justify-center rounded-lg">
-                  <Check aria-hidden className="size-4 text-white" strokeWidth={3} />
+                  <Check aria-hidden className="size-4 text-on-flame" strokeWidth={3} />
                 </span>
                 <h3 className="mt-5 font-display text-lg text-bright">{inc.title}</h3>
                 <p className="mt-2 text-[15px] text-muted">{inc.body}</p>
@@ -276,7 +270,7 @@ export function ServiceDetail() {
                 distance={18}
                 className="rounded-2xl border border-hairline bg-surface p-7"
               >
-                <span className="grad-flame flex size-11 items-center justify-center rounded-xl font-display text-lg text-white">
+                <span className="grad-flame flex size-11 items-center justify-center rounded-xl font-display text-lg text-on-flame">
                   {step.n}
                 </span>
                 <h3 className="mt-5 font-display text-d3 text-bright">{step.title}</h3>
@@ -295,7 +289,7 @@ export function ServiceDetail() {
               <Reveal stagger>
                 <RevealItem>
                   <span className="grad-flame mx-auto flex size-14 items-center justify-center rounded-2xl">
-                    <Mail aria-hidden className="size-6 text-white" strokeWidth={2} />
+                    <Mail aria-hidden className="size-6 text-on-flame" strokeWidth={2} />
                   </span>
                 </RevealItem>
                 <RevealItem>
@@ -313,7 +307,7 @@ export function ServiceDetail() {
                 <RevealItem>
                   <a
                     href={exportMailto}
-                    className="grad-flame mt-9 inline-flex max-w-full items-center justify-center gap-2.5 rounded-full px-6 py-4 text-[15px] font-semibold text-white shadow-[0_10px_34px_-10px_rgba(255,122,24,0.65)] sm:px-8"
+                    className="grad-flame mt-9 inline-flex max-w-full items-center justify-center gap-2.5 rounded-full px-6 py-4 text-[15px] font-semibold text-on-flame shadow-[0_10px_34px_-10px_rgba(255,122,24,0.65)] sm:px-8"
                   >
                     <Mail aria-hidden className="size-[18px] shrink-0" strokeWidth={2.25} />
                     <span className="min-w-0 break-all">{site.email}</span>
@@ -345,7 +339,7 @@ export function ServiceDetail() {
                     href={waForService(service.name.toLowerCase())}
                     target="_blank"
                     rel="noreferrer"
-                    className="flex items-center gap-4 rounded-2xl border border-[#25D366]/35 bg-[#25D366]/[0.07] px-5 py-4 transition-colors hover:border-[#25D366]"
+                    className="flex items-center gap-4 rounded-2xl border border-[#25D366]/35 bg-[#25D366]/[0.07] px-5 py-4 lift hover:border-[#25D366]"
                   >
                     <span className="flex size-10 shrink-0 items-center justify-center rounded-full bg-[#25D366]">
                       <MessageCircle aria-hidden className="size-5 text-[#0d1b14]" strokeWidth={2.5} />
@@ -357,10 +351,10 @@ export function ServiceDetail() {
                   </a>
                   <a
                     href={service.phone.href}
-                    className="flex items-center gap-4 rounded-2xl border border-hairline bg-surface px-5 py-4 transition-colors hover:border-flame/50"
+                    className="flex items-center gap-4 rounded-2xl border border-hairline bg-surface px-5 py-4 lift hover:border-flame/50"
                   >
                     <span className="grad-flame flex size-10 shrink-0 items-center justify-center rounded-full">
-                      <Phone aria-hidden className="size-5 text-white" strokeWidth={2.5} />
+                      <Phone aria-hidden className="size-5 text-on-flame" strokeWidth={2.5} />
                     </span>
                     <span>
                       <span className="block font-mono font-semibold text-bright">
@@ -371,7 +365,7 @@ export function ServiceDetail() {
                   </a>
                   <Link
                     to="/prices"
-                    className="flex items-center gap-4 rounded-2xl border border-hairline bg-surface px-5 py-4 transition-colors hover:border-flame/50"
+                    className="flex items-center gap-4 rounded-2xl border border-hairline bg-surface px-5 py-4 lift hover:border-flame/50"
                   >
                     <span className="flex size-10 shrink-0 items-center justify-center rounded-full border border-hairline bg-void/60 font-display text-amber">
                       $
@@ -388,7 +382,7 @@ export function ServiceDetail() {
                     <Link
                       key={o.slug}
                       to={`/services/${o.slug}`}
-                      className="flex items-center justify-between gap-4 rounded-2xl border border-hairline bg-surface px-5 py-4 transition-colors hover:border-flame/50"
+                      className="flex items-center justify-between gap-4 rounded-2xl border border-hairline bg-surface px-5 py-4 lift hover:border-flame/50"
                     >
                       <span>
                         <span className="block font-display text-[16px] text-bright">{o.short}</span>

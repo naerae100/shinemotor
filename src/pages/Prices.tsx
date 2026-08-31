@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { AlertTriangle, ArrowUpRight, Mail, MessageCircle, Phone } from 'lucide-react'
+import { AlertTriangle, ArrowUpRight, Mail, MessageCircle, PenLine, Phone } from 'lucide-react'
 import { families } from '../content/metals'
 import type { Family } from '../content/metals'
 import {
@@ -31,15 +31,19 @@ export function Prices() {
   return (
     <>
       <PageHero
-        eyebrow="Price guide"
         title={<>What we&rsquo;re paying.</>}
         intro="Indicative ranges by grade, to help you work out whether a load is worth bringing in. Every figure moves with the market — call or email for a firm quotation on your actual material."
         trail={[{ label: 'Price guide' }]}
+        meta={[
+          { label: 'Grades listed', value: String(priceRows.length) },
+          { label: 'Payment', value: 'Instant EFT' },
+          { label: 'Basis', value: 'Priced on the grade' },
+        ]}
         actions={
           <>
             <a
               href={site.phones[0].href}
-              className="grad-flame inline-flex items-center gap-2.5 rounded-full px-7 py-3.5 text-[15px] font-semibold text-white shadow-[0_10px_30px_-10px_rgba(255,122,24,0.7)]"
+              className="grad-flame inline-flex items-center gap-2.5 rounded-full px-7 py-3.5 text-[15px] font-semibold text-on-flame shadow-[0_10px_30px_-10px_rgba(255,122,24,0.7)]"
             >
               <Phone aria-hidden className="size-[18px]" strokeWidth={2.25} />
               Call for today&rsquo;s price
@@ -95,7 +99,7 @@ export function Prices() {
                 aria-pressed={filter === f}
                 className={`shrink-0 rounded-full border px-4 py-2 text-[14px] font-semibold transition-all duration-200 ${
                   filter === f
-                    ? 'grad-flame border-transparent text-white'
+                    ? 'grad-flame border-transparent text-on-flame'
                     : 'border-hairline bg-surface text-muted hover:border-flame/40 hover:text-bright'
                 }`}
               >
@@ -156,7 +160,7 @@ export function Prices() {
                           href={waForMaterial(`${row.grade} (${row.family})`)}
                           target="_blank"
                           rel="noreferrer"
-                          className="inline-flex items-center gap-1.5 rounded-full border border-flame/35 bg-flame/10 px-3.5 py-1.5 text-[13px] font-semibold text-amber transition-colors hover:border-flame hover:bg-flame hover:text-white"
+                          className="inline-flex items-center gap-1.5 rounded-full border border-flame/35 bg-flame/10 px-3.5 py-1.5 text-[13px] font-semibold text-amber transition-colors hover:border-flame hover:bg-flame hover:text-on-flame"
                         >
                           Call for price
                         </a>
@@ -203,7 +207,7 @@ export function Prices() {
               <div className="mt-9 grid gap-4 sm:grid-cols-3">
                 <a
                   href={site.phones[0].href}
-                  className="flex flex-col rounded-2xl border border-hairline bg-surface p-5 transition-colors hover:border-flame/50"
+                  className="flex flex-col rounded-2xl border border-hairline bg-surface p-5 lift hover:border-flame/50"
                 >
                   <Phone aria-hidden className="size-5 text-amber" strokeWidth={2} />
                   <span className="mt-3 font-mono text-[15px] text-bright">
@@ -213,7 +217,7 @@ export function Prices() {
                 </a>
                 <a
                   href={`mailto:${site.email}?subject=${encodeURIComponent('Price enquiry')}`}
-                  className="flex flex-col rounded-2xl border border-hairline bg-surface p-5 transition-colors hover:border-flame/50"
+                  className="flex flex-col rounded-2xl border border-hairline bg-surface p-5 lift hover:border-flame/50"
                 >
                   <Mail aria-hidden className="size-5 text-amber" strokeWidth={2} />
                   <span className="mt-3 text-[14px] break-all text-bright">{site.email}</span>
@@ -221,9 +225,9 @@ export function Prices() {
                 </a>
                 <Link
                   to="/contact"
-                  className="flex flex-col rounded-2xl border border-hairline bg-surface p-5 transition-colors hover:border-flame/50"
+                  className="flex flex-col rounded-2xl border border-hairline bg-surface p-5 lift hover:border-flame/50"
                 >
-                  <span className="font-display text-lg text-amber">✎</span>
+                  <PenLine aria-hidden className="size-5 text-amber" strokeWidth={2} />
                   <span className="mt-3 text-[15px] text-bright">Use the form</span>
                   <span className="text-[13px] text-muted">Same-day reply</span>
                 </Link>

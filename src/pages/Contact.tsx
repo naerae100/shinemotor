@@ -21,10 +21,14 @@ export function Contact() {
   return (
     <>
       <PageHero
-        eyebrow="Contact"
         title={<>Talk to the yard.</>}
         intro="Send a photo of your load and we will price it on the grade. Someone is on the phone from 7am, six days a week."
         trail={[{ label: 'Contact' }]}
+        meta={[
+          { label: 'Open', value: 'Mon–Sat from 7am' },
+          { label: 'Yard', value: '8 Noonan Rd, Ingleburn' },
+          { label: 'Reply time', value: 'Usually within the hour' },
+        ]}
         actions={
           <>
             <a
@@ -52,7 +56,7 @@ export function Contact() {
       {/* Direct lines — each phone is labelled with what it is actually for. */}
       <section className="border-b border-hairline bg-void">
         <div className="rail section-y">
-          <Reveal stagger className="grid gap-5 lg:grid-cols-3">
+          <Reveal stagger className="grid gap-5 sm:grid-cols-2">
             {site.phones.map((p) => (
               <RevealItem
                 key={p.href}
@@ -60,7 +64,7 @@ export function Contact() {
                 className="ring-flame relative rounded-2xl border border-hairline bg-surface p-7"
               >
                 <span className="grad-flame flex size-11 items-center justify-center rounded-xl">
-                  <Phone aria-hidden className="size-5 text-white" strokeWidth={2} />
+                  <Phone aria-hidden className="size-5 text-on-flame" strokeWidth={2} />
                 </span>
                 <p className="eyebrow mt-5 text-amber">{p.use}</p>
                 <a

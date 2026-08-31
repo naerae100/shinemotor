@@ -25,10 +25,14 @@ export function Metals() {
   return (
     <>
       <PageHero
-        eyebrow="Metals we buy"
         title={<>Every grade, and exactly what it accepts.</>}
         intro="Correct grading is the single biggest factor in what you get paid. Find your material below, check what the grade excludes, and sort accordingly before you come in."
         trail={[{ label: 'Metals we buy' }]}
+        meta={[
+          { label: 'Grades bought', value: String(metals.length) },
+          { label: 'Families', value: String(families.length) },
+          { label: 'Payment', value: 'Instant EFT' },
+        ]}
         actions={
           <>
             <a
@@ -74,7 +78,7 @@ export function Metals() {
               aria-pressed={filter === f}
               className={`shrink-0 rounded-full border px-4 py-2 text-[14px] font-semibold transition-all duration-200 ${
                 filter === f
-                  ? 'grad-flame border-transparent text-white'
+                  ? 'grad-flame border-transparent text-on-flame'
                   : 'border-hairline bg-surface text-muted hover:border-flame/40 hover:text-bright'
               }`}
             >
