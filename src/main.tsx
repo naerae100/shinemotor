@@ -13,12 +13,14 @@ import { Prices } from './pages/Prices'
 import { About } from './pages/About'
 import { NotFound } from './pages/NotFound'
 import { Admin } from './pages/Admin'
+import { Card } from './pages/Card'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <BrowserRouter>
       <Routes>
         <Route path="/admin" element={<Admin />} />
+        <Route path="/card/:slug" element={<Card />} />
         <Route element={<Layout />}>
           <Route path="/" element={<Home />} />
           <Route path="/services" element={<Services />} />

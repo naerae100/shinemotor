@@ -1,5 +1,7 @@
 import { Clock, Mail, MapPin, MessageCircle, Phone } from 'lucide-react'
+import { Link } from 'react-router-dom'
 import { addressLine, site } from '../content/site'
+import { people } from '../content/team'
 import { PageHero } from '../components/layout/PageHero'
 import { QuoteForm } from '../components/forms/QuoteForm'
 import { Reveal, RevealItem } from '../components/ui/Reveal'
@@ -52,6 +54,36 @@ export function Contact() {
           </>
         }
       />
+
+      {/* Digital cards for the people you would actually ask for. */}
+      <section className="border-b border-hairline bg-ink">
+        <div className="rail py-10">
+          <Reveal stagger className="flex flex-wrap items-center gap-4">
+            {people.map((person) => (
+              <RevealItem key={person.slug}>
+                <Link
+                  to={`/card/${person.slug}`}
+                  className="lift flex items-center gap-4 rounded-2xl border border-hairline bg-surface py-3 pr-6 pl-3"
+                >
+                  <span
+                    aria-hidden
+                    className="grad-flame flex size-11 items-center justify-center rounded-xl font-display text-[15px] text-on-flame"
+                  >
+                    {person.initials}
+                  </span>
+                  <span className="flex flex-col">
+                    <span className="text-[15px] font-semibold text-bright">
+                      {person.name}
+                    </span>
+                    <span className="eyebrow mt-0.5 text-amber">{person.role}</span>
+                  </span>
+                  <span className="ml-2 text-[13px] text-muted">Contact card &rarr;</span>
+                </Link>
+              </RevealItem>
+            ))}
+          </Reveal>
+        </div>
+      </section>
 
       {/* Direct lines — each phone is labelled with what it is actually for. */}
       <section className="border-b border-hairline bg-void">
