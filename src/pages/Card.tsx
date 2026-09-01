@@ -24,8 +24,7 @@ import {
 import { site, addressLine } from '../content/site'
 import { personBySlug } from '../content/team'
 import type { Person } from '../content/team'
-import { saveVCard } from '../lib/vcard'
-import type { SaveOutcome } from '../lib/vcard'
+import { vcardUrl } from '../lib/vcard'
 import { whatsappUrl } from '../lib/whatsapp'
 import { useSeo } from '../lib/seo'
 import { FacebookMark, LinkedInMark, XMark, YouTubeMark } from '../components/ui/BrandMarks'
@@ -78,13 +77,10 @@ function CardView({ person }: { person: Person }) {
   )
 
   const reduced = useReducedMotion()
-  const [outcome, setOutcome] = useState<SaveOutcome | null>(null)
-  const [busy, setBusy] = useState(false)
   const [shared, setShared] = useState(false)
   const [copied, setCopied] = useState<string | null>(null)
   const plateRef = useRef<HTMLDivElement>(null)
 
-  const siteUrl = typeof window !== 'undefined' ? window.location.origin : ''
   const cardUrl = typeof window !== 'undefined' ? window.location.href : ''
 
   /* Sheen. Tracks the pointer on a mouse, drifts on its own on touch — no tilt
@@ -122,15 +118,6 @@ function CardView({ person }: { person: Person }) {
     raf = requestAnimationFrame(loop)
     return () => cancelAnimationFrame(raf)
   }, [mx, my, reduced])
-
-  const save = async () => {
-    setBusy(true)
-    const result = await saveVCard(person, siteUrl)
-    setBusy(false)
-    if (result === 'cancelled') return
-    setOutcome(result)
-    setTimeout(() => setOutcome(null), 5000)
-  }
 
   const copy = async (value: string, key: string) => {
     try {
@@ -268,9 +255,8 @@ function CardView({ person }: { person: Person }) {
 
             {/* ── Primary action ───────────────────────────────────────── */}
             <motion.div {...enter(2)} className="px-7">
-              <button
-                type="button"
-                onClick={save}
+              <a
+                href={vcardUrl(person)}
                 className="group relative flex min-h-[52px] w-full items-center justify-center gap-2.5 overflow-hidden rounded-2xl text-[15px] font-semibold transition-transform duration-200 active:scale-[0.985]"
                 style={{
                   color: C.base,
@@ -278,28 +264,14 @@ function CardView({ person }: { person: Person }) {
                   boxShadow: '0 14px 34px -18px rgba(255,255,255,0.35)',
                 }}
               >
-                {outcome ? (
-                  <>
-                    <Check aria-hidden className="size-[18px]" strokeWidth={2.5} />
-                    {outcome === 'shared' ? 'Sent to your phone' : 'Contact file ready'}
-                  </>
-                ) : (
-                  <>
-                    <UserRoundPlus aria-hidden className="size-[18px]" strokeWidth={2} />
-                    {busy ? 'Preparing…' : 'Add to contacts'}
-                  </>
-                )}
-              </button>
+                <UserRoundPlus aria-hidden className="size-[18px]" strokeWidth={2} />
+                Add to contacts
+              </a>
               <p
-                aria-live="polite"
                 className="mt-2.5 text-center text-[11.5px] leading-relaxed"
                 style={{ color: C.faint }}
               >
-                {outcome === 'shared'
-                  ? 'Choose Contacts in the share sheet to finish.'
-                  : outcome === 'downloaded'
-                    ? 'Downloaded — open the file to add it to your contacts.'
-                    : 'Opens your share sheet, or downloads a contact file.'}
+                Opens the contact card on your phone. Tap Add Contact to save it.
               </p>
             </motion.div>
 

@@ -114,6 +114,11 @@ export type SaveOutcome = 'shared' | 'downloaded' | 'cancelled'
  * the visitor said no, and answering that by pushing a file at them anyway is
  * exactly the behaviour that makes people distrust a page.
  */
+/** The served .vcf for a person. See scripts/build-vcards.mjs. */
+export function vcardUrl(person: Person) {
+  return `/card/${person.slug}.vcf`
+}
+
 export async function saveVCard(person: Person, siteUrl: string): Promise<SaveOutcome> {
   const photo = await loadPhotoBase64(CONTACT_PHOTO)
   const text = buildVCard(person, siteUrl, photo)
