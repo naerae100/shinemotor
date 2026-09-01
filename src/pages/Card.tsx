@@ -78,6 +78,7 @@ function CardView({ person }: { person: Person }) {
 
   const reduced = useReducedMotion()
   const [saved, setSaved] = useState(false)
+  const [busy, setBusy] = useState(false)
   const [shared, setShared] = useState(false)
   const [copied, setCopied] = useState<string | null>(null)
   const plateRef = useRef<HTMLDivElement>(null)
@@ -121,10 +122,12 @@ function CardView({ person }: { person: Person }) {
     return () => cancelAnimationFrame(raf)
   }, [mx, my, reduced])
 
-  const save = () => {
-    downloadVCard(person, siteUrl)
+  const save = async () => {
+    setBusy(true)
+    await downloadVCard(person, siteUrl)
+    setBusy(false)
     setSaved(true)
-    setTimeout(() => setSaved(false), 2400)
+    setTimeout(() => setSaved(false), 4000)
   }
 
   const copy = async (value: string, key: string) => {
@@ -276,17 +279,23 @@ function CardView({ person }: { person: Person }) {
                 {saved ? (
                   <>
                     <Check aria-hidden className="size-[18px]" strokeWidth={2.5} />
-                    Saved to contacts
+                    Contact file ready
                   </>
                 ) : (
                   <>
                     <UserRoundPlus aria-hidden className="size-[18px]" strokeWidth={2} />
-                    Add to contacts
+                    {busy ? 'Preparing…' : 'Add to contacts'}
                   </>
                 )}
               </button>
-              <p aria-live="polite" className="sr-only">
-                {saved ? 'Contact file downloaded.' : ''}
+              <p
+                aria-live="polite"
+                className="mt-2.5 text-center text-[11.5px] leading-relaxed"
+                style={{ color: C.faint }}
+              >
+                {saved
+                  ? 'Downloaded — open the file to add it to your contacts.'
+                  : 'Downloads a contact file. On Android, tap it in your downloads to import.'}
               </p>
             </motion.div>
 
