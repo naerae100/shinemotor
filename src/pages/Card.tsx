@@ -6,6 +6,7 @@ import {
   useMotionValue,
   useReducedMotion,
   useSpring,
+  useTransform,
 } from 'framer-motion'
 import {
   ArrowUpRight,
@@ -89,7 +90,13 @@ function CardView({ person }: { person: Person }) {
   const my = useMotionValue(0)
   const sx = useSpring(mx, { stiffness: 60, damping: 20, mass: 0.6 })
   const sy = useSpring(my, { stiffness: 60, damping: 20, mass: 0.6 })
-  const sheen = useMotionTemplate`radial-gradient(600px circle at ${sx}% ${sy}%, rgba(255,255,255,0.07), transparent 45%)`
+  const sheen = useMotionTemplate`radial-gradient(600px circle at ${sx}% ${sy}%, rgba(255,255,255,0.09), transparent 45%)`
+
+  /* Tilt. Derived from the same pointer position as the sheen, so the highlight
+     and the plane move together and it reads as one object catching light.
+     Capped at 7deg — past that a card with text on it starts to feel like a toy. */
+  const rx = useSpring(useTransform(sy, [0, 100], [7, -7]), { stiffness: 90, damping: 18 })
+  const ry = useSpring(useTransform(sx, [0, 100], [-7, 7]), { stiffness: 90, damping: 18 })
 
   useEffect(() => {
     if (reduced) return
@@ -169,16 +176,19 @@ function CardView({ person }: { person: Person }) {
       {/* Cool ambient pool, plus one warm ember far off — the only heat here. */}
       <div
         aria-hidden
-        className="pointer-events-none absolute -top-52 left-1/2 size-[760px] -translate-x-1/2 rounded-full blur-[140px]"
-        style={{ background: 'rgba(120,140,170,0.10)' }}
+        className="pointer-events-none absolute -top-56 left-1/2 size-[820px] -translate-x-1/2 rounded-full blur-[150px]"
+        style={{ background: 'rgba(255,122,24,0.22)' }}
       />
       <div
         aria-hidden
-        className="pointer-events-none absolute -bottom-40 -right-32 size-[420px] rounded-full blur-[130px]"
-        style={{ background: 'rgba(255,122,24,0.10)' }}
+        className="pointer-events-none absolute -bottom-48 -right-40 size-[520px] rounded-full blur-[140px]"
+        style={{ background: 'rgba(255,77,45,0.16)' }}
       />
 
-      <div className="relative mx-auto w-full max-w-[430px] px-5 py-8 sm:py-14">
+      <div
+        className="relative mx-auto w-full max-w-[430px] px-5 py-8 sm:py-14"
+        style={{ perspective: '1400px' }}
+      >
         <motion.div
           ref={plateRef}
           {...enter(0)}
@@ -187,6 +197,9 @@ function CardView({ person }: { person: Person }) {
             backgroundColor: C.plate,
             border: `1px solid ${C.line}`,
             boxShadow: '0 40px 90px -50px rgba(0,0,0,1), inset 0 1px 0 rgba(255,255,255,0.05)',
+            rotateX: reduced ? 0 : rx,
+            rotateY: reduced ? 0 : ry,
+            transformStyle: 'preserve-3d',
           }}
         >
           {/* Brushed grain — fine vertical striations, the way milled plate looks. */}
@@ -214,28 +227,66 @@ function CardView({ person }: { person: Person }) {
           />
 
           <div className="relative">
-            {/* ── Masthead ─────────────────────────────────────────────── */}
-            <div
-              className="flex items-start justify-between gap-4 px-7 pt-7 pb-6"
-              style={{ borderBottom: `1px solid ${C.line}` }}
-            >
-              <img
-                src="/img/home/logo/shine-motor-logo-one.png"
-                alt={site.legalName}
-                className="h-8 w-auto"
-                width={150}
-                height={32}
-              />
-              <span
-                className="mt-0.5 shrink-0 font-mono text-[10px] tracking-[0.18em] uppercase"
-                style={{ color: C.faint }}
+            {/* ── Molten header ────────────────────────────────────────
+                The card's one loud moment. A multi-stop copper mesh drifting
+                on a 14s loop — hot metal, which is literally the product. Logo
+                and text sit in dark ink because white on copper measures
+                1.6:1; ink reads 6.6:1 at the worst stop and looks struck. */}
+            <div className="relative">
+              <div
+                className="relative h-[132px] overflow-hidden"
+                style={{
+                  backgroundImage:
+                    'linear-gradient(110deg, #e2571a 0%, #ff5a1f 20%, #ff7a18 42%, #ffb020 64%, #ff8a1e 84%, #ea5a12 100%)',
+                  backgroundSize: '260% 260%',
+                  animation: reduced ? 'none' : 'molten 14s ease-in-out infinite',
+                }}
               >
-                Est. {site.established}
-              </span>
+                {/* Slag flecks — keeps the pour from looking like plastic. */}
+                <div
+                  aria-hidden
+                  className="absolute inset-0 opacity-[0.16] mix-blend-overlay"
+                  style={{
+                    backgroundImage:
+                      "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E\")",
+                  }}
+                />
+                <div className="relative flex items-start justify-between gap-4 px-7 pt-6">
+                  <img
+                    src="/img/home/logo/shine-motor-logo-one.png"
+                    alt={site.legalName}
+                    className="h-8 w-auto brightness-0"
+                    width={150}
+                    height={32}
+                  />
+                  <span
+                    className="mt-1 shrink-0 font-mono text-[10px] font-semibold tracking-[0.18em] uppercase"
+                    style={{ color: '#0a0704', opacity: 0.72 }}
+                  >
+                    Est. {site.established}
+                  </span>
+                </div>
+              </div>
+
+              {/* Monogram straddling the seam — the classic profile move, and it
+                  gives the eye somewhere to land immediately. */}
+              <div className="absolute -bottom-9 left-7">
+                <div
+                  className="flex size-[74px] items-center justify-center rounded-2xl font-display text-[26px]"
+                  style={{
+                    color: C.text,
+                    backgroundColor: C.plate,
+                    border: `3px solid ${C.plate}`,
+                    boxShadow: '0 14px 30px -12px rgba(0,0,0,0.9), inset 0 0 0 1px rgba(255,255,255,0.10)',
+                  }}
+                >
+                  {person.initials}
+                </div>
+              </div>
             </div>
 
             {/* ── Identity ─────────────────────────────────────────────── */}
-            <motion.div {...enter(1)} className="px-7 pt-8 pb-7">
+            <motion.div {...enter(1)} className="px-7 pt-14 pb-7">
               <p
                 className="font-mono text-[10px] tracking-[0.22em] uppercase"
                 style={{ color: C.copper }}

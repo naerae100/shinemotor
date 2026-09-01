@@ -281,3 +281,15 @@
     );
   }
 }
+
+/* ============================================================================
+   MOLTEN POUR — the business card header.
+   Outside @theme on purpose: Tailwind only emits keyframes from @theme when an
+   --animate-* variable references them, and this one is applied through an
+   inline style, so it was being tree-shaken out of the build.
+   ========================================================================= */
+@keyframes molten {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
