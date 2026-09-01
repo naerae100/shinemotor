@@ -98,24 +98,62 @@ export function buildVCard(person: Person, siteUrl: string, photoBase64?: string
   return lines.map(fold).join('\r\n')
 }
 
+/** How the card was handed over, so the UI can say the right thing after. */
+export type SaveOutcome = 'shared' | 'downloaded' | 'cancelled'
+
 /**
- * Trigger a download of the .vcf.
+ * Hand the .vcf to the operating system.
  *
- * Uses a Blob rather than a data: URI — iOS Safari refuses to open a
- * data:text/vcard link, but handles a blob: URL, and this keeps the filename.
+ * Prefers the Web Share API with a file attached: on Android that opens the
+ * system share sheet with Contacts as a target, so the card imports in one tap
+ * instead of landing in Downloads for the user to find. iOS shows its own sheet
+ * with "Add to Contacts". Desktop browsers mostly do not support file sharing,
+ * and fall through to a download.
+ *
+ * Cancelling the sheet returns 'cancelled' and does NOT then force a download —
+ * the visitor said no, and answering that by pushing a file at them anyway is
+ * exactly the behaviour that makes people distrust a page.
  */
-export async function downloadVCard(person: Person, siteUrl: string) {
+export async function saveVCard(person: Person, siteUrl: string): Promise<SaveOutcome> {
   const photo = await loadPhotoBase64(CONTACT_PHOTO)
-  const blob = new Blob([buildVCard(person, siteUrl, photo)], {
-    type: 'text/vcard;charset=utf-8',
-  })
-  const url = URL.createObjectURL(blob)
+  const text = buildVCard(person, siteUrl, photo)
+  const filename = `${person.name.replace(/\s+/g, '-')}-${site.shortName.replace(
+    /\s+/g,
+    '-',
+  )}.vcf`
+
+  // charset matters: names and the NOTE can carry non-ASCII.
+  const type = 'text/vcard;charset=utf-8'
+  const file = new File([text], filename, { type })
+
+  if (navigator.canShare?.({ files: [file] })) {
+    try {
+      await navigator.share({ files: [file], title: `${person.name} — ${site.shortName}` })
+      return 'shared'
+    } catch (err) {
+      // AbortError means the person dismissed the sheet on purpose. Anything
+      // else is a real failure, and falling back to a download is right.
+      if (err instanceof DOMException && err.name === 'AbortError') return 'cancelled'
+    }
+  }
+
+  downloadBlob(text, filename, type)
+  return 'downloaded'
+}
+
+/**
+ * Blob rather than a data: URI — iOS Safari refuses to open data:text/vcard,
+ * but handles blob:, and this keeps the filename.
+ */
+function downloadBlob(text: string, filename: string, type: string) {
+  const url = URL.createObjectURL(new Blob([text], { type }))
   const a = document.createElement('a')
   a.href = url
-  a.download = `${person.name.replace(/\s+/g, '-')}-${site.shortName.replace(/\s+/g, '-')}.vcf`
+  a.download = filename
+  // Firefox historically ignored a click on a detached element.
   document.body.appendChild(a)
   a.click()
   document.body.removeChild(a)
-  // Revoke on the next tick — revoking synchronously can cancel the download.
+  // Revoke on a timeout — revoking synchronously can cancel the download.
   setTimeout(() => URL.revokeObjectURL(url), 1000)
 }

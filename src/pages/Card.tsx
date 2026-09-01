@@ -24,7 +24,8 @@ import {
 import { site, addressLine } from '../content/site'
 import { personBySlug } from '../content/team'
 import type { Person } from '../content/team'
-import { downloadVCard } from '../lib/vcard'
+import { saveVCard } from '../lib/vcard'
+import type { SaveOutcome } from '../lib/vcard'
 import { whatsappUrl } from '../lib/whatsapp'
 import { useSeo } from '../lib/seo'
 import { FacebookMark, LinkedInMark, XMark, YouTubeMark } from '../components/ui/BrandMarks'
@@ -77,7 +78,7 @@ function CardView({ person }: { person: Person }) {
   )
 
   const reduced = useReducedMotion()
-  const [saved, setSaved] = useState(false)
+  const [outcome, setOutcome] = useState<SaveOutcome | null>(null)
   const [busy, setBusy] = useState(false)
   const [shared, setShared] = useState(false)
   const [copied, setCopied] = useState<string | null>(null)
@@ -124,10 +125,11 @@ function CardView({ person }: { person: Person }) {
 
   const save = async () => {
     setBusy(true)
-    await downloadVCard(person, siteUrl)
+    const result = await saveVCard(person, siteUrl)
     setBusy(false)
-    setSaved(true)
-    setTimeout(() => setSaved(false), 4000)
+    if (result === 'cancelled') return
+    setOutcome(result)
+    setTimeout(() => setOutcome(null), 5000)
   }
 
   const copy = async (value: string, key: string) => {
@@ -276,10 +278,10 @@ function CardView({ person }: { person: Person }) {
                   boxShadow: '0 14px 34px -18px rgba(255,255,255,0.35)',
                 }}
               >
-                {saved ? (
+                {outcome ? (
                   <>
                     <Check aria-hidden className="size-[18px]" strokeWidth={2.5} />
-                    Contact file ready
+                    {outcome === 'shared' ? 'Sent to your phone' : 'Contact file ready'}
                   </>
                 ) : (
                   <>
@@ -293,9 +295,11 @@ function CardView({ person }: { person: Person }) {
                 className="mt-2.5 text-center text-[11.5px] leading-relaxed"
                 style={{ color: C.faint }}
               >
-                {saved
-                  ? 'Downloaded — open the file to add it to your contacts.'
-                  : 'Downloads a contact file. On Android, tap it in your downloads to import.'}
+                {outcome === 'shared'
+                  ? 'Choose Contacts in the share sheet to finish.'
+                  : outcome === 'downloaded'
+                    ? 'Downloaded — open the file to add it to your contacts.'
+                    : 'Opens your share sheet, or downloads a contact file.'}
               </p>
             </motion.div>
 
