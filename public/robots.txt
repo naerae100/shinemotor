@@ -1,0 +1,10 @@
+# https://shinemotor.com.au
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /api/
+
+# Contact cards are for people who are handed the link, not for search.
+Disallow: /card/
+
+Sitemap: https://shinemotor.com.au/sitemap.xml

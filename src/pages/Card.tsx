@@ -28,6 +28,7 @@ import type { Person } from '../content/team'
 import { vcardUrl } from '../lib/vcard'
 import { whatsappUrl } from '../lib/whatsapp'
 import { useSeo } from '../lib/seo'
+import { personSchema } from '../lib/schema'
 import { FacebookMark, LinkedInMark, XMark, YouTubeMark } from '../components/ui/BrandMarks'
 
 const BRAND_MARKS = {
@@ -75,6 +76,13 @@ function CardView({ person }: { person: Person }) {
   useSeo(
     `${person.name} — ${person.role}, ${site.shortName}`,
     `Contact card for ${person.name}, ${person.role} at ${site.legalName}. Licensed scrap metal buyers in ${site.address.suburb}, ${site.address.state}. Save the details straight to your phone.`,
+    {
+      path: `/card/${person.slug}`,
+      // robots.txt only stops the crawl; noindex is what keeps it out of the
+      // index if someone links to the card publicly.
+      noindex: true,
+      schema: [personSchema(person.name, person.role, `/card/${person.slug}`)],
+    },
   )
 
   const reduced = useReducedMotion()

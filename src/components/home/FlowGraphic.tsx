@@ -6,7 +6,7 @@ import { SETTLE, useSettle } from '../../hooks/useSettle'
  * The hero graphic: metal in, weight taken, money out.
  *
  * One projection system, held to throughout. Anything physical — the copper
- * billets, the weighbridge deck, the load cells — is drawn isometrically as a
+ * billets, the scale deck, the load cells — is drawn isometrically as a
  * solid with a lit top face and two shaded sides. Anything digital — the
  * indicator, the payment advice — is a flat panel facing the reader, because
  * that is how a screen actually presents itself. Mixing the two on purpose is
@@ -198,7 +198,7 @@ export function FlowGraphic() {
             viewBox={wide ? '0 0 760 300' : '286 14 474 292'}
             className="block h-auto w-full"
             role="img"
-            aria-label="Copper stock is brought in, weighed at 1,450 kilograms on the yard weighbridge, and paid by EFT before you leave"
+            aria-label="Copper stock is brought in, weighed at 1,450 kilograms on the yard scales in front of you, and paid by EFT before you leave"
           >
             <defs>
               <linearGradient id="fg-cu-top" x1="0" y1="0" x2="0.35" y2="1">
@@ -287,7 +287,7 @@ export function FlowGraphic() {
               )}
             </motion.g>
 
-            {/* ── 02 · The weighbridge ─────────────────────────────────────── */}
+            {/* ── 02 · The scales ──────────────────────────────────────────── */}
             <g>
               <ellipse cx={416} cy={232} rx={128} ry={26} fill="url(#fg-pool)" />
               {/* Load cells: the deck stands on them, not on the ground. */}

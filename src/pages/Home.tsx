@@ -1,4 +1,6 @@
 import { useSeo } from '../lib/seo'
+import { faqSchema, webSiteSchema } from '../lib/schema'
+import { faqs } from '../content/sections'
 import { HeroVisual } from '../components/home/HeroVisual'
 import { Credentials } from '../components/home/Credentials'
 import { ServicesIndex } from '../components/home/ServicesIndex'
@@ -23,6 +25,11 @@ export function Home() {
   useSeo(
     'Scrap Metal Buyers Sydney — Top Prices, Paid on the Spot',
     'Shine Motor Corporation buys copper, brass, aluminium, stainless and steel by grade at Ingleburn, NSW. A huge variety of ferrous and non-ferrous metals, instant EFT, free pickup across NSW & ACT. WhatsApp us a photo for a price.',
+    {
+      path: '/',
+      // Only the questions actually rendered by <HomeFaq /> are marked up.
+      schema: [webSiteSchema(), faqSchema(faqs)],
+    },
   )
 
   return (

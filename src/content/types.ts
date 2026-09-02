@@ -59,7 +59,7 @@ export interface Pillar {
 
 export type MaterialFamily =
   | 'Aluminium'
-  | 'Appliance'
+  | 'AC Units'
   | 'Battery'
   | 'Brass'
   | 'Copper'

@@ -7,6 +7,7 @@ import { Reveal, RevealItem } from '../components/ui/Reveal'
 import { Glow } from '../components/ui/SectionHead'
 import { QuoteChip } from '../components/ui/Button'
 import { useSeo } from '../lib/seo'
+import { breadcrumbSchema, metalSchema } from '../lib/schema'
 import { waForMaterial } from '../lib/whatsapp'
 
 /** One grade in full: what it is, what it accepts, what it rejects, how to prep it. */
@@ -15,10 +16,24 @@ export function MetalDetail() {
   const metal = metalBySlug(slug)
 
   useSeo(
-    metal ? `${metal.grade} — ${metal.family} We Buy` : 'Metal grade',
+    metal ? `${metal.grade} Scrap Prices Sydney — ${metal.family} We Buy` : 'Metal grade',
     metal
-      ? `${metal.summary} Shine Motor Corporation buys ${metal.grade} at Ingleburn, NSW. See what the grade accepts and rejects, and get a price.`
+      ? `${metal.summary} Shine Motor Corporation buys ${metal.grade} by the grade at Ingleburn, NSW. See exactly what the grade accepts and rejects, how to prepare it, and get a price the same day.`
       : '',
+    {
+      path: metal ? `/metals/${metal.slug}` : undefined,
+      type: 'article',
+      image: metal?.image.src,
+      schema: metal
+        ? [
+            metalSchema(metal.grade, metal.detail, `/metals/${metal.slug}`, metal.image.src),
+            breadcrumbSchema([
+              { label: 'Metals we buy', path: '/metals' },
+              { label: metal.grade },
+            ]),
+          ]
+        : undefined,
+    },
   )
 
   if (!metal) return <Navigate to="/metals" replace />

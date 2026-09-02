@@ -7,6 +7,7 @@ import { PageHero } from '../components/layout/PageHero'
 import { QuoteChip } from '../components/ui/Button'
 import { Reveal, RevealItem } from '../components/ui/Reveal'
 import { useSeo } from '../lib/seo'
+import { breadcrumbSchema } from '../lib/schema'
 import { WA_GENERAL } from '../lib/whatsapp'
 
 /**
@@ -17,6 +18,7 @@ export function Metals() {
   useSeo(
     'Metals We Buy — Every Grade We Accept',
     'Copper, brass, aluminium, stainless steel, lead, motors and more. Every grade Shine Motor Corporation buys, with exactly what each one accepts and rejects.',
+    { path: '/metals', schema: [breadcrumbSchema([{ label: 'Metals we buy' }])] },
   )
 
   const [filter, setFilter] = useState<Family | 'All'>('All')

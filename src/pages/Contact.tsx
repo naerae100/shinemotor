@@ -6,6 +6,7 @@ import { PageHero } from '../components/layout/PageHero'
 import { QuoteForm } from '../components/forms/QuoteForm'
 import { Reveal, RevealItem } from '../components/ui/Reveal'
 import { useSeo } from '../lib/seo'
+import { breadcrumbSchema } from '../lib/schema'
 import { WA_GENERAL, WHATSAPP_DISPLAY } from '../lib/whatsapp'
 
 const areas = [
@@ -18,6 +19,7 @@ export function Contact() {
   useSeo(
     'Contact Us — Ingleburn Scrap Metal Yard',
     'Call, WhatsApp or visit Shine Motor Corporation at 8 Noonan Rd, Ingleburn NSW 2565. Open Mon–Fri 7am–5pm and Sat 7am–1pm. Servicing all of NSW and the ACT.',
+    { path: '/contact', schema: [breadcrumbSchema([{ label: 'Contact' }])] },
   )
 
   return (

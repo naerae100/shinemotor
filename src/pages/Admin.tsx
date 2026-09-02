@@ -3,8 +3,11 @@ import { Loader2, Save, LogOut, CheckCircle2, ChevronLeft } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { families } from '../content/metals'
 import priceData from '../content/prices.json'
+import { useSeo } from '../lib/seo'
 
 export function Admin() {
+  useSeo('Admin', 'Internal price administration.', { noindex: true })
+
   const [password, setPassword] = useState('')
   const [authenticated, setAuthenticated] = useState(false)
   const [loading, setLoading] = useState(false)

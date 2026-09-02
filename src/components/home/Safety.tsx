@@ -19,8 +19,8 @@ const safetyCulture = [
   },
   {
     icon: AlertTriangle,
-    title: 'Hazard Management',
-    body: 'Sealed cylinders, gas bottles and hazardous materials managed to strict protocols.',
+    title: 'What we cannot accept',
+    body: 'Sealed cylinders, gas bottles and hazardous materials are not allowed on site. Please degas and make safe before you come.',
   },
 ]
 

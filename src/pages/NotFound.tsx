@@ -4,7 +4,11 @@ import { Glow } from '../components/ui/SectionHead'
 import { useSeo } from '../lib/seo'
 
 export function NotFound() {
-  useSeo('Page not found', 'That page does not exist. Head back to the homepage or call the yard.')
+  useSeo(
+    'Page not found',
+    'That page does not exist. Head back to the homepage or call the yard.',
+    { noindex: true },
+  )
 
   return (
     <section className="relative flex min-h-[70svh] items-center overflow-hidden bg-void">

@@ -65,12 +65,12 @@ export function HeroVisual() {
           <motion.h1 {...rise(0.08)} className="mt-6 font-display text-d1 text-bright">
             Bring your metal.
             <br />
-            <span className="text-flame">Leave with cash.</span>
+            <span className="text-flame">Leave paid.</span>
           </motion.h1>
 
           <motion.p {...rise(0.16)} className="measure mt-6 text-lead text-muted">
             The fastest turnaround in Ingleburn. No estimations, just top rates. We
-            weigh it in front of you and process instant EFT before you drive out.
+            weigh it in front of you and pay by instant EFT before you drive out.
           </motion.p>
 
           <motion.div {...rise(0.24)} className="mt-10">

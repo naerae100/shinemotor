@@ -91,44 +91,72 @@ export function Header() {
 
             {/* Services dropdown */}
             <div className="relative" onMouseEnter={() => setMenu('services')}>
-              <button
-                type="button"
-                onClick={() => setMenu(menu === 'services' ? null : 'services')}
-                aria-expanded={menu === 'services'}
-                className={`flex items-center gap-1.5 text-[15px] font-medium transition-colors ${
-                  pathname.startsWith('/services') ? 'text-amber' : 'text-muted hover:text-bright'
+              {/* The label is a link, not a toggle: "Services" is a real page and
+                  had no way to be reached from the nav. The chevron beside it
+                  owns the dropdown. */}
+              <div
+                className={`flex items-center gap-1 text-[15px] font-medium transition-colors ${
+                  pathname.startsWith('/services') ? 'text-amber' : 'text-muted'
                 }`}
               >
-                Services
-                <ChevronDown
-                  aria-hidden
-                  className={`size-4 transition-transform duration-200 ${
-                    menu === 'services' ? 'rotate-180' : ''
-                  }`}
-                  strokeWidth={2}
-                />
-              </button>
+                <NavLink
+                  to="/services"
+                  className="transition-colors hover:text-bright"
+                  onClick={() => setMenu(null)}
+                >
+                  Services
+                </NavLink>
+                <button
+                  type="button"
+                  onClick={() => setMenu(menu === 'services' ? null : 'services')}
+                  aria-expanded={menu === 'services'}
+                  aria-label={menu === 'services' ? 'Close Services menu' : 'Open Services menu'}
+                  className="-m-1 p-1 transition-colors hover:text-bright"
+                >
+                  <ChevronDown
+                    aria-hidden
+                    className={`size-4 transition-transform duration-200 ${
+                      menu === 'services' ? 'rotate-180' : ''
+                    }`}
+                    strokeWidth={2}
+                  />
+                </button>
+              </div>
             </div>
 
             {/* Metals dropdown */}
             <div className="relative" onMouseEnter={() => setMenu('metals')}>
-              <button
-                type="button"
-                onClick={() => setMenu(menu === 'metals' ? null : 'metals')}
-                aria-expanded={menu === 'metals'}
-                className={`flex items-center gap-1.5 text-[15px] font-medium transition-colors ${
-                  pathname.startsWith('/metals') ? 'text-amber' : 'text-muted hover:text-bright'
+              {/* The label is a link, not a toggle: "Metals we buy" is a real page and
+                  had no way to be reached from the nav. The chevron beside it
+                  owns the dropdown. */}
+              <div
+                className={`flex items-center gap-1 text-[15px] font-medium transition-colors ${
+                  pathname.startsWith('/metals') ? 'text-amber' : 'text-muted'
                 }`}
               >
-                Metals we buy
-                <ChevronDown
-                  aria-hidden
-                  className={`size-4 transition-transform duration-200 ${
-                    menu === 'metals' ? 'rotate-180' : ''
-                  }`}
-                  strokeWidth={2}
-                />
-              </button>
+                <NavLink
+                  to="/metals"
+                  className="transition-colors hover:text-bright"
+                  onClick={() => setMenu(null)}
+                >
+                  Metals we buy
+                </NavLink>
+                <button
+                  type="button"
+                  onClick={() => setMenu(menu === 'metals' ? null : 'metals')}
+                  aria-expanded={menu === 'metals'}
+                  aria-label={menu === 'metals' ? 'Close Metals we buy menu' : 'Open Metals we buy menu'}
+                  className="-m-1 p-1 transition-colors hover:text-bright"
+                >
+                  <ChevronDown
+                    aria-hidden
+                    className={`size-4 transition-transform duration-200 ${
+                      menu === 'metals' ? 'rotate-180' : ''
+                    }`}
+                    strokeWidth={2}
+                  />
+                </button>
+              </div>
             </div>
 
             <NavLink to="/prices" className={linkClass}>
@@ -276,7 +304,13 @@ export function Header() {
                 <Link to="/" className="border-b border-hairline py-4 font-display text-xl text-bright">
                   Home
                 </Link>
-                <p className="eyebrow pt-6 pb-2 text-amber">Services</p>
+                <Link
+                  to="/services"
+                  className="flex items-center justify-between border-b border-hairline py-4 font-display text-xl text-bright"
+                >
+                  Services
+                  <span className="eyebrow text-amber">All</span>
+                </Link>
                 {services.map((s) => (
                   <Link
                     key={s.slug}
@@ -286,12 +320,12 @@ export function Header() {
                     {s.short}
                   </Link>
                 ))}
-                <p className="eyebrow pt-6 pb-2 text-amber">Metals we buy</p>
                 <Link
                   to="/metals"
-                  className="border-b border-hairline py-3.5 text-[16px] text-bright"
+                  className="flex items-center justify-between border-b border-hairline py-4 font-display text-xl text-bright"
                 >
-                  All grades
+                  Metals we buy
+                  <span className="eyebrow text-amber">All grades</span>
                 </Link>
                 {families.map((f) => (
                   <Link

@@ -6,12 +6,14 @@ import { PageHero } from '../components/layout/PageHero'
 import { Reveal, RevealItem } from '../components/ui/Reveal'
 import { SectionHead } from '../components/ui/SectionHead'
 import { useSeo } from '../lib/seo'
+import { breadcrumbSchema } from '../lib/schema'
 import { WA_GENERAL } from '../lib/whatsapp'
 
 export function Services() {
   useSeo(
     'Our Services — Scrap Metal Buying & Wholesale Supply',
     'Sell your ferrous and non-ferrous scrap metal, or buy prepared graded stock for mills and export. Shine Motor Corporation, Ingleburn NSW — servicing all of NSW and the ACT.',
+    { path: '/services', schema: [breadcrumbSchema([{ label: 'Services' }])] },
   )
 
   return (

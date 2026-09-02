@@ -7,6 +7,7 @@ import { PageHero } from '../components/layout/PageHero'
 import { Reveal, RevealItem } from '../components/ui/Reveal'
 import { SectionHead } from '../components/ui/SectionHead'
 import { useSeo } from '../lib/seo'
+import { breadcrumbSchema, organizationSchema } from '../lib/schema'
 
 /** Global branches, from research/current-site-content.md §5. */
 const branches = [
@@ -38,6 +39,7 @@ export function About() {
   useSeo(
     'About Us — Trading Since 1973',
     'Shine Motor Corporation Pty Ltd is part of a group trading since 1973, with twelve branches worldwide. We process, sort and prepare scrap at our own Ingleburn facility for steel mills, brokers and exporters.',
+    { path: '/about', schema: [organizationSchema(), breadcrumbSchema([{ label: 'About' }])] },
   )
 
   return (
@@ -87,7 +89,7 @@ export function About() {
                 <p className="mt-5 text-muted">
                   We are direct wholesalers from the local market and we deal
                   with major shipping lines worldwide. That downstream reach is
-                  what lets us pay competitively at the weighbridge: we are not
+                  what lets us pay competitively on the scales: we are not
                   selling your metal to another middleman.
                 </p>
               </RevealItem>

@@ -14,6 +14,7 @@ import { site } from '../content/site'
 import { PageHero } from '../components/layout/PageHero'
 import { Reveal } from '../components/ui/Reveal'
 import { useSeo } from '../lib/seo'
+import { breadcrumbSchema } from '../lib/schema'
 import { waForMaterial, WA_GENERAL } from '../lib/whatsapp'
 
 const UNIT_LABEL: Record<string, string> = { kg: 'per kg', tonne: 'per tonne', each: 'each' }
@@ -22,6 +23,7 @@ export function Prices() {
   useSeo(
     'Scrap Metal Price Guide',
     'Indicative scrap metal price ranges by grade at Shine Motor Corporation, Ingleburn NSW. Prices are a guide only and change with the market — call or email for a firm quotation.',
+    { path: '/prices', schema: [breadcrumbSchema([{ label: 'Price guide' }])] },
   )
 
   const [filter, setFilter] = useState<Family | 'All'>('All')

@@ -101,7 +101,7 @@ export const services: Service[] = [
       },
       {
         title: 'Loaded and shipped from Sydney',
-        body: 'Containers are packed at our own facility and moved through Port Botany. We deal with the major shipping lines and can arrange bookings on request.',
+        body: 'Containers are packed at our own facility and shipped from Australian ports. We deal with the major shipping lines and can arrange bookings on request.',
       },
       {
         title: 'Documentation with every shipment',
@@ -136,7 +136,7 @@ export const services: Service[] = [
 export const exportSpecs = [
   { k: 'Minimum order', v: 'One full container load (FCL)' },
   { k: 'Container types', v: "20ft and 40ft, packed to line weight limits" },
-  { k: 'Load port', v: 'Port Botany, Sydney, Australia' },
+  { k: 'Load ports', v: 'Australian container ports' },
   { k: 'Enquiries', v: 'By email only' },
   { k: 'Documentation', v: 'Packing list, weighbridge certificates, grade description' },
   { k: 'Not available', v: 'Retail, walk-in or individual piece sales' },
@@ -161,7 +161,7 @@ export const exportProcess = [
   },
   {
     n: '04',
-    title: 'Shipped from Port Botany',
+    title: 'Shipped from Australia',
     body: 'We book through the major lines and provide shipping documents so your customs clearance and mill intake are covered.',
   },
 ]

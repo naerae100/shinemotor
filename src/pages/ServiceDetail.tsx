@@ -9,6 +9,7 @@ import { QuoteForm } from '../components/forms/QuoteForm'
 import { Reveal, RevealItem } from '../components/ui/Reveal'
 import { Glow } from '../components/ui/SectionHead'
 import { useSeo } from '../lib/seo'
+import { breadcrumbSchema, serviceSchema } from '../lib/schema'
 import { waForService } from '../lib/whatsapp'
 
 export function ServiceDetail() {
@@ -18,6 +19,19 @@ export function ServiceDetail() {
   useSeo(
     service ? service.name : 'Service',
     service ? `${service.claim} ${service.intro}` : '',
+    {
+      path: service ? `/services/${service.slug}` : undefined,
+      type: 'article',
+      schema: service
+        ? [
+            serviceSchema(service.name, service.intro, `/services/${service.slug}`),
+            breadcrumbSchema([
+              { label: 'Services', path: '/services' },
+              { label: service.short },
+            ]),
+          ]
+        : undefined,
+    },
   )
 
   if (!service) return <Navigate to="/services" replace />
@@ -169,7 +183,7 @@ export function ServiceDetail() {
                 </span>
                 <h3 className="mt-5 font-display text-d3 text-bright">Shipping</h3>
                 <p className="mt-3 text-[15px] text-muted">
-                  Packed at Ingleburn and moved through Port Botany. We work with
+                  Packed at Ingleburn and shipped from Australian ports. We work with
                   the major lines and can arrange bookings on request.
                 </p>
                 <p className="mt-3 text-[13px] text-amber">

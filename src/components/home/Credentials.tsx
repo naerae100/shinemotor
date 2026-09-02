@@ -17,8 +17,8 @@ const items = [
   },
   {
     icon: Scale,
-    title: 'Our own weighbridge',
-    body: 'Every load is weighed on our own calibrated scales while you watch. Nothing is assessed out of sight or estimated.',
+    title: 'Weighed in front of you',
+    body: 'Your load goes on our calibrated scales while you watch, and you see the reading. Nothing is weighed out of sight or estimated.',
   },
   {
     icon: Banknote,

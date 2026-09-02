@@ -4,7 +4,7 @@
 
 export type Family =
   | 'Aluminium'
-  | 'Appliance'
+  | 'AC Units'
   | 'Battery'
   | 'Brass'
   | 'Copper'
@@ -37,8 +37,9 @@ export const metals: Metal[] = [
   { slug: 'cast-aluminium', grade: 'Cast Aluminium', family: 'Aluminium', summary: 'Clean aluminium castings', detail: 'Clean aluminium castings from engines and machinery.', accepted: ['Engine blocks', 'Castings'], notAccepted: ['Steel inserts', 'Heavy oil'], sources: ['Automotive', 'Machinery'], prep: 'Drain fluids and remove steel bolts.', image: { src: '/img/buy/Tense.webp', alt: 'Cast Aluminium' } },
   { slug: 'irony-aluminium', grade: 'Irony Aluminium', family: 'Aluminium', summary: 'Aluminium with iron attachments', detail: 'Aluminium items containing significant iron/steel.', accepted: ['Aluminium with steel bolts/inserts'], notAccepted: ['Excessive non-metallics'], sources: ['General scrap'], prep: 'No specific prep needed.', image: { src: '/img/buy/Tense.webp', alt: 'Irony Aluminium' } },
 
-  // ── Appliance ───────────────────────────────────────────────────────────
-  { slug: 'ac-units', grade: 'AC Units', family: 'Appliance', summary: 'Whole air conditioning units', detail: 'Complete AC units containing copper, aluminium, and steel.', accepted: ['Window ACs', 'Split system units'], notAccepted: ['Units with hazardous materials'], sources: ['HVAC contractors', 'Household'], prep: 'Must be degassed by a professional.', image: { src: '/img/buy/Electric-Motors-MIX.webp', alt: 'AC Units' } },
+  // ── AC Units ────────────────────────────────────────────────────────────
+  { slug: 'ac-units', grade: 'AC Units', family: 'AC Units', summary: 'Whole air conditioning units', detail: 'Complete air conditioning units containing recoverable copper, aluminium and steel. Units must be degassed by a licensed technician before they come to the yard.', accepted: ['Window units', 'Split system units', 'Ducted units'], notAccepted: ['Units still holding refrigerant', 'Sealed gas cylinders'], sources: ['HVAC contractors', 'Household', 'Strip-outs'], prep: 'Must be degassed by a licensed technician. Undegassed units cannot be accepted on site.', image: { src: '/img/buy/Electric-Motors-MIX.webp', alt: 'AC Units' } },
+  { slug: 'ac-units-degassed', grade: 'AC Units D Gas', family: 'AC Units', summary: 'Degassed air conditioning units', detail: 'Air conditioning units already degassed and certified, ready for processing. Degassed units are graded higher because they can go straight into the line.', accepted: ['Degassed window units', 'Degassed split systems', 'Units with a degas certificate'], notAccepted: ['Units still holding refrigerant'], sources: ['HVAC contractors', 'Licensed degassing services'], prep: 'Bring the degassing certificate if you have one.', image: { src: '/img/buy/Electric-Motors-MIX.webp', alt: 'Degassed AC Units' } },
 
   // ── Battery ─────────────────────────────────────────────────────────────
   { slug: 'batteries', grade: 'Batteries', family: 'Battery', summary: 'Lead-acid batteries', detail: 'Used lead-acid batteries from vehicles and equipment.', accepted: ['Car batteries', 'Truck batteries'], notAccepted: ['Lithium-ion batteries', 'Leaking batteries'], sources: ['Automotive', 'Solar setups'], prep: 'Keep upright to prevent acid spills.', image: { src: '/img/buy/Scrap-Lead.webp', alt: 'Batteries' } },
@@ -86,7 +87,7 @@ export const families: Family[] = [
   'Steel',
   'Motor',
   'Radiator',
-  'Appliance',
+  'AC Units',
   'Battery',
   'Lead',
 ]
@@ -107,7 +108,7 @@ export const familyImage: Record<Family, { src: string; alt: string }> = {
   Steel: { src: '/img/buy/HMS-1.webp', alt: 'Steel scrap' },
   Motor: { src: '/img/buy/Electric-Motors-MIX.webp', alt: 'Electric motors' },
   Radiator: { src: '/img/buy/Ocean.webp', alt: 'Radiators' },
-  Appliance: { src: '/img/buy/Electric-Motors-MIX.webp', alt: 'Appliances' },
+  'AC Units': { src: '/img/buy/Electric-Motors-MIX.webp', alt: 'Air conditioning units' },
   Battery: { src: '/img/buy/Scrap-Lead.webp', alt: 'Batteries' },
   Lead: { src: '/img/buy/Scrap-Lead.webp', alt: 'Lead scrap' },
 }
@@ -120,7 +121,7 @@ export const familyIntro: Record<Family, string> = {
   Steel: 'We accept everything from premium 316 stainless to heavy melting steel and light gauge scrap.',
   Motor: 'Bring in your electric motors, large industrial units, compressors, starters, and alternators.',
   Radiator: 'We purchase copper/brass, aluminium/copper, and all-aluminium radiator cores.',
-  Appliance: 'We accept whole AC units and other large appliances containing recoverable metals.',
+  'AC Units': 'We buy whole and degassed air conditioning units — window, split system and ducted — for the copper, aluminium and steel inside them. Units must be degassed by a licensed technician first.',
   Battery: 'We safely recycle lead-acid batteries from vehicles, trucks, and solar setups.',
   Lead: 'Clean soft lead solids, pipe, and flashing are purchased at daily market rates.',
 }
