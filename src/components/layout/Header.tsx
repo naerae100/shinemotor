@@ -55,7 +55,7 @@ export function Header() {
             <a
               href={WA_GENERAL}
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               className="flex items-center gap-1.5 text-[13px] font-semibold text-[#25D366] transition-opacity hover:opacity-80"
             >
               <MessageCircle aria-hidden className="size-3.5" strokeWidth={2.5} />
@@ -351,7 +351,7 @@ export function Header() {
                 <a
                   href={WA_GENERAL}
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   className="flex items-center justify-center gap-2.5 rounded-full bg-[#25D366] py-3.5 text-[15px] font-semibold text-[#0d1b14]"
                 >
                   <MessageCircle aria-hidden className="size-4" strokeWidth={2.5} />

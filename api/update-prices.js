@@ -1,22 +1,12 @@
+import { requireAdmin } from './_auth.js';
+
 export const config = {
   runtime: 'edge',
 };
 
 export default async function handler(req) {
-  if (req.method !== 'POST') {
-    return new Response(JSON.stringify({ error: 'Method not allowed' }), { status: 405 });
-  }
-
-  // Verify the password passed in the Authorization header
-  const authHeader = req.headers.get('authorization');
-  if (!authHeader || !authHeader.startsWith('Bearer ')) {
-    return new Response(JSON.stringify({ error: 'Unauthorized' }), { status: 401 });
-  }
-
-  const password = authHeader.split(' ')[1];
-  if (password !== process.env.ADMIN_PASSWORD) {
-    return new Response(JSON.stringify({ error: 'Invalid password' }), { status: 401 });
-  }
+  const denied = await requireAdmin(req);
+  if (denied) return denied;
 
   if (!process.env.GITHUB_PAT) {
     return new Response(JSON.stringify({ error: 'Server misconfiguration: GITHUB_PAT is missing' }), { status: 500 });

@@ -271,7 +271,7 @@ export function QuoteForm({ compact = false }: { compact?: boolean }) {
             <a
               href={waHref}
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-2.5 rounded-full border border-[#25D366]/40 bg-[#25D366]/10 px-7 py-3.5 text-[15px] font-semibold text-[#25D366] transition-colors hover:bg-[#25D366] hover:text-[#0d1b14]"
             >
               <MessageCircle aria-hidden className="size-4" strokeWidth={2.5} />

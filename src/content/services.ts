@@ -89,7 +89,7 @@ export const services: Service[] = [
     kind: 'export',
     channels: { whatsapp: false, phone: false, form: false, email: true },
     intro:
-      'We are direct wholesalers and exporters. Scrap is processed, sorted and prepared to grade at our own Ingleburn facility, then loaded into containers for steel mills, brokers and foundries here and overseas. All enquiries are handled by email.',
+      'We are direct wholesalers and exporters. Scrap is processed, sorted and prepared to grade at our own Ingleburn facility, then loaded into containers for steel mills, smelters, foundries and refineries in Australia and overseas.',
     includes: [
       {
         title: 'Prepared to recognised trade grades',
@@ -105,7 +105,7 @@ export const services: Service[] = [
       },
       {
         title: 'Documentation with every shipment',
-        body: 'Packing list, weighbridge certificates and grade description supplied with each container so your customs and mill intake have what they need.',
+        body: 'Packing list, weight certificates and grade description supplied with each container so your customs and mill intake have what they need.',
       },
       {
         title: 'Part of a global group',
@@ -138,7 +138,7 @@ export const exportSpecs = [
   { k: 'Container types', v: "20ft and 40ft, packed to line weight limits" },
   { k: 'Load ports', v: 'Australian container ports' },
   { k: 'Enquiries', v: 'By email only' },
-  { k: 'Documentation', v: 'Packing list, weighbridge certificates, grade description' },
+  { k: 'Documentation', v: 'Packing list, weight certificates, grade description' },
   { k: 'Not available', v: 'Retail, walk-in or individual piece sales' },
 ]
 
@@ -157,7 +157,7 @@ export const exportProcess = [
   {
     n: '03',
     title: 'Container packed and documented',
-    body: 'Stock is prepared, weighed and loaded at Ingleburn. Packing list, weighbridge certificates and grade description are issued with the shipment.',
+    body: 'Stock is prepared, weighed and loaded at Ingleburn. Packing list, weight certificates and grade description are issued with the shipment.',
   },
   {
     n: '04',

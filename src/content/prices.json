@@ -50,19 +50,10 @@
       "high": null
     },
     {
-      "slug": "ac-units",
-      "grade": "AC Units",
-      "family": "AC Units",
-      "spec": "Whole AC units",
-      "unit": "each",
-      "low": null,
-      "high": null
-    },
-    {
-      "slug": "ac-units-degassed",
+      "slug": "ac-units-d-gas",
       "grade": "AC Units D Gas",
       "family": "AC Units",
-      "spec": "Degassed AC units",
+      "spec": "Degassed AC units only",
       "unit": "each",
       "low": null,
       "high": null

@@ -40,7 +40,7 @@ export function ContactCta() {
             <a
               href={WA_GENERAL}
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               className="flex h-full flex-col items-center rounded-2xl border border-[#25D366]/35 bg-[#25D366]/[0.07] p-7 text-center lift hover:border-[#25D366] hover:bg-[#25D366]/[0.13]"
             >
               <span className="flex size-12 items-center justify-center rounded-full bg-[#25D366]">

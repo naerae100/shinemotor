@@ -1,13 +1,14 @@
 import { Link, Navigate, useParams } from 'react-router-dom'
-import { ArrowRight, Check, MessageCircle, Phone, X } from 'lucide-react'
+import { ArrowRight, ArrowUpRight, Check, MessageCircle, Phone, X } from 'lucide-react'
 import { metalBySlug, metalsByFamily } from '../content/metals'
+import { metalSeo } from '../content/metal-seo'
 import { site } from '../content/site'
 import { Breadcrumbs } from '../components/layout/Breadcrumbs'
 import { Reveal, RevealItem } from '../components/ui/Reveal'
 import { Glow } from '../components/ui/SectionHead'
 import { QuoteChip } from '../components/ui/Button'
 import { useSeo } from '../lib/seo'
-import { breadcrumbSchema, metalSchema } from '../lib/schema'
+import { breadcrumbSchema, faqSchema, metalSchema } from '../lib/schema'
 import { waForMaterial } from '../lib/whatsapp'
 
 /** One grade in full: what it is, what it accepts, what it rejects, how to prep it. */
@@ -31,6 +32,10 @@ export function MetalDetail() {
               { label: 'Metals we buy', path: '/metals' },
               { label: metal.grade },
             ]),
+            // Only marked up where the questions are actually rendered below.
+            ...(metalSeo[metal.slug]?.faq?.length
+              ? [faqSchema(metalSeo[metal.slug].faq!)]
+              : []),
           ]
         : undefined,
     },
@@ -39,6 +44,10 @@ export function MetalDetail() {
   if (!metal) return <Navigate to="/metals" replace />
 
   const related = metalsByFamily(metal.family).filter((m) => m.slug !== metal.slug)
+  const seo = metalSeo[metal.slug]
+  const relatedSeo = (seo?.related ?? [])
+    .map((slug) => metalBySlug(slug))
+    .filter((m): m is NonNullable<typeof m> => Boolean(m))
 
   return (
     <>
@@ -66,7 +75,7 @@ export function MetalDetail() {
                   <a
                     href={waForMaterial(`${metal.grade} (${metal.family})`)}
                     target="_blank"
-                    rel="noreferrer"
+                    rel="noopener noreferrer"
                     className="inline-flex items-center gap-2.5 rounded-full bg-[#25D366] px-7 py-3.5 text-[15px] font-semibold text-[#0d1b14] shadow-[0_12px_30px_-12px_rgba(37,211,102,0.7)]"
                   >
                     <MessageCircle aria-hidden className="size-[18px]" strokeWidth={2.5} />
@@ -164,6 +173,78 @@ export function MetalDetail() {
               </p>
             </RevealItem>
           </Reveal>
+
+          {/* Long-form grade content — what a search engine ranks on, and what
+              a seller reads before deciding the trip is worth it. Source:
+              content/metal-seo.ts, one entry per grade. */}
+          {seo && (
+            <Reveal stagger className="mt-14 grid gap-10 lg:grid-cols-12">
+              <RevealItem className="lg:col-span-7">
+                <h2 className="font-display text-d3 text-bright">About {metal.grade}</h2>
+                <div className="measure mt-5 space-y-4">
+                  {seo.body.map((para) => (
+                    <p key={para.slice(0, 40)} className="text-muted">
+                      {para}
+                    </p>
+                  ))}
+                </div>
+
+                {seo.faq && seo.faq.length > 0 && (
+                  <div className="mt-10">
+                    <h3 className="font-display text-xl text-bright">Common questions</h3>
+                    <dl className="mt-5 space-y-5">
+                      {seo.faq.map((f) => (
+                        <div key={f.q} className="border-l-2 border-flame/40 pl-5">
+                          <dt className="font-semibold text-bright">{f.q}</dt>
+                          <dd className="measure mt-2 text-muted">{f.a}</dd>
+                        </div>
+                      ))}
+                    </dl>
+                  </div>
+                )}
+              </RevealItem>
+
+              {/* Internal links: the grades that genuinely arrive in the same
+                  trailer, not a generic "related items" rail. */}
+              <RevealItem className="lg:col-span-5">
+                <div className="rounded-2xl border border-hairline bg-surface p-7">
+                  <h3 className="eyebrow text-amber">Often brought in together</h3>
+                  <ul className="mt-5 space-y-1">
+                    {relatedSeo.map((r) => (
+                      <li key={r.slug}>
+                        <Link
+                          to={`/metals/${r.slug}`}
+                          className="group flex items-start justify-between gap-4 rounded-xl px-3 py-3 transition-colors hover:bg-surface-2"
+                        >
+                          <span className="min-w-0">
+                            <span className="block text-[15px] font-semibold text-bright">
+                              {r.grade}
+                            </span>
+                            <span className="mt-0.5 block text-[13px] text-muted">
+                              {r.summary}
+                            </span>
+                          </span>
+                          <ArrowUpRight
+                            aria-hidden
+                            className="mt-0.5 size-4 shrink-0 text-faint transition-all group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-amber"
+                            strokeWidth={2}
+                          />
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="mt-5 border-t border-hairline pt-5">
+                    <Link
+                      to="/prices"
+                      className="text-[14px] font-semibold text-amber transition-colors hover:text-flame"
+                    >
+                      See the full price guide &rarr;
+                    </Link>
+                  </div>
+                </div>
+              </RevealItem>
+            </Reveal>
+          )}
 
           <Reveal className="mt-10 flex flex-wrap items-center justify-between gap-6 rounded-2xl border border-hairline bg-surface px-7 py-6">
             <p className="font-display text-lg text-bright">

@@ -46,7 +46,7 @@ export function Reviews() {
                 <a
                   href={googleReviews.listing}
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   className="flex items-center gap-1.5 text-[14px] text-muted transition-colors hover:text-bright"
                 >
                   <GoogleMark aria-hidden className="size-4" />
@@ -214,7 +214,7 @@ export function ReviewCta({ className = '' }: { className?: string }) {
     <a
       href={googleReviews.write}
       target="_blank"
-      rel="noreferrer"
+      rel="noopener noreferrer"
       className={`group inline-flex min-h-11 items-center justify-center gap-2.5 rounded-full border border-hairline bg-void/60 px-6 text-[14px] font-semibold text-bright transition-colors duration-200 hover:border-flame hover:bg-void ${className}`}
     >
       <GoogleMark aria-hidden className="size-[18px]" />

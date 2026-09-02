@@ -421,7 +421,7 @@ function CardView({ person }: { person: Person }) {
                       <a
                         href={s.href}
                         target="_blank"
-                        rel="noreferrer"
+                        rel="noopener noreferrer"
                         className="flex size-11 items-center justify-center rounded-xl transition-colors duration-200"
                         style={{ border: `1px solid ${C.line}`, color: C.faint }}
                         onMouseEnter={(e) => {

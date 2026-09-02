@@ -38,7 +38,7 @@ const commitments = [
 export function About() {
   useSeo(
     'About Us — Trading Since 1973',
-    'Shine Motor Corporation Pty Ltd is part of a group trading since 1973, with twelve branches worldwide. We process, sort and prepare scrap at our own Ingleburn facility for steel mills, brokers and exporters.',
+    'Shine Motor Corporation Pty Ltd is part of a group trading since 1973, with twelve branches worldwide. We process, sort and prepare scrap at our own Ingleburn facility and supply it directly to steel mills, smelters, foundries and refineries in Australia and overseas.',
     { path: '/about', schema: [organizationSchema(), breadcrumbSchema([{ label: 'About' }])] },
   )
 
@@ -81,7 +81,7 @@ export function About() {
               <RevealItem>
                 <p className="mt-6 text-lead text-muted">
                   Scrap is processed, sorted and prepared at our own facility
-                  before it is sold on to steel mills, brokers and exporters —
+                  before it is supplied directly to steel mills, smelters, foundries
                   across the country and internationally.
                 </p>
               </RevealItem>

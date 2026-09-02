@@ -80,7 +80,7 @@ export function Logistics() {
               <a
                 href={action.href}
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 className="mt-5 inline-flex items-center justify-center rounded-full border border-hairline bg-void/60 py-3 text-[14px] font-semibold text-bright transition-colors hover:border-flame hover:text-amber"
               >
                 {action.label}

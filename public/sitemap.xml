@@ -79,13 +79,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://shinemotor.com.au/metals/ac-units</loc>
-    <lastmod>2026-09-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://shinemotor.com.au/metals/ac-units-degassed</loc>
+    <loc>https://shinemotor.com.au/metals/ac-units-d-gas</loc>
     <lastmod>2026-09-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>

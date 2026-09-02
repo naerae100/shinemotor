@@ -10,7 +10,7 @@ import { Reveal, RevealItem } from '../components/ui/Reveal'
 import { Glow } from '../components/ui/SectionHead'
 import { useSeo } from '../lib/seo'
 import { breadcrumbSchema, serviceSchema } from '../lib/schema'
-import { waForService } from '../lib/whatsapp'
+import { WA_EXPORT, waForService } from '../lib/whatsapp'
 
 export function ServiceDetail() {
   const { slug = '' } = useParams()
@@ -81,13 +81,13 @@ export function ServiceDetail() {
                 <div className="mt-9 flex flex-wrap gap-3">
                   {service.channels.whatsapp && (
                     <a
-                      href={waForService(service.name.toLowerCase())}
+                      href={isExport ? WA_EXPORT : waForService(service.name.toLowerCase())}
                       target="_blank"
-                      rel="noreferrer"
+                      rel="noopener noreferrer"
                       className="inline-flex items-center gap-2.5 rounded-full bg-[#25D366] px-7 py-3.5 text-[15px] font-semibold text-[#0d1b14] shadow-[0_12px_30px_-12px_rgba(37,211,102,0.7)]"
                     >
                       <MessageCircle aria-hidden className="size-[18px]" strokeWidth={2.5} />
-                      WhatsApp a photo
+                      {isExport ? 'WhatsApp the trade desk' : 'WhatsApp a photo'}
                     </a>
                   )}
                   {service.channels.phone && (
@@ -350,9 +350,9 @@ export function ServiceDetail() {
 
                 <div className="mt-8 space-y-3">
                   <a
-                    href={waForService(service.name.toLowerCase())}
+                    href={isExport ? WA_EXPORT : waForService(service.name.toLowerCase())}
                     target="_blank"
-                    rel="noreferrer"
+                    rel="noopener noreferrer"
                     className="flex items-center gap-4 rounded-2xl border border-[#25D366]/35 bg-[#25D366]/[0.07] px-5 py-4 lift hover:border-[#25D366]"
                   >
                     <span className="flex size-10 shrink-0 items-center justify-center rounded-full bg-[#25D366]">

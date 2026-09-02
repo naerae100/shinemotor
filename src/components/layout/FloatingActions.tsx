@@ -35,7 +35,7 @@ export function FloatingActions() {
             <a
               href={WA_GENERAL}
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               className="flex items-center gap-3 rounded-full border border-[#25D366]/40 bg-[#0d1b14] py-3 pr-5 pl-4 shadow-[0_12px_30px_-12px_rgba(0,0,0,0.9)] transition-colors hover:border-[#25D366]"
             >
               <span className="flex size-8 items-center justify-center rounded-full bg-[#25D366]">

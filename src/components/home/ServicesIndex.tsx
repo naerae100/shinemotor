@@ -4,7 +4,7 @@ import { services } from '../../content/services'
 import { metals } from '../../content/metals'
 import { site } from '../../content/site'
 import { useRequestQuote } from '../../hooks/useQuotePrefill'
-import { waForService } from '../../lib/whatsapp'
+import { WA_EXPORT, waForService } from '../../lib/whatsapp'
 import { Reveal, RevealItem } from '../ui/Reveal'
 import { SectionHead } from '../ui/SectionHead'
 
@@ -88,15 +88,15 @@ export function ServicesIndex() {
                 {/* ── Quick connect ─────────────────────────────────────── */}
                 <div className="mt-auto pt-6">
                   <p className="eyebrow text-muted">
-                    {service.kind === 'export' ? 'Enquiries by email only' : 'Quick connect'}
+                    {service.kind === 'export' ? 'Trade enquiries' : 'Quick connect'}
                   </p>
 
                   <div className="mt-3 grid gap-2.5 sm:grid-cols-2">
                     {service.channels.whatsapp && (
                       <a
-                        href={waForService(service.name.toLowerCase())}
+                        href={service.kind === 'export' ? WA_EXPORT : waForService(service.name.toLowerCase())}
                         target="_blank"
-                        rel="noreferrer"
+                        rel="noopener noreferrer"
                         className="flex items-center justify-center gap-2 rounded-full bg-[#25D366] py-3 text-[14px] font-semibold text-[#0d1b14] transition-transform duration-200 hover:scale-[1.02]"
                       >
                         <MessageCircle aria-hidden className="size-4" strokeWidth={2.5} />

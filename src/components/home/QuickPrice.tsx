@@ -99,7 +99,7 @@ export function QuickPrice() {
         <a
           href={whatsappUrl(messageBody)}
           target="_blank"
-          rel="noreferrer"
+          rel="noopener noreferrer"
           className="flex w-full items-center justify-center gap-2.5 rounded-full bg-[#25D366] py-3.5 text-[15px] font-semibold text-[#0d1b14] shadow-[0_12px_30px_-12px_rgba(37,211,102,0.8)] transition-transform duration-200 hover:scale-[1.015]"
         >
           <MessageCircle aria-hidden className="size-[18px]" strokeWidth={2.5} />

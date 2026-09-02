@@ -53,7 +53,7 @@ export function Prices() {
             <a
               href={WA_GENERAL}
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-2.5 rounded-full bg-[#25D366] px-7 py-3.5 text-[15px] font-semibold text-[#0d1b14]"
             >
               <MessageCircle aria-hidden className="size-[18px]" strokeWidth={2.5} />
@@ -161,7 +161,7 @@ export function Prices() {
                         <a
                           href={waForMaterial(`${row.grade} (${row.family})`)}
                           target="_blank"
-                          rel="noreferrer"
+                          rel="noopener noreferrer"
                           className="inline-flex items-center gap-1.5 rounded-full border border-flame/35 bg-flame/10 px-3.5 py-1.5 text-[13px] font-semibold text-amber transition-colors hover:border-flame hover:bg-flame hover:text-on-flame"
                         >
                           Call for price

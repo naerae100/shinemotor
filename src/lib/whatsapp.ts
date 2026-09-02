@@ -29,3 +29,17 @@ export function waForMaterial(material: string): string {
 export function waForService(service: string): string {
   return whatsappUrl(`Hi Shine Motor, I'm enquiring about ${service}.`)
 }
+
+/**
+ * Opener for container-load export enquiries.
+ *
+ * Deliberately different from the retail opener: an export buyer is asking
+ * about grades, tonnage and destination port, not "what's my load worth". The
+ * message pre-states that so the yard can answer in one reply instead of
+ * establishing the basics first — and it signals to the sender that this line
+ * is for trade, not walk-ins.
+ */
+export const WA_EXPORT = whatsappUrl(
+  "Hi Shine Motor, I'm enquiring about container-load export supply. " +
+    'Company: \nGrades required: \nTonnage / containers per month: \nDestination port: ',
+)

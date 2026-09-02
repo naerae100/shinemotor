@@ -40,7 +40,7 @@ export function Metals() {
             <a
               href={WA_GENERAL}
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-2.5 rounded-full bg-[#25D366] px-7 py-3.5 text-[15px] font-semibold text-[#0d1b14]"
             >
               WhatsApp us a photo

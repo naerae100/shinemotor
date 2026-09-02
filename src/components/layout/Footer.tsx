@@ -1,4 +1,4 @@
-import { Mail, MapPin, MessageCircle, Phone } from 'lucide-react'
+import { ExternalLink, Mail, MapPin, MessageCircle, Phone } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { addressLine, site } from '../../content/site'
 import { families, metalsByFamily } from '../../content/metals'
@@ -38,7 +38,7 @@ export function Footer() {
               <a
                 href={WA_GENERAL}
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2.5 rounded-full border border-[#25D366]/40 bg-[#25D366]/10 px-7 py-3.5 text-[15px] font-semibold text-[#25D366] transition-colors hover:bg-[#25D366] hover:text-[#0d1b14]"
               >
                 <MessageCircle aria-hidden className="size-4" strokeWidth={2.5} />
@@ -88,7 +88,7 @@ export function Footer() {
                   <a
                     href={site.address.mapUrl}
                     target="_blank"
-                    rel="noreferrer"
+                    rel="noopener noreferrer"
                     className="flex min-h-9 items-start gap-3 py-1 text-[15px] text-muted transition-colors hover:text-bright"
                   >
                     <MapPin aria-hidden className="mt-1 size-4 shrink-0 text-amber/70" strokeWidth={2} />
@@ -172,6 +172,55 @@ export function Footer() {
             </div>
           </div>
 
+          {/* Regulatory references.
+              Outbound links to the actual authorities rather than a paragraph
+              claiming compliance — a seller can check for themselves, and it is
+              the kind of corroboration search engines read as expertise. All
+              carry rel="noopener" and open in a new tab so the visitor does not
+              lose their place mid-enquiry. */}
+          <div className="mt-14 border-t border-hairline pt-9">
+            <p className="eyebrow text-amber">Regulation &amp; references</p>
+            <ul className="mt-5 grid gap-x-8 gap-y-3 sm:grid-cols-2 lg:grid-cols-4">
+              {[
+                {
+                  label: 'NSW EPA',
+                  note: 'Waste and recycling regulation',
+                  href: 'https://www.epa.nsw.gov.au/',
+                },
+                {
+                  label: 'Scrap Metal Industry Act 2016',
+                  note: 'Why payment is EFT, never cash',
+                  href: 'https://legislation.nsw.gov.au/view/html/inforce/current/act-2016-069',
+                },
+                {
+                  label: 'ARCtick',
+                  note: 'Licensed refrigerant handling',
+                  href: 'https://www.arctick.org/',
+                },
+                {
+                  label: 'Return and Earn',
+                  note: 'Container deposits in NSW',
+                  href: 'https://returnandearn.org.au/',
+                },
+              ].map((r) => (
+                <li key={r.href}>
+                  <a
+                    href={r.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group flex min-h-11 flex-col justify-center"
+                  >
+                    <span className="flex items-center gap-1.5 text-[14px] font-semibold text-bright transition-colors group-hover:text-amber">
+                      {r.label}
+                      <ExternalLink aria-hidden className="size-3 text-faint" strokeWidth={2} />
+                    </span>
+                    <span className="text-[13px] text-muted">{r.note}</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
           <div className="mt-14 flex flex-col gap-5 border-t border-hairline pt-7 sm:flex-row sm:items-center sm:justify-between">
             <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-6">
               <p className="text-[13px] text-muted">
@@ -187,7 +236,7 @@ export function Footer() {
                     <a
                       href={s.href}
                       target="_blank"
-                      rel="noreferrer"
+                      rel="noopener noreferrer"
                       /* 44px target — the icon is 18px, the button carries the rest. */
                       className="group flex size-11 items-center justify-center rounded-full border border-hairline bg-surface text-muted transition-all duration-200 hover:border-flame/50 hover:bg-surface-2 hover:text-amber"
                     >
