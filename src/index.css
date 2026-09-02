@@ -42,8 +42,9 @@
   --font-sans: 'IBM Plex Sans', system-ui, -apple-system, sans-serif;
   --font-mono: 'IBM Plex Mono', ui-monospace, 'SF Mono', monospace;
 
-  /* Home hero only. */
-  --text-d1: clamp(2.6rem, 5.4vw, 4.5rem);
+  /* Home hero only, and sized for the headline that lives there: at 61
+     characters it runs three lines in the left column, not five. */
+  --text-d1: clamp(2.15rem, 4.2vw, 3.5rem);
   --text-d1--line-height: 1.02;
   --text-d1--letter-spacing: -0.04em;
 

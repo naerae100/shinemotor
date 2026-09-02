@@ -62,10 +62,17 @@ export function HeroVisual() {
             </span>
           </motion.div>
 
-          <motion.h1 {...rise(0.08)} className="mt-6 font-display text-d1 text-bright">
-            Bring your metal.
-            <br />
-            <span className="text-flame">Leave paid.</span>
+          {/* The <h1> is the page's strongest on-page ranking signal, so it
+              carries the terms people actually search — "scrap metal yard" and
+              "Sydney" — rather than a slogan. "Paid on the spot" is accurate:
+              EFT is processed before you leave the yard, which is what "on the
+              spot" means. It is not a claim that we pay cash. */}
+          <motion.h1
+            {...rise(0.08)}
+            className="mt-6 text-balance font-display text-d1 text-bright"
+          >
+            Sydney&rsquo;s best scrap metal yard.{' '}
+            <span className="text-flame">Top prices, paid on the spot.</span>
           </motion.h1>
 
           <motion.p {...rise(0.16)} className="measure mt-6 text-lead text-muted">
