@@ -91,7 +91,7 @@ export function ServicesIndex() {
                     {service.kind === 'export' ? 'Trade enquiries' : 'Quick connect'}
                   </p>
 
-                  <div className="mt-3 grid gap-2.5 sm:grid-cols-2">
+                  <div className="mt-3 grid grid-cols-2 gap-2.5">
                     {service.channels.whatsapp && (
                       <a
                         href={service.kind === 'export' ? WA_EXPORT : waForService(service.name.toLowerCase())}
@@ -117,10 +117,11 @@ export function ServicesIndex() {
                     {service.channels.email && (
                       <a
                         href={`mailto:${site.email}?subject=${encodeURIComponent('Container export enquiry')}`}
-                        className="grad-flame flex items-center justify-center gap-2 rounded-full py-3 text-[14px] font-semibold text-on-flame shadow-[0_10px_26px_-12px_rgba(255,122,24,0.7)] sm:col-span-2"
+                        className="grad-flame flex items-center justify-center gap-2 rounded-full py-3 text-[14px] font-semibold text-on-flame shadow-[0_10px_26px_-12px_rgba(255,122,24,0.7)]"
                       >
-                        <Mail aria-hidden className="size-4" strokeWidth={2.25} />
-                        Email your enquiry
+                        <Mail aria-hidden className="size-4 shrink-0" strokeWidth={2.25} />
+                        <span className="sm:hidden">Email</span>
+                        <span className="hidden sm:inline">Email your enquiry</span>
                       </a>
                     )}
 
@@ -128,7 +129,7 @@ export function ServicesIndex() {
                       <button
                         type="button"
                         onClick={() => requestQuote()}
-                        className="grad-flame flex items-center justify-center gap-2 rounded-full py-3 text-[14px] font-semibold text-on-flame shadow-[0_10px_26px_-12px_rgba(255,122,24,0.7)]"
+                        className="grad-flame col-span-2 flex sm:col-span-1 items-center justify-center gap-2 rounded-full py-3 text-[14px] font-semibold text-on-flame shadow-[0_10px_26px_-12px_rgba(255,122,24,0.7)]"
                       >
                         Get a quote
                       </button>
@@ -136,7 +137,9 @@ export function ServicesIndex() {
 
                     <Link
                       to={`/services/${service.slug}`}
-                      className="flex items-center justify-center gap-2 rounded-full border border-hairline bg-void/60 py-3 text-[14px] font-semibold text-bright transition-colors hover:border-flame hover:text-amber"
+                      className={`col-span-2 flex items-center justify-center gap-2 rounded-full border border-hairline bg-void/60 py-3 text-[14px] font-semibold text-bright transition-colors hover:border-flame hover:text-amber ${
+                        service.channels.form ? 'sm:col-span-1' : ''
+                      }`}
                     >
                       Full details
                       <ArrowUpRight aria-hidden className="size-3.5" strokeWidth={2.5} />

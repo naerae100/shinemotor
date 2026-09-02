@@ -36,7 +36,7 @@ export function HeroVisual() {
   })
 
   return (
-    <section className="relative overflow-hidden bg-void pt-20 lg:pt-28">
+    <section className="relative overflow-hidden bg-void pt-10 md:pt-20 lg:pt-28">
       <Glow className="-top-56 -left-48 size-[820px]" from="rgba(255,122,24,0.13)" />
 
       <div

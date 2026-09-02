@@ -10,27 +10,27 @@ export const segments: Segment[] = [
   {
     name: 'The public',
     brings: 'Household clear-outs, old appliances, a garage full of offcuts.',
-    image: { src: '/img/sell/new-used-batteries.webp', alt: 'Household scrap including old batteries' },
+    image: { src: '/img/buy/battery_scrap_1788319066022.jpg', alt: 'Household scrap including old batteries brought by the public for recycling' },
   },
   {
     name: 'Plumbers',
     brings: 'Copper tube, brass fittings, hot water units, lead flashing.',
-    image: { src: '/img/buy/Honey-Brass.webp', alt: 'Brass fittings and tapware from plumbing work' },
+    image: { src: '/img/buy/brass_scrap_1788318742664.jpg', alt: 'Brass fittings and gun metal scrap from plumbing work recycled at Shine Motor' },
   },
   {
     name: 'Electricians',
     brings: 'Insulated cable, switchboard copper, motors and starters.',
-    image: { src: '/img/buy/Insulated-Copper-Wires.webp', alt: 'Insulated copper cable from electrical work' },
+    image: { src: '/img/buy/copper_scrap_1788318729220.jpg', alt: 'Scrap copper wire and cable brought by electricians for top prices in Sydney' },
   },
   {
     name: 'Manufacturers',
     brings: 'Production offcuts, turnings, swarf and process scrap, collected on schedule.',
-    image: { src: '/img/buy/Extruded.webp', alt: 'Aluminium extrusion offcuts from production' },
+    image: { src: '/img/buy/aluminium_scrap_1788318766541.jpg', alt: 'Aluminium extrusion scrap and production offcuts from manufacturers' },
   },
   {
     name: 'Demolition',
     brings: 'Structural steel, HMS 1 & 2, strip-out non-ferrous, whole-site loads.',
-    image: { src: '/img/buy/HMS-1.webp', alt: 'Heavy melting steel from demolition work' },
+    image: { src: '/img/buy/steel_scrap_1788318778283.jpg', alt: 'Heavy melting steel and structural steel scrap from demolition sites' },
   },
   {
     name: 'Tradies',

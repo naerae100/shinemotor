@@ -72,8 +72,8 @@ export const services: Service[] = [
     audience: ['The public', 'Plumbers', 'Electricians', 'Manufacturers', 'Demolition contractors', 'Tradies'],
     phone: { label: '0478 555 537', href: 'tel:+61478555537' },
     image: {
-      src: '/img/sell/sell-your-scrap-inner-1.webp',
-      alt: 'Scrap metal being sorted at the Shine Motor yard in Ingleburn',
+      src: '/img/sell/sell-scrap-metal-intake.jpg',
+      alt: 'Customer ute at a scrap metal recycling yard intake scale surrounded by sorted copper and aluminium bins in Ingleburn Sydney',
     },
     gallery: [
       { src: '/img/gallery/gallery-new-1.webp', alt: 'Sorted scrap metal at the Ingleburn yard' },
@@ -121,13 +121,13 @@ export const services: Service[] = [
     audience: ['Steel mills', 'Foundries', 'Brokers and traders', 'Export buyers', 'Smelters'],
     phone: { label: '0413 222 171', href: 'tel:+61413222171' },
     image: {
-      src: '/img/sell/sell-your-scrap-inner-2.webp',
-      alt: 'Baled and prepared scrap stock ready for container loading',
+      src: '/img/sell/container-export-supply.jpg',
+      alt: 'Shipping container being loaded with processed scrap metal by an excavator at Shine Motor export yard in Sydney',
     },
     gallery: [
-      { src: '/img/buy/Extruded.webp', alt: 'Prepared aluminium extrusion stock' },
-      { src: '/img/buy/Honey-Brass.webp', alt: 'Prepared brass stock' },
-      { src: '/img/buy/HMS-1.webp', alt: 'Prepared heavy melting steel' },
+      { src: '/img/buy/aluminium_scrap_1788318766541.jpg', alt: 'Prepared aluminium extrusion scrap stock for export container loading' },
+      { src: '/img/buy/brass_scrap_1788318742664.jpg', alt: 'Prepared brass scrap stock for export container loading' },
+      { src: '/img/buy/steel_scrap_1788318778283.jpg', alt: 'Prepared heavy melting steel scrap for export container loading' },
     ],
   },
 ]
