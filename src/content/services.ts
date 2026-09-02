@@ -87,7 +87,7 @@ export const services: Service[] = [
     short: 'Buy from us',
     claim: 'Container loads only. We do not sell to individuals.',
     kind: 'export',
-    channels: { whatsapp: false, phone: false, form: false, email: true },
+    channels: { whatsapp: true, phone: false, form: false, email: true },
     intro:
       'We are direct wholesalers and exporters. Scrap is processed, sorted and prepared to grade at our own Ingleburn facility, then loaded into containers for steel mills, smelters, foundries and refineries in Australia and overseas.',
     includes: [

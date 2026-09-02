@@ -42,11 +42,12 @@
   --font-sans: 'IBM Plex Sans', system-ui, -apple-system, sans-serif;
   --font-mono: 'IBM Plex Mono', ui-monospace, 'SF Mono', monospace;
 
-  /* Home hero only, and sized for the headline that lives there: at 61
-     characters it runs three lines in the left column, not five. */
-  --text-d1: clamp(2.15rem, 4.2vw, 3.5rem);
-  --text-d1--line-height: 1.02;
-  --text-d1--letter-spacing: -0.04em;
+  /* Home hero only, sized for the headline that lives there. The keyword-led
+     h1 runs 57 characters, so the cap is set where that sits on two lines in
+     the left column instead of filling it. */
+  --text-d1: clamp(1.95rem, 3.5vw, 2.9rem);
+  --text-d1--line-height: 1.08;
+  --text-d1--letter-spacing: -0.03em;
 
   /* Inner-page <h1>. Deliberately a step below the hero: an About page title
      set at hero scale pushes the actual content below the fold. */
