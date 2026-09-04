@@ -59,6 +59,7 @@ export function Services() {
                 className={i % 2 === 1 ? 'lg:order-2' : ''}
               >
                 <img
+                  decoding="async"
                   src={service.image.src}
                   alt={service.image.alt}
                   loading="lazy"
@@ -68,6 +69,7 @@ export function Services() {
                   {service.gallery.map((g) => (
                     <img
                       key={g.src}
+                      decoding="async"
                       src={g.src}
                       alt={g.alt}
                       loading="lazy"

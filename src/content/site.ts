@@ -35,6 +35,15 @@ export const site: SiteInfo = {
 export const addressLine = `${site.address.street}, ${site.address.suburb} ${site.address.state} ${site.address.postcode}`
 
 /**
+ * The hours in one line, for the header strip and anywhere else too narrow for
+ * the table. Written out rather than derived from `hours` above: the table
+ * needs "7:00am — 5:00pm" and a strip needs "7am–5pm", and the rules for
+ * collapsing one into the other are more trouble than keeping the two in view
+ * of each other. If the hours change, both are on this screen.
+ */
+export const hoursSummary = 'Mon–Fri 7am–5pm · Sat 7am–1pm'
+
+/**
  * The trust bar. Four facts, stated flat, no badges. "EFT only" is compliance
  * with the Scrap Metal Industry Regulations 2016 — a trust signal, not a
  * limitation. It is explained where there is room for it: Why Choose Us and the

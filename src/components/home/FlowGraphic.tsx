@@ -1,4 +1,4 @@
-import { animate, motion, useMotionValue, useSpring, useTransform } from 'framer-motion'
+import { animate, m as motion, useMotionValue, useSpring, useTransform } from 'framer-motion'
 import { useCallback, useEffect, useRef, useSyncExternalStore } from 'react'
 import { SETTLE, useSettle } from '../../hooks/useSettle'
 

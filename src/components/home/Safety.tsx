@@ -53,6 +53,8 @@ export function Safety() {
             {!playing ? (
               <>
                 <img
+                  loading="lazy"
+                  decoding="async"
                   src={`https://img.youtube.com/vi/${YOUTUBE_ID}/maxresdefault.jpg`}
                   alt="Safety at Shine Motor Corporation"
                   className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
@@ -89,6 +91,11 @@ export function Safety() {
                 className="absolute inset-0 h-full w-full"
               />
             )}
+          </div>
+          <div className="mx-auto mt-6 max-w-4xl rounded-xl border border-amber/20 bg-amber/5 px-6 py-4 text-center shadow-sm">
+            <p className="text-[14px] font-medium leading-relaxed text-bright">
+              This video animation has been produced as part of an enforceable undertaking between <span className="text-amber">Shine Motor Corporation Pty Ltd</span>, ACN:&nbsp;167&nbsp;579&nbsp;179, and <span className="text-amber">SafeWork NSW</span>.
+            </p>
           </div>
         </Reveal>
 

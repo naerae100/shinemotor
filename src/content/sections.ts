@@ -1,3 +1,4 @@
+import { addressLine, site } from './site'
 import type { Faq, Reason, Segment, Step } from './types'
 
 /**
@@ -10,32 +11,32 @@ export const segments: Segment[] = [
   {
     name: 'The public',
     brings: 'Household clear-outs, old appliances, a garage full of offcuts.',
-    image: { src: '/img/buy/battery_scrap_1788319066022.jpg', alt: 'Household scrap including old batteries brought by the public for recycling' },
+    image: { src: '/img/home/audience_public_1788387130602.webp', alt: 'Customer unloading household scrap metal and old appliances into a trailer for recycling at Shine Motor' },
   },
   {
     name: 'Plumbers',
     brings: 'Copper tube, brass fittings, hot water units, lead flashing.',
-    image: { src: '/img/buy/brass_scrap_1788318742664.jpg', alt: 'Brass fittings and gun metal scrap from plumbing work recycled at Shine Motor' },
+    image: { src: '/img/home/audience_plumber_1788387143786.webp', alt: 'Plumber work van with discarded copper pipes and a hot water unit ready for scrap recycling' },
   },
   {
     name: 'Electricians',
     brings: 'Insulated cable, switchboard copper, motors and starters.',
-    image: { src: '/img/buy/copper_scrap_1788318729220.jpg', alt: 'Scrap copper wire and cable brought by electricians for top prices in Sydney' },
+    image: { src: '/img/home/audience_electrician_1788387157361.webp', alt: 'Thick insulated copper cable and switchboard scrap from an electrician work site' },
   },
   {
     name: 'Manufacturers',
     brings: 'Production offcuts, turnings, swarf and process scrap, collected on schedule.',
-    image: { src: '/img/buy/aluminium_scrap_1788318766541.jpg', alt: 'Aluminium extrusion scrap and production offcuts from manufacturers' },
+    image: { src: '/img/home/audience_manufacturer_1788387171910.webp', alt: 'Industrial bin filled with clean aluminium production offcuts in a manufacturing facility' },
   },
   {
     name: 'Demolition',
     brings: 'Structural steel, HMS 1 & 2, strip-out non-ferrous, whole-site loads.',
-    image: { src: '/img/buy/steel_scrap_1788318778283.jpg', alt: 'Heavy melting steel and structural steel scrap from demolition sites' },
+    image: { src: '/img/home/audience_demolition_1788387188369.webp', alt: 'Excavator sorting heavy melting steel and structural scrap on a demolition site' },
   },
   {
     name: 'Tradies',
     brings: "Whatever came off the job. If it's metal, bring it.",
-    image: { src: '/img/gallery/gallery-new-1.webp', alt: 'Mixed scrap metal brought in by trade customers' },
+    image: { src: '/img/home/audience_tradie_1788387201894.webp', alt: 'Australian tradie at a scrap metal yard getting paid for mixed metal offcuts' },
   },
 ]
 
@@ -106,7 +107,7 @@ export const faqs: Faq[] = [
   },
   {
     q: 'Will you pick up, or supply a bin?',
-    a: 'Both. We collect anywhere in NSW and the ACT, and we can drop bins on site for demolition, strip-out and ongoing production scrap. Call 0478 555 537 to arrange it.',
+    a: `Both. We collect anywhere in NSW and the ACT, and we can drop bins on site for demolition, strip-out and ongoing production scrap. Call ${site.phones[1].label} to arrange it.`,
   },
   {
     q: 'Is there a minimum weight?',
@@ -120,10 +121,10 @@ export const faqs: Faq[] = [
   },
   {
     q: 'What do you actually buy?',
-    a: 'Copper, brass, aluminium, stainless steel, ferrous and HMS 1 & 2, insulated cable and wiring harness, lead, batteries, radiators, electric motors, starter motors, alternators and compressors — twenty-one graded categories in all.',
+    a: 'Copper, brass, aluminium, stainless steel, ferrous and HMS 1 & 2, insulated cable and wiring harness, lead, batteries, radiators, electric motors, starter motors, alternators and compressors — thirty graded categories in all.',
   },
   {
     q: 'How far do you travel?',
-    a: 'All of New South Wales and the ACT. The yard is at 8 Noonan Rd, Ingleburn, and our trucks run out from there.',
+    a: `All of New South Wales and the ACT. The yard is at ${addressLine}, and our trucks run out from there.`,
   },
 ]

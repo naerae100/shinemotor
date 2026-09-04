@@ -11,7 +11,12 @@
     "reviews": "node scripts/fetch-reviews.mjs",
     "vcards": "node scripts/build-vcards.mjs",
     "prebuild": "node scripts/build-vcards.mjs && node scripts/build-seo.mjs",
-    "seo": "node scripts/build-seo.mjs"
+    "seo": "node scripts/build-seo.mjs",
+    "check:api": "node scripts/check-api.mjs",
+    "images": "node scripts/optimise-images.mjs",
+    "postbuild": "node scripts/prerender.mjs",
+    "prerender": "node scripts/prerender.mjs",
+    "check:redirects": "node scripts/check-redirects.mjs"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.3.3",
@@ -28,6 +33,7 @@
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^6.0.4",
     "oxlint": "^1.75.0",
+    "sharp": "^0.35.4",
     "typescript": "~6.0.2",
     "vite": "^8.2.0"
   }

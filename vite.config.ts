@@ -30,4 +30,28 @@ function vcardContentType() {
 
 export default defineConfig({
   plugins: [react(), tailwindcss(), vcardContentType()],
+  build: {
+    /**
+     * Split the libraries away from the site's own code.
+     *
+     * React, the router, the animation library and the icon set change only
+     * when a dependency is upgraded, while the content files change every time
+     * the yard edits a grade or a price. Shipping them in one chunk meant a
+     * price update invalidated ~500KB of unchanged library code in every
+     * returning visitor's cache. Separated, a content edit re-downloads only
+     * the small app chunk.
+     */
+    rolldownOptions: {
+      output: {
+        codeSplitting: {
+          groups: [
+            { name: 'react', test: /node_modules[/\\](react|react-dom|scheduler)[/\\]/ },
+            { name: 'router', test: /node_modules[/\\]react-router/ },
+            { name: 'motion', test: /node_modules[/\\](framer-motion|motion-dom|motion-utils)[/\\]/ },
+            { name: 'icons', test: /node_modules[/\\]lucide-react[/\\]/ },
+          ],
+        },
+      },
+    },
+  },
 })

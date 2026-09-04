@@ -8,6 +8,8 @@
  * contact routes each page actually offers.
  */
 
+import { site } from './site'
+
 export interface ServiceChannels {
   whatsapp: boolean
   phone: boolean
@@ -70,9 +72,9 @@ export const services: Service[] = [
       'A rough idea of what the load contains',
     ],
     audience: ['The public', 'Plumbers', 'Electricians', 'Manufacturers', 'Demolition contractors', 'Tradies'],
-    phone: { label: '0478 555 537', href: 'tel:+61478555537' },
+    phone: site.phones[1],
     image: {
-      src: '/img/sell/sell-scrap-metal-intake.jpg',
+      src: '/img/sell/sell-scrap-metal-intake.webp',
       alt: 'Customer ute at a scrap metal recycling yard intake scale surrounded by sorted copper and aluminium bins in Ingleburn Sydney',
     },
     gallery: [
@@ -119,15 +121,15 @@ export const services: Service[] = [
       'Frequency — spot load or ongoing contract',
     ],
     audience: ['Steel mills', 'Foundries', 'Brokers and traders', 'Export buyers', 'Smelters'],
-    phone: { label: '0413 222 171', href: 'tel:+61413222171' },
+    phone: site.phones[0],
     image: {
-      src: '/img/sell/container-export-supply.jpg',
+      src: '/img/sell/container-export-supply.webp',
       alt: 'Shipping container being loaded with processed scrap metal by an excavator at Shine Motor export yard in Sydney',
     },
     gallery: [
-      { src: '/img/buy/aluminium_scrap_1788318766541.jpg', alt: 'Prepared aluminium extrusion scrap stock for export container loading' },
-      { src: '/img/buy/brass_scrap_1788318742664.jpg', alt: 'Prepared brass scrap stock for export container loading' },
-      { src: '/img/buy/steel_scrap_1788318778283.jpg', alt: 'Prepared heavy melting steel scrap for export container loading' },
+      { src: '/img/buy/aluminium_scrap_1788318766541.webp', alt: 'Prepared aluminium extrusion scrap stock for export container loading' },
+      { src: '/img/buy/brass_scrap_1788318742664.webp', alt: 'Prepared brass scrap stock for export container loading' },
+      { src: '/img/buy/steel_scrap_1788318778283.webp', alt: 'Prepared heavy melting steel scrap for export container loading' },
     ],
   },
 ]
@@ -169,3 +171,85 @@ export const exportProcess = [
 export function serviceBySlug(slug: string): Service | undefined {
   return services.find((s) => s.slug === slug)
 }
+
+/**
+ * The trade grades we supply, under the names the trade actually buys them by.
+ *
+ * These are ISRI code words — Mill Berry, Candy, Birch Cliff, Honey, Druid and
+ * so on — and they are how a mill or a broker specifies an order. The old site
+ * published all of them on buy-from-us.php; the rebuild dropped them, which
+ * lost the vocabulary an export buyer searches with. They are restored here.
+ *
+ * The specifications are the client's own, kept close to verbatim because a
+ * grade definition is a contractual description and paraphrasing one is how
+ * disputes start. What is NOT carried over is the sales boilerplate that
+ * followed every entry on the old page ("Trust Shine Motor Corporation to
+ * provide competitive prices and a seamless selling experience for your …",
+ * repeated twenty times): it said nothing, and twenty near-identical paragraphs
+ * on one page reads as thin content to a search engine as well as to a person.
+ */
+export interface TradeGrade {
+  /** The ISRI code word, or the trade name where there is no code. */
+  name: string
+  /** What the grade admits, and what it must be free of. */
+  spec: string
+}
+
+export const exportGrades: { family: string; grades: TradeGrade[] }[] = [
+  {
+    family: 'Copper',
+    grades: [
+      { name: 'Mill Berry', spec: 'No. 1 bare, uncoated, unalloyed copper wire — bare bright. Wire gauge by agreement between buyer and seller.' },
+      { name: 'Candy', spec: 'Clean, unalloyed, uncoated copper clippings, punchings, bus bars, commutator segments and clean copper tubing. Hydraulically briquetted copper available by agreement.' },
+      { name: 'Birch Cliff', spec: 'No. 2 copper wire together with copper as defined in the Birch and Cliff grades.' },
+      { name: 'Ocean', spec: 'Mixed automobile radiators, free of aluminium radiators and iron-finned radiators.' },
+    ],
+  },
+  {
+    family: 'Aluminium',
+    grades: [
+      { name: 'Extruded', spec: 'Old 6063 extrusions.' },
+      { name: 'Tense', spec: 'All types of clean aluminium castings, including automotive and aircraft castings.' },
+      { name: 'Talk', spec: 'Clean aluminium and copper radiators, and aluminium fins on copper tubing.' },
+      { name: 'Troma', spec: 'Clean, single-piece, unplated aluminium wheels from cars and trucks.' },
+    ],
+  },
+  {
+    family: 'Brass',
+    grades: [
+      { name: 'Honey', spec: 'Mixed yellow brass solids — castings through to tubing, including plated brass.' },
+      { name: 'Night', spec: 'Rod turnings, strictly free of aluminium, manganese, composition, Tobin and Muntz metal turnings, with no more than 3% free iron.' },
+    ],
+  },
+  {
+    family: 'Stainless steel',
+    grades: [
+      { name: 'Stainless Steel 304', spec: 'High-grade 304 stainless, the general-purpose austenitic grade.' },
+      { name: 'Stainless Steel 316', spec: 'Marine-grade 316 stainless, specified for its corrosion resistance.' },
+    ],
+  },
+  {
+    family: 'Ferrous',
+    grades: [
+      { name: 'Ferrous metal', spec: 'Iron, steel and other ferrous alloys.' },
+      { name: 'HMS 1 & 2', spec: 'Heavy melting steel. The proportion of each grade in a load is by agreement between buyer and seller.' },
+    ],
+  },
+  {
+    family: 'Wiring',
+    grades: [
+      { name: 'Insulated copper wire', spec: 'Quality and copper content agreed between buyer and seller before shipment.' },
+      { name: 'Druid', spec: 'Copper wiring with the recovery rate open to agreement between buyer and seller.' },
+      { name: 'Car wiring harness', spec: 'Automotive loom, with quality agreed per shipment.' },
+    ],
+  },
+  {
+    family: 'Other',
+    grades: [
+      { name: 'Lead', spec: 'Clean lead solids and shots, free of drosses and battery plates.' },
+      { name: 'Electric motors', spec: 'Mixed electric motors across a range of sizes and specifications.' },
+      { name: 'Starter motors & alternators', spec: 'Automotive starter motors and alternators.' },
+      { name: 'Compressors', spec: 'Industrial and household compressor units.' },
+    ],
+  },
+]

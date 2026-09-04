@@ -211,3 +211,32 @@ export function personSchema(name: string, role: string, path: string) {
     workLocation: { '@type': 'Place', address: addressLine },
   }
 }
+
+/**
+ * An article carried over from the old site's blog.
+ *
+ * `datePublished` is the date it went up on shinemotor.com.au, not the date it
+ * was migrated: backdating would be wrong, but so would presenting a 2025
+ * article as new. `publisher` points at the organisation node rather than
+ * repeating it.
+ */
+export function articleSchema(opts: {
+  title: string
+  description: string
+  path: string
+  published: string
+  image: string
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: opts.title,
+    description: opts.description,
+    url: `${SITE_URL}${opts.path}`,
+    mainEntityOfPage: `${SITE_URL}${opts.path}`,
+    image: `${SITE_URL}${opts.image}`,
+    datePublished: opts.published,
+    author: { '@id': ORG_ID },
+    publisher: { '@id': ORG_ID },
+  }
+}

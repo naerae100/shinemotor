@@ -19,12 +19,14 @@ export function MetalDetail() {
   useSeo(
     metal ? `${metal.grade} Scrap Prices Sydney — ${metal.family} We Buy` : 'Metal grade',
     metal
-      ? `${metal.summary} Shine Motor Corporation buys ${metal.grade} by the grade at Ingleburn, NSW. See exactly what the grade accepts and rejects, how to prepare it, and get a price the same day.`
+      ? `${metal.summary}. We buy ${metal.grade} by the grade at our Ingleburn yard — what we accept, how to prep it, and a price today.`
       : '',
     {
       path: metal ? `/metals/${metal.slug}` : undefined,
       type: 'article',
       image: metal?.image.src,
+      // The grade photograph is the LCP element on this page.
+      preloadImage: metal?.image.src,
       schema: metal
         ? [
             metalSchema(metal.grade, metal.detail, `/metals/${metal.slug}`, metal.image.src),
@@ -94,10 +96,13 @@ export function MetalDetail() {
 
             <Reveal distance={22}>
               <img
+                loading="eager"
+                fetchPriority="high"
+                decoding="async"
                 src={metal.image.src}
                 alt={metal.image.alt}
                 width={800}
-                height={962}
+                height={600}
                 className="photo aspect-[4/3] w-full rounded-3xl border border-hairline object-cover"
               />
             </Reveal>
@@ -279,6 +284,7 @@ export function MetalDetail() {
                     className="group ring-flame relative block overflow-hidden rounded-2xl border border-hairline bg-surface"
                   >
                     <img
+                      decoding="async"
                       src={m.image.src}
                       alt={m.image.alt}
                       loading="lazy"

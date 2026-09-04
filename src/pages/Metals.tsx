@@ -118,6 +118,7 @@ export function Metals() {
                   <div className="flex gap-5 p-5 lg:p-6">
                     <Link to={`/metals/${m.slug}`} className="shrink-0">
                       <img
+                        decoding="async"
                         src={m.image.src}
                         alt={m.image.alt}
                         loading="lazy"

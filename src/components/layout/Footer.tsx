@@ -50,6 +50,8 @@ export function Footer() {
           <div className="grid gap-12 pt-12 lg:grid-cols-12 lg:gap-8">
             <div className="lg:col-span-4">
               <img
+                loading="lazy"
+                decoding="async"
                 src="/img/home/logo/shine-motor-logo.png"
                 alt="Shine Motor Corporation"
                 width={200}
@@ -146,6 +148,16 @@ export function Footer() {
                 <li>
                   <Link to="/about" className="inline-flex min-h-8 items-center py-1 text-[14px] text-muted transition-colors hover:text-bright">
                     About us
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/service-areas" className="inline-flex min-h-8 items-center py-1 text-[14px] text-muted transition-colors hover:text-bright">
+                    Areas we serve
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/guides" className="inline-flex min-h-8 items-center py-1 text-[14px] text-muted transition-colors hover:text-bright">
+                    Guides
                   </Link>
                 </li>
                 <li>

@@ -50,6 +50,7 @@ export function MetalsIndex() {
                 <Link to={`/metals#${anchor}`} className="block">
                   <div className="relative overflow-hidden">
                     <img
+                      decoding="async"
                       src={photo.src}
                       alt={photo.alt}
                       loading="lazy"

@@ -3,10 +3,6 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Shine Motor Corporation — scrap metal buyers in Ingleburn, NSW. Copper, brass, aluminium, stainless and ferrous bought by grade at Sydney's top rates. Instant EFT. We'll beat any genuine quote."
-    />
     <meta name="theme-color" content="#08080a" />
     <!-- Favicons. The SVG is the wave from the Shine Motor wordmark, traced to
          vector so it stays crisp at any size; the .ico carries 16/32/48 rasters
@@ -22,9 +18,26 @@
       rel="stylesheet"
     />
 
-    <!-- Open Graph / social. Duplicated per route by src/lib/seo.ts once the app
-         hydrates; these static copies are what social scrapers and non-JS
-         crawlers read, since they do not execute the bundle. -->
+    <!-- ── Per-route head ──────────────────────────────────────────────────
+         Everything between these markers is REPLACED for each route by
+         scripts/prerender.mjs, so every page ships its own title, description,
+         canonical and social card in the raw HTML — what Bing, LinkedIn,
+         WhatsApp and the AI crawlers read, none of which run the bundle.
+         The values below are the homepage's, and are what dev serves. -->
+    <!-- Scroll-reveal sections are prerendered at opacity 0, matching the
+         first client render so hydration is clean. Without JavaScript nothing
+         would ever reveal them, so force them visible in that case. -->
+    <noscript>
+      <style>
+        [data-reveal] { opacity: 1 !important; transform: none !important; }
+      </style>
+    </noscript>
+
+    <!--seo-start-->
+    <title>Shine Motor Corporation — Scrap Metal Buyers, Ingleburn NSW</title>
+    <meta name="description" content="Shine Motor Corporation — scrap metal buyers in Ingleburn, NSW. Copper, brass, aluminium, stainless and ferrous bought by grade at Sydney's top rates. Instant EFT. We'll beat any genuine quote." />
+    <link rel="canonical" href="https://shinemotor.com.au/" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
     <meta property="og:site_name" content="Shine Motor Corporation" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="en_AU" />
@@ -33,13 +46,14 @@
     <meta property="og:description" content="Shine Motor Corporation buys copper, brass, aluminium, stainless and steel by grade at Ingleburn, NSW. Weighed in front of you, instant EFT, free pickup across NSW &amp; ACT." />
     <meta property="og:image" content="https://shinemotor.com.au/img/Scrap-Metal-banner.webp" />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Scrap Metal Buyers Sydney — Top Prices, Paid on the Spot" />
+    <meta name="twitter:description" content="Shine Motor Corporation buys copper, brass, aluminium, stainless and steel by grade at Ingleburn, NSW. Weighed in front of you, instant EFT, free pickup across NSW &amp; ACT." />
     <meta name="twitter:image" content="https://shinemotor.com.au/img/Scrap-Metal-banner.webp" />
+    <!--seo-end-->
 
-    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
     <meta name="geo.region" content="AU-NSW" />
     <meta name="geo.placename" content="Ingleburn" />
     <meta name="geo.position" content="-33.9890097;150.8625991" />
-    <link rel="canonical" href="https://shinemotor.com.au/" />
 
     <!-- LocalBusiness. Static so it is in the raw HTML, not dependent on the
          bundle executing. Deliberately carries NO aggregateRating: reviews about
@@ -123,7 +137,6 @@
       ]
 }
     </script>
-    <title>Shine Motor Corporation — Scrap Metal Buyers, Ingleburn NSW</title>
   </head>
   <body>
     <div id="root"></div>

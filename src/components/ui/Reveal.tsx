@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { motion, useInView } from 'framer-motion'
+import { m as motion, useInView } from 'framer-motion'
 import type { ReactNode } from 'react'
 import { useSettle } from '../../hooks/useSettle'
 
@@ -33,6 +33,11 @@ const VIEWPORT = { once: true, margin: '-12% 0px' } as const
  * element is actually within the viewport but has not been revealed, it is
  * shown regardless. Elements below the fold are untouched, so the scroll
  * choreography is unchanged.
+ *
+ * The `data-reveal` attribute is the hook for the <noscript> rule in
+ * index.html: prerendered pages ship these elements at opacity 0, matching what
+ * the client renders on first pass, so a visitor with JavaScript turned off
+ * would otherwise get a page of empty sections.
  */
 export function Reveal({
   children,
@@ -63,6 +68,7 @@ export function Reveal({
   return (
     <Tag
       ref={ref as never}
+      data-reveal
       className={className}
       variants={stagger ? staggerVariants : variants}
       initial="hidden"
@@ -83,7 +89,7 @@ export function RevealItem({
   const { variants } = useSettle(distance)
   const Tag = motion[as]
   return (
-    <Tag className={className} variants={variants}>
+    <Tag data-reveal className={className} variants={variants}>
       {children}
     </Tag>
   )

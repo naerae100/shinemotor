@@ -1,231 +1,382 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://shinemotor.com.au/</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://shinemotor.com.au/services</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://shinemotor.com.au/metals</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://shinemotor.com.au/prices</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://shinemotor.com.au/about</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://shinemotor.com.au/contact</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://shinemotor.com.au/service-areas</loc>
+    <lastmod>2026-09-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://shinemotor.com.au/guides</loc>
+    <lastmod>2026-09-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://shinemotor.com.au/guides/scrap-metal-recycling-sydney</loc>
+    <lastmod>2026-09-04</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://shinemotor.com.au/img/home/we-collect-it.webp</image:loc>
+      <image:title>Scrap metal being collected for recycling at Shine Motor Corporation in Ingleburn, Sydney</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://shinemotor.com.au/services/sell-your-scrap</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://shinemotor.com.au/img/sell/sell-scrap-metal-intake.webp</image:loc>
+      <image:title>Customer ute at a scrap metal recycling yard intake scale surrounded by sorted copper and aluminium bins in Ingleburn Sydney</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://shinemotor.com.au/services/buy-from-us</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://shinemotor.com.au/img/sell/container-export-supply.webp</image:loc>
+      <image:title>Shipping container being loaded with processed scrap metal by an excavator at Shine Motor export yard in Sydney</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://shinemotor.com.au/metals/aluminium-rims</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://shinemotor.com.au/img/buy/aluminium-rims.webp</image:loc>
+      <image:title>Scrap aluminium rims and wheels ready for recycling at Shine Motor Corporation Ingleburn Sydney</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://shinemotor.com.au/metals/extruded-aluminium</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://shinemotor.com.au/img/buy/extruded-aluminium.webp</image:loc>
+      <image:title>Extruded aluminium profiles and scrap extrusions for recycling in Sydney</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://shinemotor.com.au/metals/aluminium-domestic</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://shinemotor.com.au/img/buy/aluminium-domestic.webp</image:loc>
+      <image:title>Domestic aluminium scrap including pots and pans bought for recycling in Ingleburn NSW</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://shinemotor.com.au/metals/cast-aluminium</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://shinemotor.com.au/img/buy/cast-aluminium.webp</image:loc>
+      <image:title>Cast aluminium engine blocks and machinery castings for scrap recycling Sydney</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://shinemotor.com.au/metals/irony-aluminium</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://shinemotor.com.au/img/buy/irony-aluminium.webp</image:loc>
+      <image:title>Irony aluminium scrap with steel attachments accepted at Shine Motor Corporation yard Ingleburn</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://shinemotor.com.au/metals/ac-units-d-gas</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://shinemotor.com.au/img/buy/ac-units-d-gas.webp</image:loc>
+      <image:title>Degassed split system and window air conditioning units stacked for scrap recycling at Shine Motor Corporation Ingleburn</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://shinemotor.com.au/metals/batteries</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://shinemotor.com.au/img/buy/batteries.webp</image:loc>
+      <image:title>Used lead-acid car and truck batteries stacked upright for scrap recycling at Shine Motor Corporation Ingleburn</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://shinemotor.com.au/metals/gun-metal-mix-brass</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://shinemotor.com.au/img/buy/gun-metal-mix-brass.webp</image:loc>
+      <image:title>Mixed gun metal and brass scrap fittings for recycling at scrap yard Ingleburn NSW</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://shinemotor.com.au/metals/coast-brass</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://shinemotor.com.au/img/buy/coast-brass.webp</image:loc>
+      <image:title>Clean coast brass scrap from marine and industrial sources sold in Sydney</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://shinemotor.com.au/metals/bright-copper-wire</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://shinemotor.com.au/img/buy/bright-copper-wire.webp</image:loc>
+      <image:title>Bright bare copper wire scrap stripped of insulation for top prices at Shine Motor Corporation Sydney</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://shinemotor.com.au/metals/no-1-copper</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://shinemotor.com.au/img/buy/no-1-copper.webp</image:loc>
+      <image:title>No. 1 copper pipe and tubing scrap recycled at Shine Motor Corporation Ingleburn NSW</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://shinemotor.com.au/metals/no-2-copper</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://shinemotor.com.au/img/buy/no-2-copper.webp</image:loc>
+      <image:title>No. 2 tarnished copper wire and pipe bought for recycling at scrap yard Sydney</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://shinemotor.com.au/metals/domestic-copper</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://shinemotor.com.au/img/buy/domestic-copper.webp</image:loc>
+      <image:title>Domestic copper scrap including pots and ornaments accepted at Shine Motor Ingleburn</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://shinemotor.com.au/metals/insulated-copper-wire-20</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://shinemotor.com.au/img/buy/insulated-copper-wire-20.webp</image:loc>
+      <image:title>Low-yield insulated copper wire 20 percent for scrap recycling in Sydney</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://shinemotor.com.au/metals/insulated-copper-wire-40</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://shinemotor.com.au/img/buy/insulated-copper-wire-40.webp</image:loc>
+      <image:title>Medium-yield insulated copper cable 40 percent bought by Shine Motor Corporation Ingleburn</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://shinemotor.com.au/metals/insulated-copper-wire-75</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://shinemotor.com.au/img/buy/insulated-copper-wire-75.webp</image:loc>
+      <image:title>High-yield insulated copper power cable 75 percent for scrap at Shine Motor Sydney</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://shinemotor.com.au/metals/insulated-copper-wire-83</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://shinemotor.com.au/img/buy/insulated-copper-wire-83.webp</image:loc>
+      <image:title>Very high-yield insulated copper mains cable 83 percent recycled at Shine Motor Ingleburn NSW</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://shinemotor.com.au/metals/car-wire</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://shinemotor.com.au/img/buy/car-wire.webp</image:loc>
+      <image:title>Automotive car wiring harnesses and looms bought for copper recycling in Sydney</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://shinemotor.com.au/metals/soft-lead</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://shinemotor.com.au/img/buy/soft-lead.webp</image:loc>
+      <image:title>Soft lead scrap sheet pipe and flashing for recycling at Shine Motor Corporation Ingleburn Sydney</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://shinemotor.com.au/metals/electric-motors</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://shinemotor.com.au/img/buy/electric-motors.webp</image:loc>
+      <image:title>Mixed electric motors with copper windings for scrap recycling at Shine Motor Corporation Sydney</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://shinemotor.com.au/metals/lgem</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://shinemotor.com.au/img/buy/lgem.webp</image:loc>
+      <image:title>Large industrial electric motors LGEM scrap bought by Shine Motor Corporation Ingleburn</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://shinemotor.com.au/metals/compressor</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://shinemotor.com.au/img/buy/compressor.webp</image:loc>
+      <image:title>Fridge and AC compressor scrap units recycled at Shine Motor Ingleburn NSW</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://shinemotor.com.au/metals/starter-alternator</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://shinemotor.com.au/img/buy/starter-alternator.webp</image:loc>
+      <image:title>Car starters and alternators scrap metal bought for recycling at Shine Motor Corporation Sydney</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://shinemotor.com.au/metals/copper-brass-radiator</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://shinemotor.com.au/img/buy/copper-brass-radiator.webp</image:loc>
+      <image:title>Copper brass radiator cores from cars and trucks for scrap recycling at Shine Motor Ingleburn</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://shinemotor.com.au/metals/al-cu-radiator</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://shinemotor.com.au/img/buy/al-cu-radiator.webp</image:loc>
+      <image:title>Aluminium copper AL-CU radiators and AC coils for scrap at Shine Motor Corporation Sydney</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://shinemotor.com.au/metals/aluminium-radiator</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://shinemotor.com.au/img/buy/aluminium-radiator.webp</image:loc>
+      <image:title>All-aluminium car radiators for scrap recycling at Shine Motor Corporation Ingleburn NSW</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://shinemotor.com.au/metals/stainless-steel-304</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://shinemotor.com.au/img/buy/stainless-steel-304.webp</image:loc>
+      <image:title>304 grade stainless steel sheet and pipe scrap recycled at Shine Motor Corporation Sydney</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://shinemotor.com.au/metals/stainless-steel-316</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://shinemotor.com.au/img/buy/stainless-steel-316.webp</image:loc>
+      <image:title>316 marine grade stainless steel scrap bought at Shine Motor Corporation Ingleburn NSW</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://shinemotor.com.au/metals/hms-insize</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://shinemotor.com.au/img/buy/hms-insize.webp</image:loc>
+      <image:title>Heavy melting steel HMS scrap structural steel and plate for recycling in Sydney</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://shinemotor.com.au/metals/light-gage-steel</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://shinemotor.com.au/img/buy/light-gage-steel.webp</image:loc>
+      <image:title>Light gauge steel scrap roofing iron and whitegoods recycled at Shine Motor Ingleburn</image:title>
+    </image:image>
   </url>
 </urlset>

@@ -120,6 +120,7 @@ export function About() {
                 {gallery.slice(0, 4).map((g, i) => (
                   <img
                     key={g.src}
+                    decoding="async"
                     src={g.src}
                     alt={g.alt}
                     loading="lazy"

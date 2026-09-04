@@ -18,7 +18,7 @@ const areas = [
 export function Contact() {
   useSeo(
     'Contact Us — Ingleburn Scrap Metal Yard',
-    'Call, WhatsApp or visit Shine Motor Corporation at 8 Noonan Rd, Ingleburn NSW 2565. Open Mon–Fri 7am–5pm and Sat 7am–1pm. Servicing all of NSW and the ACT.',
+    `Call, WhatsApp or visit Shine Motor Corporation at ${addressLine}. Open Mon–Fri 7am–5pm and Sat 7am–1pm. Servicing ${site.serviceArea.toLowerCase()}.`,
     { path: '/contact', schema: [breadcrumbSchema([{ label: 'Contact' }])] },
   )
 
@@ -30,7 +30,7 @@ export function Contact() {
         trail={[{ label: 'Contact' }]}
         meta={[
           { label: 'Open', value: 'Mon–Sat from 7am' },
-          { label: 'Yard', value: '8 Noonan Rd, Ingleburn' },
+          { label: 'Yard', value: `${site.address.street}, ${site.address.suburb}` },
           { label: 'Reply time', value: 'Usually within the hour' },
         ]}
         actions={
@@ -181,8 +181,10 @@ export function Contact() {
 
               <div className="mt-10 overflow-hidden rounded-3xl border border-hairline">
                 <iframe
-                  title="Map showing Shine Motor Corporation at 8 Noonan Rd, Ingleburn NSW"
-                  src="https://www.google.com/maps?q=8+Noonan+Rd,+Ingleburn+NSW+2565,+Australia&output=embed"
+                  title={`Map showing ${site.legalName} at ${addressLine}`}
+                  src={`https://www.google.com/maps?q=${encodeURIComponent(
+                    `${addressLine}, ${site.address.country}`,
+                  )}&output=embed`}
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
                   className="aspect-[4/3] w-full border-0"

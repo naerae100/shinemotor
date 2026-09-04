@@ -1,6 +1,6 @@
 import { Link, Navigate, useParams } from 'react-router-dom'
 import { Check, Container, Mail, MessageCircle, Phone, Ship, X } from 'lucide-react'
-import { exportProcess, exportSpecs, serviceBySlug, services } from '../content/services'
+import { exportGrades, exportProcess, exportSpecs, serviceBySlug, services } from '../content/services'
 import { steps } from '../content/sections'
 import { site } from '../content/site'
 import { metals } from '../content/metals'
@@ -22,6 +22,9 @@ export function ServiceDetail() {
     {
       path: service ? `/services/${service.slug}` : undefined,
       type: 'article',
+      image: service?.image.src,
+      // The service photograph is the LCP element on this page.
+      preloadImage: service?.image.src,
       schema: service
         ? [
             serviceSchema(service.name, service.intro, `/services/${service.slug}`),
@@ -129,6 +132,9 @@ export function ServiceDetail() {
 
             <Reveal distance={22}>
               <img
+                loading="eager"
+                fetchPriority="high"
+                decoding="async"
                 src={service.image.src}
                 alt={service.image.alt}
                 className="photo aspect-[4/3] w-full rounded-3xl border border-hairline object-cover"
@@ -155,6 +161,42 @@ export function ServiceDetail() {
                 <RevealItem key={spec.k} distance={12} className="bg-surface p-6">
                   <dt className="eyebrow text-amber">{spec.k}</dt>
                   <dd className="mt-2.5 text-[15px] text-bright">{spec.v}</dd>
+                </RevealItem>
+              ))}
+            </Reveal>
+
+            {/* The trade grades, under the code words a mill or broker orders
+                by. This is the vocabulary of the export trade — a buyer asks
+                for Mill Berry, not "bright copper wire" — and it was the one
+                thing the rebuild had dropped from the old buy-from-us page. */}
+            <Reveal className="mt-14">
+              <h2 className="font-display text-d2 text-bright">Grades we supply.</h2>
+              <p className="measure mt-4 text-lead text-muted">
+                Listed under the ISRI code words the trade orders by. Every
+                shipment is prepared and described to the grade it is sold under.
+              </p>
+            </Reveal>
+
+            <Reveal stagger className="mt-10 space-y-5">
+              {exportGrades.map((group) => (
+                <RevealItem
+                  key={group.family}
+                  distance={14}
+                  className="overflow-hidden rounded-2xl border border-hairline bg-surface"
+                >
+                  <h3 className="border-b border-hairline px-6 py-4 font-display text-[17px] text-bright">
+                    {group.family}
+                  </h3>
+                  <dl className="divide-y divide-hairline">
+                    {group.grades.map((g) => (
+                      <div key={g.name} className="grid gap-1.5 px-6 py-5 sm:grid-cols-[200px_1fr] sm:gap-6">
+                        <dt className="font-mono text-[14px] font-semibold tracking-wide text-amber uppercase">
+                          {g.name}
+                        </dt>
+                        <dd className="text-[15px] leading-relaxed text-muted">{g.spec}</dd>
+                      </div>
+                    ))}
+                  </dl>
                 </RevealItem>
               ))}
             </Reveal>
@@ -253,6 +295,7 @@ export function ServiceDetail() {
             {service.gallery.map((g) => (
               <RevealItem as="li" key={g.src} distance={14}>
                 <img
+                  decoding="async"
                   src={g.src}
                   alt={g.alt}
                   loading="lazy"

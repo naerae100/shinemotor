@@ -16,7 +16,7 @@ const routes = [
     body: 'No appointment needed. Pull in during opening hours, we weigh and grade it in front of you, and you leave paid.',
     detail: 'Best for anything up to a ute or trailer load.',
     action: { label: 'Get directions', href: site.address.mapUrl },
-    image: { src: '/img/home/home-slider-1.webp', alt: 'Scrap metal in the open yard at Ingleburn' },
+    image: { src: '/img/home/drive-into-yard.webp', alt: 'Ute driving into the scrap metal yard at Shine Motor Corporation Ingleburn' },
   },
   {
     icon: Truck,
@@ -24,7 +24,7 @@ const routes = [
     body: 'Our own trucks run out of Ingleburn across all of NSW and the ACT. Send a photo and we will tell you straight away whether it is worth a run.',
     detail: 'Best for site strip-outs and loads too heavy to move.',
     action: { label: 'Book a pickup', href: waForService('a scrap metal pickup') },
-    image: { src: '/img/home/home-slider-3.webp', alt: 'A Shine Motor tipper loaded with collected scrap metal' },
+    image: { src: '/img/home/we-collect-it.webp', alt: 'Shine Motor truck being loaded with scrap metal for collection across NSW' },
   },
   {
     icon: Container,
@@ -32,7 +32,7 @@ const routes = [
     body: 'We drop a bin, you fill it, we swap it out. Sized to the job, with regular collection for ongoing production scrap.',
     detail: 'Best for demolition, fabrication and manufacturing.',
     action: { label: 'Arrange a bin', href: waForService('a bin on site') },
-    image: { src: '/img/sell/sell-your-scrap-inner-2.webp', alt: 'Baled and prepared scrap ready for collection' },
+    image: { src: '/img/home/bin-on-site.webp', alt: 'Industrial skip bins on a demolition site filled with scrap metal for collection' },
   },
 ]
 
@@ -54,6 +54,7 @@ export function Logistics() {
             >
               <div className="relative overflow-hidden">
                 <img
+                  decoding="async"
                   src={image.src}
                   alt={image.alt}
                   loading="lazy"

@@ -50,6 +50,7 @@ export function ServicesIndex() {
               {/* Image header with the line number and title over it. */}
               <Link to={`/services/${service.slug}`} className="relative block overflow-hidden">
                 <img
+                  decoding="async"
                   src={service.image.src}
                   alt={service.image.alt}
                   loading="lazy"

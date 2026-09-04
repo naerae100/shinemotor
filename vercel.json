@@ -1,7 +1,234 @@
 {
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/index.php",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/index.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/about.php",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/contact.php",
+      "destination": "/contact",
+      "permanent": true
+    },
+    {
+      "source": "/sell-your-scrap.php",
+      "destination": "/services/sell-your-scrap",
+      "permanent": true
+    },
+    {
+      "source": "/buy-from-us.php",
+      "destination": "/services/buy-from-us",
+      "permanent": true
+    },
+    {
+      "source": "/branches.php",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/gallery.php",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/blog.php",
+      "destination": "/guides",
+      "permanent": true
+    },
+    {
+      "source": "/best-scrap-metal-recycling.php",
+      "destination": "/guides/scrap-metal-recycling-sydney",
+      "permanent": true
+    },
+    {
+      "source": "/blog-single.php",
+      "destination": "/guides/scrap-metal-recycling-sydney",
+      "permanent": true
+    },
+    {
+      "source": "/faq.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/cash-for-cars-trucks.php",
+      "destination": "/services/sell-your-scrap",
+      "permanent": true
+    },
+    {
+      "source": "/index",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/about_us",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/contact_us",
+      "destination": "/contact",
+      "permanent": true
+    },
+    {
+      "source": "/branches",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/buy_from_us",
+      "destination": "/services/buy-from-us",
+      "permanent": true
+    },
+    {
+      "source": "/sell_your_scrap_metal",
+      "destination": "/services/sell-your-scrap",
+      "permanent": true
+    },
+    {
+      "source": "/cash_for_cars_trucks",
+      "destination": "/services/sell-your-scrap",
+      "permanent": true
+    },
+    {
+      "source": "/other",
+      "destination": "/services",
+      "permanent": true
+    },
+    {
+      "source": "/thank_you",
+      "destination": "/contact",
+      "permanent": true
+    },
+    {
+      "source": "/copper_scrap",
+      "destination": "/metals#copper",
+      "permanent": true
+    },
+    {
+      "source": "/brass_scrap",
+      "destination": "/metals#brass",
+      "permanent": true
+    },
+    {
+      "source": "/aluminium_scrap",
+      "destination": "/metals#aluminium",
+      "permanent": true
+    },
+    {
+      "source": "/stainless_steel",
+      "destination": "/metals#steel",
+      "permanent": true
+    },
+    {
+      "source": "/wiring",
+      "destination": "/metals#copper",
+      "permanent": true
+    },
+    {
+      "source": "/home.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/about.html",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/about_us.html",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/contact.html",
+      "destination": "/contact",
+      "permanent": true
+    },
+    {
+      "source": "/branches.html",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/shine_groups_branches.html",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/services.html",
+      "destination": "/services",
+      "permanent": true
+    },
+    {
+      "source": "/other_services.html",
+      "destination": "/services",
+      "permanent": true
+    },
+    {
+      "source": "/buy_from_us.html",
+      "destination": "/services/buy-from-us",
+      "permanent": true
+    },
+    {
+      "source": "/sell_your_scrap_metal.html",
+      "destination": "/services/sell-your-scrap",
+      "permanent": true
+    },
+    {
+      "source": "/cash_for_cars.html",
+      "destination": "/services/sell-your-scrap",
+      "permanent": true
+    },
+    {
+      "source": "/cash_for_cars_trucks.html",
+      "destination": "/services/sell-your-scrap",
+      "permanent": true
+    },
+    {
+      "source": "/what_we_buy.html",
+      "destination": "/metals",
+      "permanent": true
+    },
+    {
+      "source": "/thank_you.html",
+      "destination": "/contact",
+      "permanent": true
+    },
+    {
+      "source": "/scrap_metal_recyclers.html",
+      "destination": "/guides/scrap-metal-recycling-sydney",
+      "permanent": true
+    },
+    {
+      "source": "/benefits_of_recycling.html",
+      "destination": "/guides/scrap-metal-recycling-sydney",
+      "permanent": true
+    },
+    {
+      "source": "/how_it_works.html",
+      "destination": "/guides/scrap-metal-recycling-sydney",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     {
-      "source": "/(.*)",
+      "source": "/admin",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/card/:slug",
       "destination": "/index.html"
     }
   ],
@@ -16,6 +243,24 @@
         {
           "key": "Cache-Control",
           "value": "public, max-age=3600"
+        }
+      ]
+    },
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/img/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=2592000"
         }
       ]
     },

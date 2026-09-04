@@ -1,4 +1,4 @@
-import { AnimatePresence, motion, useMotionValueEvent, useScroll } from 'framer-motion'
+import { AnimatePresence, m as motion, useMotionValueEvent, useScroll } from 'framer-motion'
 import { MessageCircle, Phone, X } from 'lucide-react'
 import { useState } from 'react'
 import { site } from '../../content/site'

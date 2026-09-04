@@ -41,6 +41,7 @@ export function Serve() {
             >
               <div className="relative overflow-hidden">
                 <img
+                  decoding="async"
                   src={s.image.src}
                   alt={s.image.alt}
                   loading="lazy"
@@ -78,6 +79,7 @@ export function Serve() {
         {gallery.map((photo) => (
           <img
             key={photo.src}
+            decoding="async"
             src={photo.src}
             alt={photo.alt}
             loading="lazy"

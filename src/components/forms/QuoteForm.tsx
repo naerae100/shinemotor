@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import type { FormEvent, ReactNode } from 'react'
-import { Check, Loader2, MessageCircle, MessageSquare } from 'lucide-react'
+import { AlertTriangle, Check, Loader2, MessageCircle, MessageSquare } from 'lucide-react'
 import { families, metals } from '../../content/metals'
 import { site } from '../../content/site'
 import { ReviewCta } from '../home/Reviews'
@@ -16,6 +16,8 @@ interface Fields {
   suburb: string
   method: string
   message: string
+  /** Honeypot. Hidden from people, irresistible to bots. Never sent by a human. */
+  company: string
 }
 
 const EMPTY: Fields = {
@@ -27,6 +29,7 @@ const EMPTY: Fields = {
   suburb: '',
   method: 'drop-off',
   message: '',
+  company: '',
 }
 
 const METHODS = [
@@ -57,16 +60,16 @@ function validate(f: Fields): Errors {
  * price a load, and offers the same details as a pre-written WhatsApp message
  * for anyone who would rather not wait on a reply.
  *
- * ── THE SUBMIT HANDLER IS NOT WIRED UP ────────────────────────────────────
- * `onSubmit` validates, shows the pending state and then the success state, but
- * does not transmit anything. Replace the marked block with a POST to your
- * backend or a form service and the rest works unchanged. The WhatsApp button
- * beside it *is* live and needs no backend at all.
+ * Submission posts to /api/quote, which emails the yard. If that endpoint is
+ * not configured yet — or the mail provider is having a bad day — the form does
+ * NOT claim the enquiry was sent. It hands the visitor the same details already
+ * written into a WhatsApp message and says plainly what happened. The one thing
+ * this form must never do is thank someone for details nobody received.
  */
 export function QuoteForm({ compact = false }: { compact?: boolean }) {
   const [fields, setFields] = useState<Fields>(EMPTY)
   const [errors, setErrors] = useState<Errors>({})
-  const [status, setStatus] = useState<'idle' | 'sending' | 'sent'>('idle')
+  const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'failed'>('idle')
 
   /* Any "Request a quote" button elsewhere on the site drops its grade in here
      and scrolls us into view, so nobody hunts through the dropdown. */
@@ -113,17 +116,80 @@ export function QuoteForm({ compact = false }: { compact?: boolean }) {
     }
 
     setStatus('sending')
-    // ─── TODO(backend): transmit `fields` from here ─────────────────────────
-    // await fetch('/api/quote', {
-    //   method: 'POST',
-    //   headers: { 'Content-Type': 'application/json' },
-    //   body: JSON.stringify(fields),
-    // })
-    // Until that endpoint exists we simulate the round trip so the states are
-    // reviewable. Nothing is sent anywhere.
-    await new Promise((r) => setTimeout(r, 700))
-    // ────────────────────────────────────────────────────────────────────────
-    setStatus('sent')
+    try {
+      const res = await fetch('/api/quote', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(fields),
+      })
+      // A 501 means the endpoint has no mail credentials yet; a 502 means the
+      // provider refused. Either way the enquiry did not land, so we say so.
+      setStatus(res.ok ? 'sent' : 'failed')
+    } catch {
+      setStatus('failed')
+    }
+  }
+
+  /**
+   * The enquiry did not send.
+   *
+   * Shown instead of a success screen, with the details they typed already
+   * written into a WhatsApp message and an SMS so nothing has to be re-entered.
+   * The yard's number is right there too. Nobody leaves this screen believing
+   * their details are sitting in an inbox when they are not.
+   */
+  if (status === 'failed') {
+    return (
+      <div className="glass rounded-3xl p-8 lg:p-10">
+        <div className="flex flex-col items-center py-6 text-center">
+          <span className="flex size-14 items-center justify-center rounded-full border border-ember/40 bg-ember/10">
+            <AlertTriangle aria-hidden className="size-7 text-ember" strokeWidth={2.25} />
+          </span>
+          <h3 className="mt-6 font-display text-d3 text-bright">
+            That did not send — but nothing is lost.
+          </h3>
+          <p className="measure mt-3 text-muted">
+            The website could not get your enquiry through. Your details are
+            already written into the message below, so one tap sends it.
+          </p>
+
+          <div className="mt-7 flex w-full flex-wrap justify-center gap-3">
+            <a
+              href={waHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2.5 rounded-full bg-[#25D366] px-7 py-3.5 text-[15px] font-semibold text-[#0d1b14] transition-opacity hover:opacity-90"
+            >
+              <MessageCircle aria-hidden className="size-4" strokeWidth={2.5} />
+              Send it on WhatsApp
+            </a>
+            <a
+              href={smsHref}
+              className="inline-flex items-center gap-2.5 rounded-full border border-hairline bg-surface px-7 py-3.5 text-[15px] font-semibold text-bright transition-colors hover:border-flame"
+            >
+              <MessageSquare aria-hidden className="size-4 text-amber" strokeWidth={2.5} />
+              Send it as an SMS
+            </a>
+          </div>
+
+          <p className="mt-6 text-[14px] text-muted">
+            Or call the yard on{' '}
+            <a className="font-semibold text-amber underline" href={site.phones[0].href}>
+              {site.phones[0].label}
+            </a>{' '}
+            — we are open from 7am.
+          </p>
+
+          <button
+            type="button"
+            onClick={() => setStatus('idle')}
+            className="mt-7 text-[15px] font-semibold text-amber underline underline-offset-4"
+          >
+            Back to the form
+          </button>
+        </div>
+      </div>
+    )
   }
 
   if (status === 'sent') {
@@ -169,8 +235,23 @@ export function QuoteForm({ compact = false }: { compact?: boolean }) {
   }
 
   return (
-    <div className="glass rounded-3xl p-6 lg:p-9">
+    <div className="glass relative rounded-3xl p-6 lg:p-9">
       <form onSubmit={onSubmit} noValidate>
+        {/* Honeypot. Off-screen rather than display:none, which some bots skip,
+            and taken out of the tab order and the accessibility tree so it
+            cannot be reached by keyboard or announced by a screen reader. */}
+        <div aria-hidden className="absolute left-[-9999px] h-px w-px overflow-hidden">
+          <label htmlFor="company">Company (leave this blank)</label>
+          <input
+            id="company"
+            name="company"
+            type="text"
+            tabIndex={-1}
+            autoComplete="off"
+            value={fields.company}
+            onChange={(e) => set('company')(e.target.value)}
+          />
+        </div>
         <div className="grid gap-5 sm:grid-cols-2">
           <Field label="Your name" required value={fields.name} onChange={set('name')} error={errors.name} autoComplete="name" />
           <Field label="Phone" required type="tel" value={fields.phone} onChange={set('phone')} error={errors.phone} autoComplete="tel" placeholder="04.. ... ..." />

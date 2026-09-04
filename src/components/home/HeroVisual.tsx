@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion'
+import { m as motion } from 'framer-motion'
 import { Truck } from 'lucide-react'
 import { SETTLE, useSettle } from '../../hooks/useSettle'
 import { Eyebrow } from '../ui/Eyebrow'

@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { Navigate, useParams } from 'react-router-dom'
 import {
-  motion,
+  m as motion,
   useMotionTemplate,
   useMotionValue,
   useReducedMotion,
@@ -261,6 +261,7 @@ function CardView({ person }: { person: Person }) {
                 />
                 <div className="relative flex items-start justify-between gap-4 px-7 pt-6">
                   <img
+                    decoding="async"
                     src="/img/home/logo/shine-motor-logo-one.png"
                     alt={site.legalName}
                     className="h-8 w-auto brightness-0"

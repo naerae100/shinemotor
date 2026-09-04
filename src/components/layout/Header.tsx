@@ -1,10 +1,10 @@
-import { AnimatePresence, motion, useMotionValueEvent, useScroll } from 'framer-motion'
+import { AnimatePresence, m as motion, useMotionValueEvent, useScroll } from 'framer-motion'
 import { ChevronDown, Clock, MapPin, Menu, MessageCircle, Phone, X } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import { services } from '../../content/services'
 import { families, metalsByFamily } from '../../content/metals'
-import { site } from '../../content/site'
+import { addressLine, hoursSummary, site } from '../../content/site'
 import { STATE } from '../../hooks/useSettle'
 import { WA_GENERAL } from '../../lib/whatsapp'
 import { PrimaryCta } from '../ui/Button'
@@ -37,11 +37,11 @@ export function Header() {
           <div className="flex items-center gap-6">
             <p className="eyebrow flex items-center gap-2 text-muted">
               <MapPin aria-hidden className="size-3.5 text-amber/70" strokeWidth={2} />
-              8 Noonan Rd, Ingleburn NSW 2565
+              {addressLine}
             </p>
             <p className="eyebrow flex items-center gap-2 text-muted">
               <Clock aria-hidden className="size-3.5 text-amber/70" strokeWidth={2} />
-              Mon–Fri 7am–5pm · Sat 7am–1pm
+              {hoursSummary}
             </p>
           </div>
           <div className="flex items-center gap-5">
@@ -76,6 +76,7 @@ export function Header() {
         <div className="rail flex h-[68px] items-center justify-between gap-6 lg:h-[80px]">
           <Link to="/" className="-my-2 shrink-0 py-2">
             <img
+              decoding="async"
               src="/img/home/logo/shine-motor-logo-one.png"
               alt="Shine Motor Corporation"
               width={266}
@@ -219,6 +220,8 @@ export function Header() {
                         className="group ring-flame relative flex gap-4 rounded-2xl border border-hairline bg-surface p-5 lift"
                       >
                         <img
+                          loading="lazy"
+                          decoding="async"
                           src={s.image.src}
                           alt=""
                           aria-hidden
@@ -285,6 +288,8 @@ export function Header() {
           >
             <div className="rail flex h-[68px] items-center justify-between border-b border-hairline">
               <img
+                loading="lazy"
+                decoding="async"
                 src="/img/home/logo/shine-motor-logo-one.png"
                 alt="Shine Motor Corporation"
                 className="h-8 w-auto"

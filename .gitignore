@@ -22,3 +22,9 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Originals kept by scripts/optimise-images.mjs
+.image-originals
+
+# Left behind only if a prerender run fails part-way; normally self-cleaning.
+.ssr-build
